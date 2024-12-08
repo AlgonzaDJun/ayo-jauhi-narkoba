@@ -1,11 +1,22 @@
 <div>
     <h1 class="text-3xl font-bold mb-6">Refleksi Diri</h1>
     <p class="mb-4">Setelah mengisi penilaian diri ini, renungkan hasilnya:</p>
-    <form action="{{ route('accurate-self-assesment.refleksi-diri') }}" method="POST">
+    <form action="{{ route('accurate-self-assesment.refleksi-diri') }}" method="POST" id="accurate_refleksi_diri">
         @csrf
         <div class="mb-6">
             @foreach ($acc_self_as as $studi)
                 @if ($studi['nama'] == 'refleksi diri')
+                    @isset($studi['jawaban_rd'])
+                        <p class="text-red-500 text-3xl font-semibold my-5">
+                            Anda sudah pernah mengisi soal ini sebelumnya.
+                        </p>
+
+                        <button type="button"
+                            class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                            onclick="clearInput()">
+                            Kosongkan Form
+                        </button>
+                    @endisset
                     @foreach ($studi['pertanyaan'] as $key => $soal)
                         <div class="space-y-4">
 
@@ -21,6 +32,7 @@
                                         {{ $key . '). ' }} {!! $item !!}
                                     </label>
                                     <input type="text" id="{{ $soal['judul'] . $key }}"
+                                        value="{{ isset($studi['jawaban_rd']) ? $studi['jawaban_rd'][$soal['judul'] . $key] : '' }}"
                                         class="w-full border rounded p-2" name="{{ $soal['judul'] . $key }}">
                                 </div>
                             @endforeach
@@ -64,3 +76,15 @@
 
     </form>
 </div>
+
+
+@push('custom-script')
+    {{-- make function to clear all input text inside form id accurate_refleksi_diri --}}
+    <script>
+        function clearInput() {
+            // clear all input inside form id accurate_refleksi_diri
+            $('#accurate_refleksi_diri').find('input[type="text"]').val('');
+
+        }
+    </script>
+@endpush

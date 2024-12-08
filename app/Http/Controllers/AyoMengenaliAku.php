@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\AccurateSelfAssesmentIT;
+use App\Models\AccurateSelfAssesmentRD;
 use App\Models\AccurateSelfAssesmentSK;
 use App\Models\DetailJawaban;
 use App\Models\JawabanSoalEmosi;
@@ -197,8 +198,17 @@ class AyoMengenaliAku extends Controller
             $message_instrumen = "Anda mungkin menghadapi kesulitan dalam menilai diri secara obyektif, mengenali kekurangan, atau menerima kritik. Mungkin ini saatnya untuk mempertimbangkan lebih banyak refleksi diri dan keterbukaan terhadap masukan dari orang lain.";
         }
 
-        
+        $jawaban_accurate_rd = AccurateSelfAssesmentRD::where('user_id', auth()->user()->id)
+            ->orderBy('created_at', 'desc')
+            ->first()
+            ?
+            AccurateSelfAssesmentRD::where('user_id', auth()->user()->id)
+            ->orderBy('created_at', 'desc')
+            ->first()
+            ->toArray()
+            : null;
 
+        // dd($jawaban_accurate_rd);
 
         // MULAI VARIABEL DARI CLIENT
         $amarah =
@@ -987,6 +997,7 @@ class AyoMengenaliAku extends Controller
 
 
         $refleksi_diri = [
+            'jawaban_rd' => $jawaban_accurate_rd,
             'nama' => 'refleksi diri',
             'pertanyaan' => [
                 '1' => [
