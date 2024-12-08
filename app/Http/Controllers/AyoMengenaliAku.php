@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AccurateSelfAssesmentIT;
+use App\Models\AccurateSelfAssesmentSK;
 use App\Models\DetailJawaban;
 use App\Models\JawabanSoalEmosi;
 use Illuminate\Http\Request;
@@ -14,35 +16,44 @@ class AyoMengenaliAku extends Controller
         // $jawaban_emosi = JawabanSoalEmosi::where('user_id', auth()->user()->id)->get();
 
         $jawaban_user_amarah = JawabanSoalEmosi::where('kategori_emosi', 'Amarah')
+            ->where('user_id', auth()->user()->id)
             ->orderBy('created_at', 'desc')
             ->first() ?
             JawabanSoalEmosi::where('kategori_emosi', 'Amarah')
+            ->where('user_id', auth()->user()->id)
             ->orderBy('created_at', 'desc')
             ->first()
             ->detailJawaban
             ->toArray() : null;
 
         $jawaban_user_cemburu = JawabanSoalEmosi::where('kategori_emosi', 'Cemburu')
+            ->where('user_id', auth()->user()->id)
             ->orderBy('created_at', 'desc')
             ->first() ?
             JawabanSoalEmosi::where('kategori_emosi', 'Cemburu')
+            ->where('user_id', auth()->user()->id)
             ->orderBy('created_at', 'desc')
             ->first()
             ->detailJawaban
             ->toArray() : null;
 
         $jawaban_user_cinta = JawabanSoalEmosi::where('kategori_emosi', 'Cinta')
+            ->where('user_id', auth()->user()->id)
             ->orderBy('created_at', 'desc')
             ->first() ?
-            JawabanSoalEmosi::where('kategori_emosi', 'Cinta')->orderBy('created_at', 'desc')
+            JawabanSoalEmosi::where('kategori_emosi', 'Cinta')
+            ->where('user_id', auth()->user()->id)
+            ->orderBy('created_at', 'desc')
             ->first()->detailJawaban->toArray()
             : null;
 
         $jawaban_user_iri = JawabanSoalEmosi::where('kategori_emosi', 'Iri')
+            ->where('user_id', auth()->user()->id)
             ->orderBy('created_at', 'desc')
             ->first()
             ?
             JawabanSoalEmosi::where('kategori_emosi', 'Iri')
+            ->where('user_id', auth()->user()->id)
             ->orderBy('created_at', 'desc')
             ->first()
             ->detailJawaban
@@ -50,10 +61,12 @@ class AyoMengenaliAku extends Controller
             : null;
 
         $jawaban_user_kebahagiaan = JawabanSoalEmosi::where('kategori_emosi', 'Kebahagiaan')
+            ->where('user_id', auth()->user()->id)
             ->orderBy('created_at', 'desc')
             ->first()
             ?
             JawabanSoalEmosi::where('kategori_emosi', 'Kebahagiaan')
+            ->where('user_id', auth()->user()->id)
             ->orderBy('created_at', 'desc')
             ->first()
             ->detailJawaban
@@ -62,9 +75,11 @@ class AyoMengenaliAku extends Controller
 
         // kesedihan, malu, menjijikkan, bersalah, takut
         $jawaban_user_kesedihan = JawabanSoalEmosi::where('kategori_emosi', 'Kesedihan')
+            ->where('user_id', auth()->user()->id)
             ->orderBy('created_at', 'desc')
             ->first()
             ? JawabanSoalEmosi::where('kategori_emosi', 'Kesedihan')
+            ->where('user_id', auth()->user()->id)
             ->orderBy('created_at', 'desc')
             ->first()
             ->detailJawaban
@@ -72,10 +87,12 @@ class AyoMengenaliAku extends Controller
             : null;
 
         $jawaban_user_malu = JawabanSoalEmosi::where('kategori_emosi', 'Malu')
+            ->where('user_id', auth()->user()->id)
             ->orderBy('created_at', 'desc')
             ->first()
             ?
             JawabanSoalEmosi::where('kategori_emosi', 'Malu')
+            ->where('user_id', auth()->user()->id)
             ->orderBy('created_at', 'desc')
             ->first()
             ->detailJawaban
@@ -83,10 +100,12 @@ class AyoMengenaliAku extends Controller
             : null;
 
         $jawaban_user_menjijikkan = JawabanSoalEmosi::where('kategori_emosi', 'Menjijikkan')
+            ->where('user_id', auth()->user()->id)
             ->orderBy('created_at', 'desc')
             ->first()
             ?
             JawabanSoalEmosi::where('kategori_emosi', 'Menjijikkan')
+            ->where('user_id', auth()->user()->id)
             ->orderBy('created_at', 'desc')
             ->first()
             ->detailJawaban
@@ -94,20 +113,24 @@ class AyoMengenaliAku extends Controller
             : null;
 
         $jawaban_user_bersalah = JawabanSoalEmosi::where('kategori_emosi', 'Bersalah')
+            ->where('user_id', auth()->user()->id)
             ->orderBy('created_at', 'desc')
             ->first()
             ?
             JawabanSoalEmosi::where('kategori_emosi', 'Bersalah')
+            ->where('user_id', auth()->user()->id)
             ->orderBy('created_at', 'desc')
             ->first()
             ->detailJawaban
             ->toArray() : null;
 
         $jawaban_user_takut = JawabanSoalEmosi::where('kategori_emosi', 'Takut')
+            ->where('user_id', auth()->user()->id)
             ->orderBy('created_at', 'desc')
             ->first()
             ?
             JawabanSoalEmosi::where('kategori_emosi', 'Takut')
+            ->where('user_id', auth()->user()->id)
             ->orderBy('created_at', 'desc')
             ->first()
             ->detailJawaban
@@ -115,6 +138,69 @@ class AyoMengenaliAku extends Controller
 
             : null;
 
+        $jawaban_accurate_sk_1 = AccurateSelfAssesmentSK::where('Kategori_SK', 1)
+            ->where('user_id', auth()->user()->id)
+            ->orderBy('created_at', 'desc')
+            ->first()
+            ?
+            AccurateSelfAssesmentSK::where('Kategori_SK', 1)
+            ->where('user_id', auth()->user()->id)
+            ->orderBy('created_at', 'desc')
+            ->first()
+            ->toArray()
+            : null;
+
+        $jawaban_accurate_sk_2 = AccurateSelfAssesmentSK::where('Kategori_SK', 2)
+            ->where('user_id', auth()->user()->id)
+            ->orderBy('created_at', 'desc')
+            ->first()
+            ?
+            AccurateSelfAssesmentSK::where('Kategori_SK', 2)
+            ->where('user_id', auth()->user()->id)
+            ->orderBy('created_at', 'desc')
+            ->first()
+            ->toArray()
+            : null;
+
+        $jawaban_accurate_sk_3 = AccurateSelfAssesmentSK::where('Kategori_SK', 3)
+            ->where('user_id', auth()->user()->id)
+            ->orderBy('created_at', 'desc')
+            ->first()
+            ?
+            AccurateSelfAssesmentSK::where('Kategori_SK', 3)
+            ->where('user_id', auth()->user()->id)
+            ->orderBy('created_at', 'desc')
+            ->first()
+            ->toArray()
+            : null;
+
+        $jawaban_accurate_it = AccurateSelfAssesmentIT::where('user_id', auth()->user()->id)
+            ->orderBy('created_at', 'desc')
+            ->first()
+            ?
+            AccurateSelfAssesmentIT::where('user_id', auth()->user()->id)
+            ->orderBy('created_at', 'desc')
+            ->first()
+            ->toArray()
+            : null;
+
+
+        $message_instrumen = "";
+
+        if ($jawaban_accurate_it['score'] >= 60 && $jawaban_accurate_it['score'] <= 80) {
+            $message_instrumen = "Anda memiliki tingkat Accurate Self-Assessment yang sangat baik. Anda mampu mengevaluasi kelebihan dan kekurangan Anda secara obyektif, terbuka terhadap kritik dan saran, dan secara aktif mengambil langkah-langkah untuk memperbaiki diri";
+        } else if ($jawaban_accurate_it['score'] >= 40 && $jawaban_accurate_it['score'] <= 59) {
+            $message_instrumen = "Anda cukup baik dalam penilaian diri yang akurat, namun mungkin masih ada beberapa area di mana Anda bisa lebih proaktif dalam menerima kritik dan saran atau memperbaiki kekurangan diri";
+        } else if ($jawaban_accurate_it['score'] >= 20 && $jawaban_accurate_it['score'] <= 39) {
+            $message_instrumen = "Anda mungkin perlu bekerja lebih keras dalam mengenali kelebihan, kekurangan, dan menggunakan kritik konstruktif atau membangun untuk pengembangan diri. Refleksi lebih lanjut dan tindakan perbaikan dapat membantu meningkatkan kemampuan Anda dalam penilaian diri";
+        } else if ($jawaban_accurate_it['score'] < 20) {
+            $message_instrumen = "Anda mungkin menghadapi kesulitan dalam menilai diri secara obyektif, mengenali kekurangan, atau menerima kritik. Mungkin ini saatnya untuk mempertimbangkan lebih banyak refleksi diri dan keterbukaan terhadap masukan dari orang lain.";
+        }
+
+        
+
+
+        // MULAI VARIABEL DARI CLIENT
         $amarah =
             [
                 'jawaban_emosi' => $jawaban_user_amarah,
@@ -720,6 +806,7 @@ class AyoMengenaliAku extends Controller
         ];
 
         $stud_kas_1 = [
+            'jawaban_accurate' => $jawaban_accurate_sk_1,
             'nama' => 'studi kasus 1',
             'judul' => 'Refleksi Diri dalam Menghadapi Tekanan Sosial',
             'deskripsi' => 'Rina adalah seorang siswa yang merasa tertekan karena teman-temannya sering memintanya ikut dalam kegiatan yang ia rasa tidak nyaman, seperti merokok atau nongkrong larut malam. Ia mulai merasa bahwa dirinya terlalu lemah karena tidak bisa menolak ajakan teman-temannya. Setelah merenung, Rina mencoba melakukan refleksi diri dengan melihat kelebihan dan kekurangannya. Ia menyadari bahwa ia sebenarnya kuat dalam bertahan dari tekanan, tetapi perlu belajar lebih baik dalam mengekspresikan keputusannya dengan tegas.',
@@ -764,6 +851,7 @@ class AyoMengenaliAku extends Controller
         ];
 
         $stud_kas_2 = [
+            'jawaban_accurate' => $jawaban_accurate_sk_2,
             'nama' => 'studi kasus 2',
             'judul' => 'Menghadapi Kritik dalam Pengembangan Diri',
             'deskripsi' => 'Ardi adalah seorang siswa yang sering mendapat pujian atas prestasinya di sekolah, tetapi saat ia mengikuti lomba debat, gurunya memberikan kritik bahwa Ardi terlalu terburu-buru dalam memberikan argumen tanpa mempertimbangkan pandangan lawan. Ardi awalnya merasa tidak nyaman dengan kritik ini karena ia selalu merasa percaya diri dengan kemampuannya. Namun, setelah merenung, ia mulai menyadari pentingnya kritik tersebut dan mencari cara untuk memperbaiki gaya debatnya.',
@@ -808,6 +896,7 @@ class AyoMengenaliAku extends Controller
         ];
 
         $stud_kas_3 = [
+            'jawaban_accurate' => $jawaban_accurate_sk_3,
             'nama' => 'studi kasus 3',
             'judul' => 'Menetapkan Tujuan Pengembangan Diri Berdasarkan Kelebihan dan Kekurangan',
             'deskripsi' => 'Lina menyadari bahwa ia memiliki kelebihan dalam menulis esai, tetapi merasa kurang percaya diri saat berbicara di depan umum. Gurunya menyarankan agar Lina mengembangkan keterampilan berbicara di depan umum untuk menyeimbangkan kemampuan akademisnya. Lina kemudian membuat rencana pengembangan diri dengan menetapkan tujuan jangka pendek untuk mengikuti kursus berbicara di depan umum dan tujuan jangka panjang untuk menjadi lebih percaya diri saat presentasi di kelas.',
@@ -852,6 +941,8 @@ class AyoMengenaliAku extends Controller
         ];
 
         $tes_instrumen = [
+            'jawaban_instrumen' => $jawaban_accurate_it,
+            'message_instrumen' => $message_instrumen,
             'nama' => 'tes instrumen',
             'pertanyaan' => [
                 'A' => [

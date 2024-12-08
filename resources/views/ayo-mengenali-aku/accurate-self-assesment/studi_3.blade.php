@@ -8,6 +8,12 @@
             <div class="my-4 -translate-x-8">
                 <h1 class="font-semibold text-lg">Jawablah Soal Di bawah ini</h1>
 
+                @isset($studi['jawaban_accurate'])
+                    <p class="text-red-500 text-3xl font-semibold my-5">
+                        Anda sudah pernah mengisi soal ini sebelumnya.
+                    </p>
+                @endisset
+
                 <form action="{{ route('accurate-self-assesment.store') }}" class="space-y-5" id="form-studkas3">
                     @foreach ($studi['pertanyaan'] as $key => $soal)
                         <p class="text-base  text-gray-500 mt-5">{{ $loop->iteration }}. {{ $soal['pertanyaan'] }}</p>
@@ -16,6 +22,9 @@
                             <div class="flex items-center mt-3 rounded-md">
                                 <input type="radio" id="{{ $key . '_' . $key2 . '_studkas3' }}"
                                     name="{{ $key }}" value="{{ $key2 }}"
+
+                                    {{ isset($studi['jawaban_accurate']) && $studi['jawaban_accurate']['soal_' . $key] == $key2 ? 'checked' : '' }}
+                                    
                                     {{ isset($show_jawaban) && $soal['jawaban_user'] == $key2 ? 'checked' : '' }}>
                                 <label for="{{ $key . '_' . $key2 . '_studkas3' }}" class="ml-2">
                                     {{ $key2 }}. {{ $pilihan }}

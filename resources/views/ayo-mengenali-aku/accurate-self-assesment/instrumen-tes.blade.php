@@ -34,6 +34,18 @@
                         </ul>
                     </div>
 
+                    {{-- @dd($studi) --}}
+
+                    @isset($studi['jawaban_instrumen'])
+                        <p class="text-red-500 text-3xl font-semibold my-5">
+                            Anda sudah pernah mengisi soal ini sebelumnya.
+                        </p>
+
+                        <p class="bg-red-500 rounded-xl p-2 text-white mb-4">
+                            {{ $studi['message_instrumen'] }}
+                        </p>
+                    @endisset
+
                     <form method="POST" action="#" id="form-instrumen-asa">
                         @csrf
 
@@ -62,13 +74,18 @@
                                             <tr>
                                                 <td class="border border-gray-300 px-4 py-2">{{ $key }}</td>
                                                 <td class="border border-gray-300 px-4 py-2">{{ $item }}</td>
+                                                <td class="border border-gray-300 px-4 py-2 text-center">
+                                                    <input type="radio" name="q{{ $key }}" value="4"
+                                                        {{ isset($studi['jawaban_instrumen']) && $studi['jawaban_instrumen']['soal_' . $key] == 4 ? 'checked' : '' }}>
+                                                </td>
                                                 <td class="border border-gray-300 px-4 py-2 text-center"><input
-                                                        type="radio" name="q{{ $key }}" value="4"></td>
-                                                <td class="border border-gray-300 px-4 py-2 text-center"><input
+                                                        {{ isset($studi['jawaban_instrumen']) && $studi['jawaban_instrumen']['soal_' . $key] == 3 ? 'checked' : '' }}
                                                         type="radio" name="q{{ $key }}" value="3"></td>
                                                 <td class="border border-gray-300 px-4 py-2 text-center"><input
+                                                        {{ isset($studi['jawaban_instrumen']) && $studi['jawaban_instrumen']['soal_' . $key] == 2 ? 'checked' : '' }}
                                                         type="radio" name="q{{ $key }}" value="2"></td>
                                                 <td class="border border-gray-300 px-4 py-2 text-center"><input
+                                                        {{ isset($studi['jawaban_instrumen']) && $studi['jawaban_instrumen']['soal_' . $key] == 1 ? 'checked' : '' }}
                                                         type="radio" name="q{{ $key }}" value="1"></td>
                                             </tr>
                                         @endforeach
