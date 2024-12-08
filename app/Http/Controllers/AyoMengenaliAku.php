@@ -7,6 +7,7 @@ use App\Models\AccurateSelfAssesmentRD;
 use App\Models\AccurateSelfAssesmentSK;
 use App\Models\DetailJawaban;
 use App\Models\JawabanSoalEmosi;
+use App\Models\SelfConfidentSK;
 use Illuminate\Http\Request;
 
 class AyoMengenaliAku extends Controller
@@ -203,6 +204,42 @@ class AyoMengenaliAku extends Controller
             ->first()
             ?
             AccurateSelfAssesmentRD::where('user_id', auth()->user()->id)
+            ->orderBy('created_at', 'desc')
+            ->first()
+            ->toArray()
+            : null;
+
+        $jawaban_self_confidence_sk1 = SelfConfidentSK::where('Kategori_SK', 1)
+            ->where('user_id', auth()->user()->id)
+            ->orderBy('created_at', 'desc')
+            ->first()
+            ?
+            SelfConfidentSK::where('Kategori_SK', 1)
+            ->where('user_id', auth()->user()->id)
+            ->orderBy('created_at', 'desc')
+            ->first()
+            ->toArray()
+            : null;
+
+        $jawaban_self_confidence_sk2 = SelfConfidentSK::where('Kategori_SK', 2)
+            ->where('user_id', auth()->user()->id)
+            ->orderBy('created_at', 'desc')
+            ->first()
+            ?
+            SelfConfidentSK::where('Kategori_SK', 2)
+            ->where('user_id', auth()->user()->id)
+            ->orderBy('created_at', 'desc')
+            ->first()
+            ->toArray()
+            : null;
+
+        $jawaban_self_confidence_sk3 = SelfConfidentSK::where('Kategori_SK', 3)
+            ->where('user_id', auth()->user()->id)
+            ->orderBy('created_at', 'desc')
+            ->first()
+            ?
+            SelfConfidentSK::where('Kategori_SK', 3)
+            ->where('user_id', auth()->user()->id)
             ->orderBy('created_at', 'desc')
             ->first()
             ->toArray()
@@ -1036,6 +1073,7 @@ class AyoMengenaliAku extends Controller
         ];
 
         $stud_kas_1_self_con = [
+            'jawaban_self_con' => $jawaban_self_confidence_sk1,
             'nama' => 'studi kasus 1',
             'judul' => 'Berbicara di Depan Umum dengan Percaya Diri',
             'deskripsi' => 'Bunga adalah seorang siswa yang diminta untuk memberikan presentasi tentang bahaya narkoba di depan kelas. Sebelumnya, dia merasa gugup karena khawatir teman-temannya akan menertawakan jika dia melakukan kesalahan. Namun, Bunga memutuskan untuk mempersiapkan materi dengan baik dan berlatih berbicara di depan cermin beberapa kali.',
@@ -1098,6 +1136,7 @@ class AyoMengenaliAku extends Controller
         ];
 
         $stud_kas_2_self_con = [
+            'jawaban_self_con' => $jawaban_self_confidence_sk2,
             'nama' => 'studi kasus 2',
             'judul' => 'Mengambil Keputusan di Situasi Sulit',
             'deskripsi' => 'Budi sering kali dihadapkan pada keputusan sulit ketika berada dalam kelompok belajar. Suatu hari, teman-temannya mengusulkan untuk mencontek saat ujian. Budi merasa tertekan tetapi yakin dengan kemampuannya sendiri dan memutuskan untuk tidak ikut serta.',
@@ -1160,6 +1199,7 @@ class AyoMengenaliAku extends Controller
         ];
 
         $stud_kas_3_self_con = [
+            'jawaban_self_con' => $jawaban_self_confidence_sk3,
             'nama' => 'studi kasus 3',
             'judul' => 'Mengelola Ketidakpastian dan Risiko',
             'deskripsi' => 'Siti ditawari menjadi ketua kelompok dalam sebuah proyek besar di sekolah, tetapi dia ragu-ragu karena khawatir akan gagal. Setelah merenung dan memikirkan keterampilannya, Siti memutuskan untuk mengambil tantangan tersebut dan melakukan yang terbaik.',
