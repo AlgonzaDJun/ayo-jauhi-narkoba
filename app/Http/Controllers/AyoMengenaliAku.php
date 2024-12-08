@@ -7,6 +7,7 @@ use App\Models\AccurateSelfAssesmentRD;
 use App\Models\AccurateSelfAssesmentSK;
 use App\Models\DetailJawaban;
 use App\Models\JawabanSoalEmosi;
+use App\Models\SelfConfidentPKD;
 use App\Models\SelfConfidentSK;
 use Illuminate\Http\Request;
 
@@ -245,9 +246,18 @@ class AyoMengenaliAku extends Controller
             ->toArray()
             : null;
 
-        // dd($jawaban_accurate_rd);
+        $jawaban_self_confidence_pkd = SelfConfidentPKD::where('user_id', auth()->user()->id)
+            ->orderBy('created_at', 'desc')
+            ->first()
+            ?
+            SelfConfidentPKD::where('user_id', auth()->user()->id)
+            ->orderBy('created_at', 'desc')
+            ->first()
+            ->toArray()
+            : null;
 
-        // MULAI VARIABEL DARI CLIENT
+
+        // MULAI VARIABEL DARI DOCUMENT CLIENT
         $amarah =
             [
                 'jawaban_emosi' => $jawaban_user_amarah,
@@ -1372,7 +1382,7 @@ class AyoMengenaliAku extends Controller
             $guilty,
             $fear
         ];
-        return view('ayo-mengenali-aku.index', compact('emosis', 'acc_self_as', 'self_conf'));
+        return view('ayo-mengenali-aku.index', compact('emosis', 'acc_self_as', 'self_conf', 'jawaban_self_confidence_pkd'));
     }
 
     public function store(Request $request)

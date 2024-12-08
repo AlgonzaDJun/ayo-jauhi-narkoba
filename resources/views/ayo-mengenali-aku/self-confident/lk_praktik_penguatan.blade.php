@@ -1,3 +1,5 @@
+{{-- @dd($jawaban_self_confidence_pkd) --}}
+
 <div class="">
     <div class="mx-auto shadow-md rounded-lg">
         <div class="sm:px-1 md:px-3 py-5">
@@ -38,8 +40,21 @@
                                 percaya diri</li>
                         </ol>
                     </div>
+
+                    @isset($jawaban_self_confidence_pkd)
+                        <p class="text-red-500 text-3xl font-semibold">
+                            Anda sudah pernah mengisi soal ini sebelumnya.
+                        </p>
+
+                        <button type="button"
+                            class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full focus:outline-none focus:shadow-outline"
+                            onclick="clearInput()">
+                            Kosongkan Form
+                        </button>
+                    @endisset
+
                     <div>
-                        <form action="{{ route('self-confidence.penguatan-diri') }}" method="post">
+                        <form action="{{ route('self-confidence.penguatan-diri') }}" method="post" id="self_con_pkd">
                             @csrf
                             <h4 class="font-medium text-gray-800">Refleksi (5 Menit)</h4>
                             <p class="text-gray-700">Setelah setiap sesi latihan, jawab pertanyaan refleksi berikut di
@@ -48,27 +63,32 @@
                             <ol class="list-decimal list-inside text-gray-700 ml-4">
                                 <li>Bagaimana perasaanmu setelah melakukan latihan pengulangan ini?
                                     <input name="Soal_1" type="text"
-                                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                                        value="@isset($jawaban_self_confidence_pkd){{ $jawaban_self_confidence_pkd['Soal_1'] }}@endisset">
                                 </li>
                                 <li>Apa kemajuan terbesar yang kamu rasakan dari latihan pengulangan ini?
                                     <input name="Soal_2" type="text"
-                                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                                        value="@isset($jawaban_self_confidence_pkd){{ $jawaban_self_confidence_pkd['Soal_2'] }}@endisset">
                                 </li>
                                 <li>Apa tantangan terbesar yang kamu hadapi selama latihan pengulangan ini?
                                     <input name="Soal_3" type="text"
-                                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                                        value="@isset($jawaban_self_confidence_pkd){{ $jawaban_self_confidence_pkd['Soal_3'] }}@endisset">
                                 </li>
                                 <li>Apa yang kamu pelajari tentang dirimu selama proses latihan ini?
                                     <input name="Soal_4" type="text"
-                                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                                        value="@isset($jawaban_self_confidence_pkd){{ $jawaban_self_confidence_pkd['Soal_4'] }}@endisset">
                                 </li>
                                 <li>Bagaimana kamu akan terus meningkatkan keterampilanmu di minggu berikutnya?
                                     <input name="Soal_5" type="text"
-                                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                                        value="@isset($jawaban_self_confidence_pkd){{ $jawaban_self_confidence_pkd['Soal_5'] }}@endisset">
                                 </li>
                             </ol>
 
-                            <input type="hidden" name="user_id" value="{{auth()->user()->id}}">
+                            <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
                             <div class="mt-4">
                                 <button
                                     class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full focus:outline-none focus:shadow-outline">
@@ -82,3 +102,12 @@
         </div>
     </div>
 </div>
+
+@push('custom-script')
+    <script>
+        function clearInput() {
+            // clear all input value inside form with id self_con_pkd
+            $('#self_con_pkd').find('input').val('');
+        }
+    </script>
+@endpush
