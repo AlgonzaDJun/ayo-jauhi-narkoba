@@ -13,7 +13,7 @@
 
                         <button type="button"
                             class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                            onclick="clearInput()">
+                            id="kosong-form-acc-ref-diri">
                             Kosongkan Form
                         </button>
                     @endisset
@@ -81,10 +81,8 @@
 @push('custom-script')
     {{-- make function to clear all input text inside form id accurate_refleksi_diri --}}
     <script>
-        function clearInput() {
-            // clear all input inside form id accurate_refleksi_diri
-            $('#accurate_refleksi_diri').find('input[type="text"]').val('');
-
-        }
+        $('#kosong-form-acc-ref-diri').click(function() {
+            $('#accurate_refleksi_diri').find('input').val('');
+        });
     </script>
 @endpush

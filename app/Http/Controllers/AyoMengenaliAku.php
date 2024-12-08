@@ -7,6 +7,7 @@ use App\Models\AccurateSelfAssesmentRD;
 use App\Models\AccurateSelfAssesmentSK;
 use App\Models\DetailJawaban;
 use App\Models\JawabanSoalEmosi;
+use App\Models\LKSelfConfidence;
 use App\Models\SelfConfidentPKD;
 use App\Models\SelfConfidentSK;
 use Illuminate\Http\Request;
@@ -255,6 +256,44 @@ class AyoMengenaliAku extends Controller
             ->first()
             ->toArray()
             : null;
+
+        $jawaban_lk_self_con_1 = LKSelfConfidence::where('Kategori_Bagian', 1)
+            ->where('user_id', auth()->user()->id)
+            ->orderBy('created_at', 'desc')
+            ->first()
+            ?
+            LKSelfConfidence::where('Kategori_Bagian', 1)
+            ->where('user_id', auth()->user()->id)
+            ->orderBy('created_at', 'desc')
+            ->first()
+            ->toArray()
+            : null;
+
+        $jawaban_lk_self_con_2 = LKSelfConfidence::where('Kategori_Bagian', 2)
+            ->where('user_id', auth()->user()->id)
+            ->orderBy('created_at', 'desc')
+            ->first()
+            ?
+            LKSelfConfidence::where('Kategori_Bagian', 2)
+            ->where('user_id', auth()->user()->id)
+            ->orderBy('created_at', 'desc')
+            ->first()
+            ->toArray()
+            : null;
+
+        $jawaban_lk_self_con_3 = LKSelfConfidence::where('Kategori_Bagian', 3)
+            ->where('user_id', auth()->user()->id)
+            ->orderBy('created_at', 'desc')
+            ->first()
+            ?
+            LKSelfConfidence::where('Kategori_Bagian', 3)
+            ->where('user_id', auth()->user()->id)
+            ->orderBy('created_at', 'desc')
+            ->first()
+            ->toArray()
+            : null;
+
+        // dd($jawaban_lk_self_con_1);
 
 
         // MULAI VARIABEL DARI DOCUMENT CLIENT
@@ -1274,6 +1313,7 @@ class AyoMengenaliAku extends Controller
         $lk_self_con = [
             'nama' => 'LK SELF CONFIDENT',
             'bagian_1' => [
+                'jawaban_lk' => $jawaban_lk_self_con_1,
                 'nama' => 'Refleksi Diri',
                 '1' => [
                     'judul' => 'Keyakinan akan Kemampuan Diri',
@@ -1315,6 +1355,7 @@ class AyoMengenaliAku extends Controller
                 ],
             ],
             'bagian_2' => [
+                'jawaban_lk' => $jawaban_lk_self_con_2,
                 'nama' => 'Tenang Menghadapi Permasalahan',
                 '1' => [
                     'pertanyaan' => 'Apakah permasalahan yang kamu hadapi hari ini?<br>Misal: terlambat datang ke sekolah sehingga dimarahi oleh guru',
@@ -1330,6 +1371,7 @@ class AyoMengenaliAku extends Controller
                 ],
             ],
             'bagian_3' => [
+                'jawaban_lk' => $jawaban_lk_self_con_3,
                 'nama' => 'Berani Mengambil Keputusan',
                 '1' => [
                     'pertanyaan' => 'Ketika dihadapkan dengan permasalahan apa yang kamu lakukan?<br>misal: <br> - langsung mencari solusi <br> - bertanya<br> -tanya mengapa masalah ini harus menimpamu',

@@ -4,13 +4,27 @@
             <h1 class="text-3xl font-bold text-center "> {{ $lk['bagian_1']['nama'] }}
             </h1>
 
-            <form action="{{ route('self-confidence.self-confidence') }}" class="space-y-6" method="post">
+            <form action="{{ route('self-confidence.self-confidence') }}" class="space-y-6" method="post"
+                id="form-lk-self-confidence-1">
                 @csrf
                 @php
                     $urutan = 1;
                 @endphp
                 <ol class="space-y-1 list-decimal list-inside">
+                    @isset($lk['bagian_1']['jawaban_lk'])
+                        <p class="text-red-500 text-3xl font-semibold my-5">
+                            Anda sudah pernah mengisi soal ini sebelumnya.
+                        </p>
+
+                        {{-- button kosongkan form --}}
+                        <button type="button"
+                            class="w-full text-white rounded-lg px-4 py-2 transition duration-300 ease-in-out bg-red-700 hover:bg-red-800"
+                            onclick="clearFormLK1()">
+                            Kosongkan Form
+                        </button>
+                    @endisset
                     @foreach ($lk['bagian_1'] as $item)
+                        {{-- @dd($item['Soal_1']) --}}
                         @isset($item['judul'])
                             <p class="text-center font-bold text-2xl">
                                 {{ $item['judul'] }}
@@ -20,11 +34,17 @@
                         @isset($item['pertanyaan'])
                             @foreach ($item['pertanyaan'] as $key => $pertanyaan)
                                 <li class="mt-4">
-                                    <label for="{{ $key . '_' . $pertanyaan . 'bagian1' }}" class="text-sm font-medium  mb-2">
+                                    <label for="{{ $key . '_' . $pertanyaan . 'bagian1' }}"
+                                        class="text-sm font-medium  mb-2">
                                         {!! $pertanyaan !!}
                                     </label>
                                     <textarea id="{{ $key . '' . $pertanyaan . 'bagian1' }}" name="{{ 'Soal_' . $urutan }}" rows="3"
-                                        class="w-full px-3 py-2  border rounded-lg  " placeholder="Silakan dijawab"></textarea>
+                                        class="w-full px-3 py-2  border rounded-lg  " placeholder="Silakan dijawab">
+@isset($lk['bagian_1']['jawaban_lk'])
+{{ $lk['bagian_1']['jawaban_lk']['Soal_' . $urutan] }}
+@endisset
+</textarea>
+                                    {{-- @dump($lk['bagian_1']['jawaban_lk']['Soal_' . $urutan]) --}}
                                 </li>
                                 @php
                                     $urutan++;
@@ -43,7 +63,17 @@
 
                 </button>
             </form>
-
         @endif
     @endforeach
 </div>
+
+@push('custom-script')
+    <script>
+        function clearFormLK1() {
+            // clear all textarea inside id form-lk-self-confidence-1
+            document.querySelectorAll('#form-lk-self-confidence-1 textarea').forEach((el) => {
+                el.value = '';
+            });
+        }
+    </script>
+@endpush

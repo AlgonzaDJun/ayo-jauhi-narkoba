@@ -48,7 +48,8 @@
 
                         <button type="button"
                             class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full focus:outline-none focus:shadow-outline"
-                            onclick="clearInput()">
+                            id="kosong-form-lk-pkd"
+                            >
                             Kosongkan Form
                         </button>
                     @endisset
@@ -105,9 +106,8 @@
 
 @push('custom-script')
     <script>
-        function clearInput() {
-            // clear all input value inside form with id self_con_pkd
+        $('#kosong-form-lk-pkd').on('click', function () {
             $('#self_con_pkd').find('input').val('');
-        }
+        });
     </script>
 @endpush
