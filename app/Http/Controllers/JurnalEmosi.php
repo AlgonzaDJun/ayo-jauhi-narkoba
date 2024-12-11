@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\JurnalEmosi as JurnalEmosiModels; 
+
+use App\Models\JurnalEmosi as JurnalEmosiModels;
 use Illuminate\Http\Request;
 
 class JurnalEmosi extends Controller
@@ -13,7 +14,7 @@ class JurnalEmosi extends Controller
      */
     public function index()
     {
-        $jurnal = JurnalEmosiModels::where('user_id', auth()->user()->id)->orderBy("created_at","desc")->get();
+        $jurnal = JurnalEmosiModels::where('user_id', auth()->user()->id)->orderBy("created_at", "desc")->get();
         // dd($jurnal);
         return view('ayo-mengenali-aku.jurnal-emosi.index', compact('jurnal'));
     }
@@ -43,9 +44,9 @@ class JurnalEmosi extends Controller
         //     dd("berhasil");
 
         // } else {
-            // dd("gagal");
+        // dd("gagal");
         // }
-         return redirect()->route('jurnal-emosi.index');   
+        return redirect()->route('jurnal-emosi.index');
     }
 
     /**
@@ -56,7 +57,8 @@ class JurnalEmosi extends Controller
      */
     public function show($id)
     {
-        //
+        $jurnal = JurnalEmosiModels::findOrFail($id);
+        return view('ayo-mengenali-aku.jurnal-emosi.show', compact('jurnal'));
     }
 
     /**
@@ -67,7 +69,8 @@ class JurnalEmosi extends Controller
      */
     public function edit($id)
     {
-        //
+        $jurnal = JurnalEmosiModels::findOrFail($id);
+        return view('ayo-mengenali-aku.jurnal-emosi.edit', compact('jurnal'));
     }
 
     /**
@@ -79,7 +82,8 @@ class JurnalEmosi extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        JurnalEmosiModels::findOrFail($id)->update($request->all());
+        return redirect()->route('jurnal-emosi.index');
     }
 
     /**
@@ -90,6 +94,7 @@ class JurnalEmosi extends Controller
      */
     public function destroy($id)
     {
-        //
+        JurnalEmosiModels::findOrFail($id)->delete();
+        return redirect()->route('jurnal-emosi.index');
     }
 }

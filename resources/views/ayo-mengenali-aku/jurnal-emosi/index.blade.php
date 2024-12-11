@@ -32,7 +32,7 @@
                         @forelse ($jurnal as $item)
                             <tr class="border-b border-gray-200">
                                 <td class="py-3 px-4 ">
-                                    {{ limitWords($item->tanggal) }}
+                                    {{ \Carbon\Carbon::parse($item->tanggal)->format('d M Y') }}
                                 </td>
                                 <td class="py-3 px-4 ">
                                     {{ limitWords($item->kejadian_hari_ini) }}
@@ -55,10 +55,11 @@
                                     <a href="{{ route('jurnal-emosi.edit', $item->id) }}"
                                         class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded block mb-2">Edit</a>
                                     <form action="{{ route('jurnal-emosi.destroy', $item->id) }}" method="POST"
-                                        class="inline">
+                                        class="inline" id="form-hapus-jurnal-{{ $item->id }}"
+                                        onclick="hapusJurnal({{ $item->id }})">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit"
+                                        <button type="button"
                                             class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded block mb-2">Delete</button>
                                     </form>
                                 </td>
@@ -75,3 +76,25 @@
         </div>
     </div>
 @endsection
+
+@push('custom-script')
+    <script>
+        function hapusJurnal(id) {
+            Swal.fire({
+                title: 'Apakah Anda yakin?',
+                text: "Data yang dihapus tidak dapat dikembalikan!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ya, hapus!',
+                cancelButtonText: 'Batal'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $('#form-hapus-jurnal-' + id).submit();
+                }
+            })
+
+        }
+    </script>
+@endpush
