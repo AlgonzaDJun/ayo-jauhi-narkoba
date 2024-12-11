@@ -56,7 +56,7 @@
                                         class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded block mb-2">Edit</a>
                                     <form action="{{ route('jurnal-emosi.destroy', $item->id) }}" method="POST"
                                         class="inline" id="form-hapus-jurnal-{{ $item->id }}"
-                                        onclick="hapusJurnal({{ $item->id }})">
+                                        onclick="hapusJurnalEmosi({{ $item->id }})">
                                         @csrf
                                         @method('DELETE')
                                         <button type="button"
@@ -79,7 +79,7 @@
 
 @push('custom-script')
     <script>
-        function hapusJurnal(id) {
+        function hapusJurnalEmosi(id) {
             Swal.fire({
                 title: 'Apakah Anda yakin?',
                 text: "Data yang dihapus tidak dapat dikembalikan!",

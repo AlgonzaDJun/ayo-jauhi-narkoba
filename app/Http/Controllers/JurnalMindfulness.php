@@ -51,7 +51,8 @@ class JurnalMindfulness extends Controller
      */
     public function show($id)
     {
-        //
+        $jurnal_mindfulness = JurnalMindfulnessModels::findOrFail($id);
+        return view('ayo-mengenali-aku.jurnal-mindfulness.show', compact('jurnal_mindfulness'));
     }
 
     /**
@@ -62,7 +63,8 @@ class JurnalMindfulness extends Controller
      */
     public function edit($id)
     {
-        //
+        $jurnal_mindfulness = JurnalMindfulnessModels::findOrFail($id);
+        return view('ayo-mengenali-aku.jurnal-mindfulness.edit', compact('jurnal_mindfulness'));
     }
 
     /**
@@ -74,7 +76,8 @@ class JurnalMindfulness extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        JurnalMindfulnessModels::findOrFail($id)->update($request->all());
+        return redirect()->route('jurnal-mindfulness.index');
     }
 
     /**
@@ -85,6 +88,7 @@ class JurnalMindfulness extends Controller
      */
     public function destroy($id)
     {
-        //
+        JurnalMindfulnessModels::findOrFail($id)->delete();
+        return redirect()->route('jurnal-mindfulness.index');
     }
 }

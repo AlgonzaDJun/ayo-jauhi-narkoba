@@ -46,15 +46,16 @@
                                 </td>
 
                                 <td class="py-3 px-4">
-                                    <a href="{{ route('jurnal-emosi.show', $item->id) }}"
+                                    <a href="{{ route('jurnal-mindfulness.show', $item->id) }}"
                                         class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded block mb-2">Detail</a>
-                                    <a href="{{ route('jurnal-emosi.edit', $item->id) }}"
+                                    <a href="{{ route('jurnal-mindfulness.edit', $item->id) }}"
                                         class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded block mb-2">Edit</a>
-                                    <form action="{{ route('jurnal-emosi.destroy', $item->id) }}" method="POST"
-                                        class="inline">
+                                    <form action="{{ route('jurnal-mindfulness.destroy', $item->id) }}"
+                                        id="form-hps-jurn-mind-{{ $item->id }}" method="POST" class="inline"
+                                        onclick="hapusJurnalMindfulness({{ $item->id }})">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit"
+                                        <button type="button"
                                             class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded block mb-2">Delete</button>
                                     </form>
                                 </td>
@@ -95,6 +96,29 @@
         </div>
     </div>
 @endsection
+
+@push('custom-script')
+    <script>
+        function hapusJurnalMindfulness(id) {
+            Swal.fire({
+                title: 'Apakah Anda yakin?',
+                text: "Data yang dihapus tidak dapat dikembalikan!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ya, hapus!',
+                cancelButtonText: 'Batal'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $('#form-hps-jurn-mind-' + id).submit();
+                }
+            })
+
+        }
+    </script>
+@endpush
+
 
 
 {{-- <table class="table">
