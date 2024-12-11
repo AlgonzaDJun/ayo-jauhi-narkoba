@@ -76,6 +76,28 @@ Route::get('/profile', function () {
     return view('profile');
 });
 
+Route::put('/profile', function () {
+    $user_id = auth()->user()->id;
+
+    // if password is empty
+    if (request('password') == '') {
+        User::find($user_id)->update([
+            'name' => request('name'),
+            'email' => request('email'),
+        ]);
+
+        return redirect('/profile');
+    } else {
+        User::find($user_id)->update([
+            'name' => request('name'),
+            'email' => request('email'),
+            'password' => bcrypt(request('password')),
+        ]);
+
+        return redirect('/profile');
+    }
+})->name('profile.update');
+
 Route::get('/artikel', [PostController::class, 'index']);
 
 
