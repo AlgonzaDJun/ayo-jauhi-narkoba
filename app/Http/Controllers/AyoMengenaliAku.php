@@ -191,14 +191,16 @@ class AyoMengenaliAku extends Controller
 
         $message_instrumen = "";
 
-        if ($jawaban_accurate_it['score'] >= 60 && $jawaban_accurate_it['score'] <= 80) {
-            $message_instrumen = "Anda memiliki tingkat Accurate Self-Assessment yang sangat baik. Anda mampu mengevaluasi kelebihan dan kekurangan Anda secara obyektif, terbuka terhadap kritik dan saran, dan secara aktif mengambil langkah-langkah untuk memperbaiki diri";
-        } else if ($jawaban_accurate_it['score'] >= 40 && $jawaban_accurate_it['score'] <= 59) {
-            $message_instrumen = "Anda cukup baik dalam penilaian diri yang akurat, namun mungkin masih ada beberapa area di mana Anda bisa lebih proaktif dalam menerima kritik dan saran atau memperbaiki kekurangan diri";
-        } else if ($jawaban_accurate_it['score'] >= 20 && $jawaban_accurate_it['score'] <= 39) {
-            $message_instrumen = "Anda mungkin perlu bekerja lebih keras dalam mengenali kelebihan, kekurangan, dan menggunakan kritik konstruktif atau membangun untuk pengembangan diri. Refleksi lebih lanjut dan tindakan perbaikan dapat membantu meningkatkan kemampuan Anda dalam penilaian diri";
-        } else if ($jawaban_accurate_it['score'] < 20) {
-            $message_instrumen = "Anda mungkin menghadapi kesulitan dalam menilai diri secara obyektif, mengenali kekurangan, atau menerima kritik. Mungkin ini saatnya untuk mempertimbangkan lebih banyak refleksi diri dan keterbukaan terhadap masukan dari orang lain.";
+        if ($jawaban_accurate_it) {
+            if ($jawaban_accurate_it['score'] >= 60 && $jawaban_accurate_it['score'] <= 80) {
+                $message_instrumen = "Anda memiliki tingkat Accurate Self-Assessment yang sangat baik. Anda mampu mengevaluasi kelebihan dan kekurangan Anda secara obyektif, terbuka terhadap kritik dan saran, dan secara aktif mengambil langkah-langkah untuk memperbaiki diri";
+            } else if ($jawaban_accurate_it['score'] >= 40 && $jawaban_accurate_it['score'] <= 59) {
+                $message_instrumen = "Anda cukup baik dalam penilaian diri yang akurat, namun mungkin masih ada beberapa area di mana Anda bisa lebih proaktif dalam menerima kritik dan saran atau memperbaiki kekurangan diri";
+            } else if ($jawaban_accurate_it['score'] >= 20 && $jawaban_accurate_it['score'] <= 39) {
+                $message_instrumen = "Anda mungkin perlu bekerja lebih keras dalam mengenali kelebihan, kekurangan, dan menggunakan kritik konstruktif atau membangun untuk pengembangan diri. Refleksi lebih lanjut dan tindakan perbaikan dapat membantu meningkatkan kemampuan Anda dalam penilaian diri";
+            } else if ($jawaban_accurate_it['score'] < 20) {
+                $message_instrumen = "Anda mungkin menghadapi kesulitan dalam menilai diri secara obyektif, mengenali kekurangan, atau menerima kritik. Mungkin ini saatnya untuk mempertimbangkan lebih banyak refleksi diri dan keterbukaan terhadap masukan dari orang lain.";
+            }
         }
 
         $jawaban_accurate_rd = AccurateSelfAssesmentRD::where('user_id', auth()->user()->id)

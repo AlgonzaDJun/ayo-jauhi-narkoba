@@ -80,20 +80,31 @@
 @push('custom-script')
     <script>
         function hapusJurnalEmosi(id) {
-            Swal.fire({
-                title: 'Apakah Anda yakin?',
+            swal({
+                title: "Apakah Anda yakin?",
                 text: "Data yang dihapus tidak dapat dikembalikan!",
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Ya, hapus!',
-                cancelButtonText: 'Batal'
-            }).then((result) => {
-                if (result.isConfirmed) {
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            }).then((willDelete) => {
+                if (willDelete) {
                     $('#form-hapus-jurnal-' + id).submit();
                 }
-            })
+            });
+            // Swal.fire({
+            //     title: 'Apakah Anda yakin?',
+            //     text: "Data yang dihapus tidak dapat dikembalikan!",
+            //     icon: 'warning',
+            //     showCancelButton: true,
+            //     confirmButtonColor: '#3085d6',
+            //     cancelButtonColor: '#d33',
+            //     confirmButtonText: 'Ya, hapus!',
+            //     cancelButtonText: 'Batal'
+            // }).then((result) => {
+            //     if (result.isConfirmed) {
+            //         $('#form-hapus-jurnal-' + id).submit();
+            //     }
+            // })
 
         }
     </script>

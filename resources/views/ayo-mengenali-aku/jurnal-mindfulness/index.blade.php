@@ -100,20 +100,31 @@
 @push('custom-script')
     <script>
         function hapusJurnalMindfulness(id) {
-            Swal.fire({
-                title: 'Apakah Anda yakin?',
+            swal({
+                title: "Apakah Anda yakin?",
                 text: "Data yang dihapus tidak dapat dikembalikan!",
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Ya, hapus!',
-                cancelButtonText: 'Batal'
-            }).then((result) => {
-                if (result.isConfirmed) {
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            }).then((willDelete) => {
+                if (willDelete) {
                     $('#form-hps-jurn-mind-' + id).submit();
                 }
-            })
+            });
+            // Swal.fire({
+            //     title: 'Apakah Anda yakin?',
+            //     text: "Data yang dihapus tidak dapat dikembalikan!",
+            //     icon: 'warning',
+            //     showCancelButton: true,
+            //     confirmButtonColor: '#3085d6',
+            //     cancelButtonColor: '#d33',
+            //     confirmButtonText: 'Ya, hapus!',
+            //     cancelButtonText: 'Batal'
+            // }).then((result) => {
+            //     if (result.isConfirmed) {
+            //         $('#form-hps-jurn-mind-' + id).submit();
+            //     }
+            // })
 
         }
     </script>

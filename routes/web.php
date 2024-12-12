@@ -22,8 +22,10 @@ use App\Http\Controllers\rumahsakitController;
 use App\Http\Controllers\pagePenyebabController;
 use App\Http\Controllers\artikelDokterController;
 use App\Http\Controllers\AyoJauhiNarkoba;
+use App\Http\Controllers\AyoJauhiNarkobaGuru;
 use App\Http\Controllers\AyoMengenaliAku;
 use App\Http\Controllers\DashboardPostController;
+use App\Http\Controllers\GuruController;
 use App\Http\Controllers\JurnalEmosi;
 use App\Http\Controllers\JurnalMindfulness;
 use App\Http\Controllers\SelfConfidence;
@@ -210,9 +212,13 @@ Route::middleware(['auth', 'verified'])->group(function () {
         '/jurnal-mindfulness' => JurnalMindfulness::class,
     ]);
 
+    Route::prefix('guru')->name('guru.')->group(function () {
+        Route::resource('', GuruController::class);
+        Route::resource('/ayo-jauhi-narkoba', AyoJauhiNarkobaGuru::class);
+    });
+
     Route::post('/accurate-self-assesment/tes-instrumen', [AccurateSelfAssesment::class, 'tesInstrumen'])->name('accurate-self-assesment.tes-instrumen');
     Route::post('/accurate-self-assesment/refleksi-diri', [AccurateSelfAssesment::class, 'refleksiDiri'])->name('accurate-self-assesment.refleksi-diri');
     Route::post('/self-confidence/penguatan-diri', [SelfConfidence::class, 'storelkpenguatandiri'])->name('self-confidence.penguatan-diri');
     Route::post('/self-confidence/self-confidence', [SelfConfidence::class, 'storelkselfconfidence'])->name('self-confidence.self-confidence');
-    
 });
