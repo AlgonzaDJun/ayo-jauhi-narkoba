@@ -102,13 +102,13 @@
 
                             <ul class="submenu">
 
-                                <li class="submenu-item  ">
-                                    <a href="form-element-input.html" class="submenu-link">Jawaban Soal Emotional
+                                <li class="submenu-item">
+                                    <a href="{{ route('guru.emotional-awareness.index') }}" class="submenu-link">Jawaban Soal Emotional
                                         Awareness</a>
                                 </li>
 
                                 <li class="submenu-item  ">
-                                    <a href="#" class="submenu-link">Jawaban Jurnal Emosi</a>
+                                    <a href="{{ route('guru.emotional-awareness.create') }}" class="submenu-link">Jawaban Jurnal Emosi</a>
                                 </li>
 
                                 <li class="submenu-item  ">

@@ -25,6 +25,7 @@ use App\Http\Controllers\AyoJauhiNarkoba;
 use App\Http\Controllers\AyoJauhiNarkobaGuru;
 use App\Http\Controllers\AyoMengenaliAku;
 use App\Http\Controllers\DashboardPostController;
+use App\Http\Controllers\EmotionalAwarenessGuru;
 use App\Http\Controllers\GuruController;
 use App\Http\Controllers\JurnalEmosi;
 use App\Http\Controllers\JurnalMindfulness;
@@ -215,6 +216,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::prefix('guru')->name('guru.')->group(function () {
         Route::resource('', GuruController::class);
         Route::resource('/ayo-jauhi-narkoba', AyoJauhiNarkobaGuru::class);
+        Route::resource('/emotional-awareness', EmotionalAwarenessGuru::class);
     });
 
     Route::post('/accurate-self-assesment/tes-instrumen', [AccurateSelfAssesment::class, 'tesInstrumen'])->name('accurate-self-assesment.tes-instrumen');

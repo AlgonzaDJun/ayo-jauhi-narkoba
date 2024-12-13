@@ -23,7 +23,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($jawaban_narkoba as $item)
+                        @forelse ($jawaban_narkoba as $item)
                             <tr>
                                 <td>{{ $item->user->name }}</td>
                                 <td>{{ $item->created_at->format('d-M-Y (H:i)') }}</td>
@@ -32,7 +32,11 @@
                                     <td>{{ $item['soal_' . $i] }}</td>
                                 @endfor
                             </tr>
-                        @endforeach
+                        @empty
+                            <tr>
+                                <td colspan="8" class="text-center">Tidak ada data</td>
+                            </tr>
+                        @endforelse
 
                     </tbody>
                 </table>

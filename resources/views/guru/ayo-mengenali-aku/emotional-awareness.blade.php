@@ -1,8 +1,10 @@
 @extends('guru.layout')
 
 @section('judul')
-    Data Jawaban Materi Narkoba
+    Data Jawaban Soal Emosi
 @endsection
+
+{{-- @dd($jawaban_emosi[0]->detailJawaban->soal1) --}}
 
 @section('main')
     <div class="card">
@@ -14,26 +16,31 @@
                     <thead>
                         <tr>
                             <th>Nama Murid</th>
+                            <th>Nama Emosi</th>
                             {{-- tanggal --}}
                             <th>Tanggal submit</th>
                             {{-- soal 4 - soal 25 --}}
-                            @for ($i = 1; $i <= 25; $i++)
+                            @for ($i = 1; $i <= 6; $i++)
                                 <th>Soal {{ $i }}</th>
                             @endfor
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($jawaban_narkoba as $item)
+                        @forelse ($jawaban_emosi as $item)
                             <tr>
                                 <td>{{ $item->user->name }}</td>
+                                <td>{{ $item->kategori_emosi }}</td>
                                 <td>{{ $item->created_at->format('d-M-Y (H:i)') }}</td>
                                 {{-- soal 4 - soal 25 --}}
-                                @for ($i = 1; $i <= 25; $i++)
-                                    <td>{{ $item['soal_' . $i] }}</td>
+                                @for ($i = 1; $i <= 6; $i++)
+                                    <td>{{ $item->detailJawaban['soal' . $i] }}</td>
                                 @endfor
                             </tr>
-                        @endforeach
-
+                        @empty
+                            <tr>
+                                <td colspan="8" class="text-center">Tidak ada data</td>
+                            </tr>
+                        @endforelse
                     </tbody>
                 </table>
             </div>
