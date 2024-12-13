@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\JawabanSoalEmosi;
 use App\Models\JurnalEmosi;
+use App\Models\JurnalMindfulness;
 use Illuminate\Http\Request;
 
 class EmotionalAwarenessGuru extends Controller
@@ -51,7 +52,9 @@ class EmotionalAwarenessGuru extends Controller
      */
     public function show($id)
     {
-        //
+        $jawaban_jurnal_mindfulness = JurnalMindfulness::latest()->get();
+        // dd($jawaban_jurnal_mindfulness);
+        return view('guru.ayo-mengenali-aku.jurnal-mindfulness', compact('jawaban_jurnal_mindfulness'));
     }
 
     /**

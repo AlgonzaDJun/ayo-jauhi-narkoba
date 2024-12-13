@@ -32,8 +32,11 @@
                 <div class="sidebar-header position-relative">
                     <div class="d-flex justify-content-between align-items-center">
                         <div class="logo">
-                            <a href="{{ route('guru.index') }}"><img src="{{ asset('./assets/compiled/svg/logo.svg') }}"
-                                    alt="Logo" srcset=""></a>
+                            <a href="{{ route('guru.index') }}">
+                                <h5>
+                                    Mengenal Aku
+                                </h5>
+                            </a>
                         </div>
                         <div class="theme-toggle d-flex gap-2  align-items-center mt-2">
                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -94,7 +97,8 @@
 
                         <li class="sidebar-title">Ayo Mengenali Aku</li>
 
-                        <li class="sidebar-item  has-sub">
+                        <li
+                            class="sidebar-item  has-sub {{ Route::is('guru.emotional-awareness.*') ? 'active' : '' }}">
                             <a href="#" class='sidebar-link'>
                                 <i class="bi bi-hexagon-fill"></i>
                                 <span>Emotional Awareness</span>
@@ -102,19 +106,23 @@
 
                             <ul class="submenu">
 
-                                <li class="submenu-item">
-                                    <a href="{{ route('guru.emotional-awareness.index') }}" class="submenu-link">Jawaban Soal Emotional
+                                <li
+                                    class="submenu-item {{ Route::is('guru.emotional-awareness.index') ? 'active' : '' }}">
+                                    <a href="{{ route('guru.emotional-awareness.index') }}"
+                                        class="submenu-link">Jawaban Soal Emotional
                                         Awareness</a>
                                 </li>
 
-                                <li class="submenu-item  ">
-                                    <a href="{{ route('guru.emotional-awareness.create') }}" class="submenu-link">Jawaban Jurnal Emosi</a>
+                                <li
+                                    class="submenu-item  {{ Route::is('guru.emotional-awareness.create') ? 'active' : '' }}">
+                                    <a href="{{ route('guru.emotional-awareness.create') }}"
+                                        class="submenu-link">Jawaban Jurnal Emosi</a>
                                 </li>
 
                                 <li class="submenu-item  ">
-                                    <a href="" class="submenu-link">Jawaban Jurnal Mindfulness</a>
+                                    <a href="{{ route('guru.emotional-awareness.show', ['emotional_awareness' => 'jur_mindful']) }}"
+                                        class="submenu-link">Jawaban Jurnal Mindfulness</a>
                                 </li>
-
                             </ul>
 
 
