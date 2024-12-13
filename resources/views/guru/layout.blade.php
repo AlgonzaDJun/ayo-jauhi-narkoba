@@ -119,7 +119,7 @@
                                         class="submenu-link">Jawaban Jurnal Emosi</a>
                                 </li>
 
-                                <li class="submenu-item  ">
+                                <li class="submenu-item  {{ Route::is('guru.emotional-awareness.show') ? 'active' : '' }}">
                                     <a href="{{ route('guru.emotional-awareness.show', ['emotional_awareness' => 'jur_mindful']) }}"
                                         class="submenu-link">Jawaban Jurnal Mindfulness</a>
                                 </li>

@@ -1,7 +1,7 @@
 @extends('guru.layout')
 
 @section('judul')
-    Data Jawaban Soal Emosi
+    Data Jurnal Mindfulness
 @endsection
 
 @section('main')
