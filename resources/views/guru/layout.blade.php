@@ -97,37 +97,75 @@
                         <li class="sidebar-item  has-sub">
                             <a href="#" class='sidebar-link'>
                                 <i class="bi bi-hexagon-fill"></i>
-                                <span>Form Elements</span>
+                                <span>Emotional Awareness</span>
                             </a>
 
-                            <ul class="submenu ">
+                            <ul class="submenu">
 
                                 <li class="submenu-item  ">
-                                    <a href="form-element-input.html" class="submenu-link">Input</a>
-
+                                    <a href="form-element-input.html" class="submenu-link">Jawaban Soal Emotional
+                                        Awareness</a>
                                 </li>
 
                                 <li class="submenu-item  ">
-                                    <a href="form-element-input-group.html" class="submenu-link">Input Group</a>
-
+                                    <a href="#" class="submenu-link">Jawaban Jurnal Emosi</a>
                                 </li>
 
                                 <li class="submenu-item  ">
-                                    <a href="form-element-select.html" class="submenu-link">Select</a>
-
+                                    <a href="" class="submenu-link">Jawaban Jurnal Mindfulness</a>
                                 </li>
-
 
                             </ul>
 
 
                         </li>
 
-                        <li class="sidebar-item  ">
-                            <a href="form-layout.html" class='sidebar-link'>
-                                <i class="bi bi-file-earmark-medical-fill"></i>
-                                <span>Form Layout</span>
+                        <li class="sidebar-item  has-sub">
+                            <a href="#" class='sidebar-link'>
+                                <i class="bi bi-hexagon-fill"></i>
+                                <span>Accurate Self Assesment</span>
                             </a>
+
+                            <ul class="submenu">
+
+                                <li class="submenu-item  ">
+                                    <a href="form-element-input.html" class="submenu-link">Jawaban Studi Kasus</a>
+                                </li>
+
+                                <li class="submenu-item  ">
+                                    <a href="#" class="submenu-link">Jawaban Instrumen Tes</a>
+                                </li>
+
+                                <li class="submenu-item  ">
+                                    <a href="" class="submenu-link">Jawaban Refleksi Diri</a>
+                                </li>
+
+                            </ul>
+
+
+                        </li>
+
+                        <li class="sidebar-item  has-sub">
+                            <a href="#" class='sidebar-link'>
+                                <i class="bi bi-hexagon-fill"></i>
+                                <span>Self Confident</span>
+                            </a>
+
+                            <ul class="submenu">
+
+                                <li class="submenu-item  ">
+                                    <a href="form-element-input.html" class="submenu-link">Jawaban Studi Kasus</a>
+                                </li>
+
+                                <li class="submenu-item  ">
+                                    <a href="#" class="submenu-link">Jawaban LK PKD</a>
+                                </li>
+
+                                <li class="submenu-item  ">
+                                    <a href="" class="submenu-link">Jawaban LK Self Confident</a>
+                                </li>
+
+                            </ul>
 
 
                         </li>
