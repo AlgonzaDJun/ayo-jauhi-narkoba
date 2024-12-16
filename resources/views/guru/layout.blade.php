@@ -150,7 +150,8 @@
                                         class="submenu-link">Jawaban Instrumen Tes</a>
                                 </li>
 
-                                <li class="submenu-item {{ Route::is('guru.accurate-self-assesment.show') ? 'active' : '' }}">
+                                <li
+                                    class="submenu-item {{ Route::is('guru.accurate-self-assesment.show') ? 'active' : '' }}">
                                     <a href="{{ route('guru.accurate-self-assesment.show', ['accurate_self_assesment' => 'refleksi_diri']) }}"
                                         class="submenu-link">Jawaban Refleksi Diri</a>
                                 </li>
@@ -160,7 +161,7 @@
 
                         </li>
 
-                        <li class="sidebar-item  has-sub">
+                        <li class="sidebar-item  has-sub {{ Route::is('guru.self-confidence.*') ? 'active' : '' }}">
                             <a href="#" class='sidebar-link'>
                                 <i class="bi bi-hexagon-fill"></i>
                                 <span>Self Confident</span>
@@ -168,17 +169,43 @@
 
                             <ul class="submenu">
 
-                                <li class="submenu-item  ">
-                                    <a href="form-element-input.html" class="submenu-link">Jawaban Studi Kasus</a>
+                                <li
+                                    class="submenu-item {{ Route::is('guru.self-confidence.index') ? 'active' : '' }} ">
+                                    <a href="{{ route('guru.self-confidence.index') }}" class="submenu-link">Jawaban
+                                        Studi Kasus</a>
                                 </li>
 
-                                <li class="submenu-item  ">
-                                    <a href="#" class="submenu-link">Jawaban LK PKD</a>
+                                <li
+                                    class="submenu-item {{ Route::is('guru.self-confidence.create') ? 'active' : '' }}">
+                                    <a href="{{ route('guru.self-confidence.create') }}" class="submenu-link">Jawaban
+                                        LK Praktik Kepercayaan Diri</a>
                                 </li>
 
-                                <li class="submenu-item  ">
-                                    <a href="" class="submenu-link">Jawaban LK Self Confident</a>
+                                @php
+                                    $currentBag = request()->route('self_confidence'); // Ambil parameter self_confidence dari route
+                                @endphp
+
+                                <li class="submenu-item {{ $currentBag === 'bag1' ? 'active' : '' }}">
+                                    <a href="{{ route('guru.self-confidence.show', ['self_confidence' => 'bag1']) }}"
+                                        class="submenu-link">
+                                        Jawaban LK Self Confident bagian 1
+                                    </a>
                                 </li>
+
+                                <li class="submenu-item {{ $currentBag === 'bag2' ? 'active' : '' }}">
+                                    <a href="{{ route('guru.self-confidence.show', ['self_confidence' => 'bag2']) }}"
+                                        class="submenu-link">
+                                        Jawaban LK Self Confident bagian 2
+                                    </a>
+                                </li>
+
+                                <li class="submenu-item {{ $currentBag === 'bag3' ? 'active' : '' }}">
+                                    <a href="{{ route('guru.self-confidence.show', ['self_confidence' => 'bag3']) }}"
+                                        class="submenu-link">
+                                        Jawaban LK Self Confident bagian 3
+                                    </a>
+                                </li>
+
 
                             </ul>
 

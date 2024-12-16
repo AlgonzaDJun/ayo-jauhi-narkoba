@@ -5,7 +5,26 @@
     <section class="row">
         <div class="col-12 col-lg-9">
             <div class="row">
-                <div class="col-6 col-lg-3 col-md-6">
+                {{-- card, selamat datang admin --}}
+                <div class="col-12 col
+                -lg-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-12 col
+                                -lg-12">
+                                    <h5 class="font-semibold">Selamat datang, {{ Auth::user()->name }}</h5>
+                                    <p class="text-muted
+                                    ">Selamat datang di halaman
+                                        dashboard admin. Silahkan pilih menu yang tersedia di samping kiri untuk melihat data
+                                        yang anda butuhkan.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {{-- <div class="col-6 col-lg-3 col-md-6">
                     <div class="card">
                         <div class="card-body px-4 py-4-5">
                             <div class="row">
@@ -72,7 +91,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
 
         </div>

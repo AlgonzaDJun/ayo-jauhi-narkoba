@@ -1,7 +1,7 @@
 @extends('guru.layout')
 
 @section('judul')
-    Data Jawaban Instrumen Tes
+Data Jawaban LK - Self Confidence Bagian 2
 @endsection
 
 {{-- @dd($jawaban_emosi[0]->detailJawaban->soal1) --}}
@@ -16,19 +16,23 @@
                     <thead>
                         <tr>
                             <th>Nama Murid</th>
+                            {{-- tanggal --}}
                             <th>Tanggal submit</th>
-                            {{-- score, deskripsi score --}}
-                            <th>Score</th>
-                            <th>Deskripsi Score</th>
+                            <th>Apakah permasalahan yang kamu hadapi hari ini?</th>
+                            <th>Bagaimana permasalahan tersebut dapat terjadi?</th>
+                            <th>Bagaimana perasaanmu pada saat itu?</th>
+                            <th>Berdasarkan permasalahanmu tersebut, bagaimana kamu mencari solusinya?</th>
+
                         </tr>
                     </thead>
                     <tbody>
-                        @forelse ($jawaban_accurate_it as $item)
+                        @forelse ($data as $item)
                             <tr>
                                 <td>{{ $item->user->name }}</td>
                                 <td>{{ $item->created_at->format('d-M-Y (H:i)') }}</td>
-                                <td>{{ $item->score }}</td>
-                                <td>{{ $item->deskripsi }}</td>
+                                @for ($i = 1; $i <= 4; $i++)
+                                    <td>{{ $item->{'Soal_' . $i} }}</td>
+                                @endfor
                             </tr>
                         @empty
                             <tr>

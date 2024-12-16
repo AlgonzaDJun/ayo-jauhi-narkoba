@@ -10,7 +10,7 @@
 
 {{-- VIDEO CONTAINER --}}
 <div class="lg:aspect-w-16 lg:aspect-h-9">
-    <iframe src="https://www.youtube.com/embed/JsawJcfR6R0?si=ocDnfVpOnM1jfxRC" frameborder="0"
+    <iframe src="https://www.youtube.com/embed/P7mgNDPJJH4?si=th9oUoAPX3y4SKwL" frameborder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowfullscreen></iframe>
 </div>

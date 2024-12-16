@@ -7,7 +7,7 @@
             <form class="space-y-6" action="{{ route('self-confidence.self-confidence') }}" method="post" id="form-lk-self-confidence-3">
                 @csrf
                 @php
-                $urutan3 = 0;
+                    $urutan3 = 1;
                 @endphp
                 <ol class="space-y-5 list-decimal list-inside">
 
@@ -39,10 +39,10 @@
                                     class="w-full px-3 py-2  border rounded-lg  " placeholder="Silakan dijawab">@isset($lk['bagian_3']['jawaban_lk']){{ $lk['bagian_3']['jawaban_lk']['Soal_' . $urutan3] }}
                                     @endisset</textarea>
                             </li>
-                        @endisset
                         @php
                             $urutan3++;
                         @endphp
+                        @endisset
                     @endforeach
 
                 </ol>

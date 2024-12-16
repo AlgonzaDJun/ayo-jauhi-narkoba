@@ -31,6 +31,7 @@ use App\Http\Controllers\GuruController;
 use App\Http\Controllers\JurnalEmosi;
 use App\Http\Controllers\JurnalMindfulness;
 use App\Http\Controllers\SelfConfidence;
+use App\Http\Controllers\SelfConfidentGuru;
 use App\Models\Post; //tambahkan/ import model post yang akan digunakan
 
 /*
@@ -224,5 +225,6 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::resource('/ayo-jauhi-narkoba', AyoJauhiNarkobaGuru::class);
         Route::resource('/emotional-awareness', EmotionalAwarenessGuru::class);
         Route::resource('/accurate-self-assesment', AccurateSelfAssesmentGuru::class);
+        Route::resource('/self-confidence', SelfConfidentGuru::class);
     });
 });
