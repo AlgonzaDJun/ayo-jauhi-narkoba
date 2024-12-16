@@ -283,10 +283,10 @@ class AccurateSelfAssesment extends Controller
 
         // Foreach untuk menambahkan prefix ke key
         foreach ($filteredData as $key => $value) {
-            $mappedData['soal_' . ($key+1)] = $value; // Contoh: soal_1, soal_2, ...
+            $mappedData['soal_' . ($key + 1)] = $value; // Contoh: soal_1, soal_2, ...
         }
-        $mappedData ['user_id']=auth()->user()->id;
-        $mappedData ['score'] = $score;
+        $mappedData['user_id'] = auth()->user()->id;
+        $mappedData['score'] = $score;
         // dd($mappedData);
         AccurateSelfAssesmentIT::create($mappedData);
         // if score 60 - 80, if 40 - 59, if 20 - 39, if < 20
@@ -311,10 +311,10 @@ class AccurateSelfAssesment extends Controller
             'message' => $message
         ]);
     }
-    public function refleksiDiri(Request $request) 
-{
-    // dd($request->all());
-    AccurateSelfAssesmentRD::create($request->all()); 
-    return redirect()->back();
-}
+    public function refleksiDiri(Request $request)
+    {
+        // dd($request->all());
+        AccurateSelfAssesmentRD::create($request->all());
+        return redirect()->back();
+    }
 }

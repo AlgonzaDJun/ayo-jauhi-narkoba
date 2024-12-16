@@ -24,7 +24,7 @@
             <li class="flex space-x-2 mt-10 cursor-pointer active:text-[#EC5252] hover:text-[#EC5252] duration-150">
                 <img width="30" height="30" src="{{ asset('img/icons8-drugs-50.png') }}" alt="pills" />
                 <span class="font-semibold active:text-[#EC5252] "><a href="{{ route('ayo-jauhi-narkoba.index') }}">Ayo Jauhi
-                        Narkoba</a></span>
+                        Aku</a></span>
             </li>
             <li class="flex space-x-2 mt-10 cursor-pointer active:text-[#EC5252] hover:text-[#EC5252] duration-150">
                 <img width="30" height="30" src="{{ asset('img/icons8-self-62.png') }}" alt="pills" />

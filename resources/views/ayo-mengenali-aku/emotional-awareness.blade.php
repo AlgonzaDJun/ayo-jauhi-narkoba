@@ -7,15 +7,15 @@
             class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full block mb-3 md:mb-0">Jurnal
             Emosi</a>
 
-        {{-- button jurnal mindfullness --}}
+        {{-- button jurnal mindfulness --}}
         <a href="{{ route('jurnal-mindfulness.index') }}"
             class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full block mb-3 md:mb-0">Jurnal
-            Mindfullness</a>
+            Mindfulness</a>
 
         {{-- button lihat video mindfullneess --}}
         <button onclick="my_modal_1.showModal()"
             class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full block mb-3 md:mb-0">Lihat
-            Video Mindfullness</button>
+            Video Mindfulness</button>
     </div>
 
     <dialog id="my_modal_1" class="daisy-modal">

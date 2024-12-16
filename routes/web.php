@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AccurateSelfAssesment;
+use App\Http\Controllers\AccurateSelfAssesmentGuru;
 use App\Models\page;
 use App\Models\User;
 use App\Models\admin;
@@ -213,14 +214,15 @@ Route::middleware(['auth', 'verified'])->group(function () {
         '/jurnal-mindfulness' => JurnalMindfulness::class,
     ]);
 
-    Route::prefix('guru')->name('guru.')->group(function () {
-        Route::resource('', GuruController::class);
-        Route::resource('/ayo-jauhi-narkoba', AyoJauhiNarkobaGuru::class);
-        Route::resource('/emotional-awareness', EmotionalAwarenessGuru::class);
-    });
-
     Route::post('/accurate-self-assesment/tes-instrumen', [AccurateSelfAssesment::class, 'tesInstrumen'])->name('accurate-self-assesment.tes-instrumen');
     Route::post('/accurate-self-assesment/refleksi-diri', [AccurateSelfAssesment::class, 'refleksiDiri'])->name('accurate-self-assesment.refleksi-diri');
     Route::post('/self-confidence/penguatan-diri', [SelfConfidence::class, 'storelkpenguatandiri'])->name('self-confidence.penguatan-diri');
     Route::post('/self-confidence/self-confidence', [SelfConfidence::class, 'storelkselfconfidence'])->name('self-confidence.self-confidence');
+
+    Route::prefix('guru')->name('guru.')->group(function () {
+        Route::resource('', GuruController::class);
+        Route::resource('/ayo-jauhi-narkoba', AyoJauhiNarkobaGuru::class);
+        Route::resource('/emotional-awareness', EmotionalAwarenessGuru::class);
+        Route::resource('/accurate-self-assesment', AccurateSelfAssesmentGuru::class);
+    });
 });

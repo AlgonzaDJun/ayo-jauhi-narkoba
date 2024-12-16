@@ -107,7 +107,7 @@
 @push('custom-script')
     <script>
         $('#kosong-form-lk-pkd').on('click', function () {
-            $('#self_con_pkd').find('input').val('');
+            $('#self_con_pkd').find('input[type="text"]').val('');
         });
     </script>
 @endpush

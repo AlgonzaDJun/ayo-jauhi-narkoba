@@ -82,7 +82,7 @@
     {{-- make function to clear all input text inside form id accurate_refleksi_diri --}}
     <script>
         $('#kosong-form-acc-ref-diri').click(function() {
-            $('#accurate_refleksi_diri').find('input').val('');
+            $('#accurate_refleksi_diri').find('input[type="text"]').val('');
         });
     </script>
 @endpush

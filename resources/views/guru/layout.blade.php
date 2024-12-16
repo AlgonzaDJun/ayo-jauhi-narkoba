@@ -90,7 +90,7 @@
                         <li class="sidebar-item {{ Route::is('guru.ayo-jauhi-narkoba.*') ? 'active' : '' }} ">
                             <a href="{{ route('guru.ayo-jauhi-narkoba.index') }}" class='sidebar-link'>
                                 <i class="bi bi-file-earmark-medical-fill"></i>
-                                <span>Ayo Jauhi Narkoba</span>
+                                <span>Ayo Jauhi Aku</span>
                             </a>
                         </li>
 
@@ -119,7 +119,8 @@
                                         class="submenu-link">Jawaban Jurnal Emosi</a>
                                 </li>
 
-                                <li class="submenu-item  {{ Route::is('guru.emotional-awareness.show') ? 'active' : '' }}">
+                                <li
+                                    class="submenu-item  {{ Route::is('guru.emotional-awareness.show') ? 'active' : '' }}">
                                     <a href="{{ route('guru.emotional-awareness.show', ['emotional_awareness' => 'jur_mindful']) }}"
                                         class="submenu-link">Jawaban Jurnal Mindfulness</a>
                                 </li>
@@ -128,7 +129,8 @@
 
                         </li>
 
-                        <li class="sidebar-item  has-sub">
+                        <li
+                            class="sidebar-item has-sub {{ Route::is('guru.accurate-self-assesment.*') ? 'active' : '' }}">
                             <a href="#" class='sidebar-link'>
                                 <i class="bi bi-hexagon-fill"></i>
                                 <span>Accurate Self Assesment</span>
@@ -136,16 +138,21 @@
 
                             <ul class="submenu">
 
-                                <li class="submenu-item  ">
-                                    <a href="form-element-input.html" class="submenu-link">Jawaban Studi Kasus</a>
+                                <li
+                                    class="submenu-item  {{ Route::is('guru.accurate-self-assesment.index') ? 'active' : '' }}">
+                                    <a href="{{ route('guru.accurate-self-assesment.index') }}"
+                                        class="submenu-link">Jawaban Studi Kasus</a>
+                                </li>
+
+                                <li
+                                    class="submenu-item {{ Route::is('guru.accurate-self-assesment.create') ? 'active' : '' }} ">
+                                    <a href="{{ route('guru.accurate-self-assesment.create') }}"
+                                        class="submenu-link">Jawaban Instrumen Tes</a>
                                 </li>
 
                                 <li class="submenu-item  ">
-                                    <a href="#" class="submenu-link">Jawaban Instrumen Tes</a>
-                                </li>
-
-                                <li class="submenu-item  ">
-                                    <a href="" class="submenu-link">Jawaban Refleksi Diri</a>
+                                    <a href="{{ route('guru.accurate-self-assesment.show', ['accurate_self_assesment' => 'refleksi_diri']) }}"
+                                        class="submenu-link">Jawaban Refleksi Diri</a>
                                 </li>
 
                             </ul>
