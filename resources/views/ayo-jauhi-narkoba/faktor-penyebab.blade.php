@@ -1,5 +1,5 @@
 <h1 class="text-xl font-bold">Faktor Penyebab Penggunaan Narkoba </h1>
-<img src="{{ asset('img/photorealistic-pills-tablets-different-colors-with-text-stop-drugs.jpg') }}" class="mx-auto mt-10"
+<img src="{{ asset('img/Research paper-rafiki.png') }}" class=""
     width="400px" alt="">
 <div class="indent-8">
     <p class="text-base my-3">

@@ -1,14 +1,22 @@
 @extends('user.layout.layout')
 @section('content')
-    <div class="font-poppins font-Poppins">
-        <div class=" p-4 rounded-2xl lg:mx-auto md:mx-5 mt-5 ">
-            <div class="flex justify-between">
+    <div class="font-poppins font-Poppins relative z-10">
+        <div class=" p-4 rounded-2xl lg:mx-auto md:mx-5 mt-5 bg-transparent">
+            <div class="flex justify-between relative">
                 <h1 class="text-3xl font-bold mb-8 text-center text-gray-800">Daily Journal</h1>
 
                 {{-- add journal --}}
                 <a href="{{ route('jurnal-mindfulness.create') }}"
                     class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Add Journal</a>
 
+                <div class="hidden absolute inset-0 md:flex items-center justify-center -z-10 -top-44">
+                    <img src="{{ asset('img/Meditation-rafiki.png') }}" alt="" class=" h-72 object-contain">
+                </div>
+
+            </div>
+
+            <div class="md:hidden">
+                <img src="{{ asset('img/Meditation-rafiki.png') }}" alt="" class=" h-72 object-contain">
             </div>
 
             {{-- <!-- Journal Entries Table --> --}}

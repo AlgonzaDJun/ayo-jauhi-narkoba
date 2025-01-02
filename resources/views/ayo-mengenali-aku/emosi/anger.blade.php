@@ -1,6 +1,8 @@
 <div>
     @foreach ($emosis as $keyz => $emosi)
         @if ($emosi['nama_emosi'] == 'Amarah')
+            <img src="{{ asset('img/Feeling angry-rafiki.png') }}" alt="" class=" h-72 object-contain">
+
             <table class="table-auto overflow-auto w-full border-separate border-spacing-y-3 border-spacing-x-4">
                 <tbody class="">
                     <tr>
@@ -106,7 +108,7 @@
             // maka berikan warna merah
             // jika data dari database sama dengan jawaban benar
             // maka berikan warna hijau
-            
+
 
             axios.post("{{ route('ayo-mengenali-aku.store') }}", {
                     jawaban: jawaban,

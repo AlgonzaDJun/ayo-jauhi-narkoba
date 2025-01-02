@@ -1,6 +1,7 @@
 <div>
     @foreach ($emosis as $keyz => $emosi)
         @if ($emosi['nama_emosi'] == 'Cemburu')
+            <img src="{{ asset('img/Jealous-cuate.png') }}" alt="" class=" h-72 object-contain">
             <table class="table-auto overflow-auto w-full border-separate border-spacing-y-3 border-spacing-x-4">
                 <tbody class="">
                     <tr>

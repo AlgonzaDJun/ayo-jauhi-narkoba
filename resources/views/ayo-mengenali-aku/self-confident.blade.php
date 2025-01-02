@@ -1,6 +1,7 @@
 <div>
     <div class="space-y-4 rounded-lg " id="accurate" role="tabpanel" aria-labelledby="accurate-tab">
         <h1 class="text-2xl font-bold">Self Confident </h1>
+        <img src="{{ asset("img/Self confidence-pana.png") }}" alt="" class="md:w-1/2 h-72 object-contain">
         <p class="text-base">Self confidence atau kepercayaan diri merupakan kemampuan untuk
             percaya pada diri sendiri. Self confidence yang tinggi dapat
             meningkatkan kemampuan untuk membuat keputusan yang tepat,

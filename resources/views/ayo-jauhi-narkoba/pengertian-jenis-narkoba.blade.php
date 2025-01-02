@@ -1,4 +1,6 @@
 <h1 class=" text-xl mb-2 font-bold">Pengertian Narkoba </h1>
+
+<img src="{{ asset("img/Questions-amico.png") }}" alt="" class="md:w-1/2 h-72 object-contain">
 <p class="indent-8">
     Menurut Badan Narkotika Nasional Republik Indonesia atau BNN,
     Narkotika merujuk pada substansi atau obat, entah berasal dari alam,

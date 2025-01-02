@@ -34,6 +34,8 @@
 
     <h1 class="font-bold text-xl italic">Emotional Awareness / <span class="not-italic">Kesadaran Emosional</span> </h1>
 
+    <img src="{{ asset("img/Writer's block-rafiki.png") }}" alt="" class="md:w-1/2 h-72 object-contain">
+
 
     <p class="indent-8">Kesadaran emosional merupakan kemampuan untuk
         mengenali emosi pada diri sendiri dan pengaruhnya. Emosi

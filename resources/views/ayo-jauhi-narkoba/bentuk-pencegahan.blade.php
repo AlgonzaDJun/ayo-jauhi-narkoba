@@ -1,6 +1,6 @@
 <h1 class="text-xl font-bold">Bentuk Pencegahan Narkoba</h1>
 
-<img src="{{ asset('assets/img/3978729.jpg') }}" class="rounded w-full h-72 mx-auto object-contain my-4" alt="">
+<img src="{{ asset('img/Do not enter sign-pana.png') }}" class="rounded w-full h-72 mx-auto object-contain my-4" alt="">
 
 <div class="text-justify indent-8">
     <p>Bahaya narkoba sangat serius dan penyebarannya di lingkungan

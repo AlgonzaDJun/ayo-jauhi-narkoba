@@ -1,5 +1,5 @@
 <h1 class=" text-xl font-bold mb-3">Dampak Narkoba </h1>
-<img src="{{ asset('img/close-up-woman-s-hand-holding-blister-pack-with-medicines-wooden-desk.jpg') }}"
+<img src="{{ asset('img/undraw_result_d6p8.png') }}"
     class="float-left mr-4 mb-4" width="400px" height="400px" alt="">
 
 <div class="text-justify indent-8 pl-0">

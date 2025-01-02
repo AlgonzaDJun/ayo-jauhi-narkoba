@@ -1,6 +1,8 @@
 <div>
     <div class="space-y-4 rounded-lg " id="accurate" role="tabpanel" aria-labelledby="accurate-tab">
         <h1 class="text-2xl font-bold">Accurate Self Assesment </h1>
+
+        <img src="{{ asset("img/Credit assesment-rafiki.png") }}" alt="" class="md:w-1/2 h-72 object-contain">
         <p class="text-base   ">Penilaian diri yang akurat adalah kemampuan untuk memahami
             kelebihan dan kekurangan pada diri sendiri. Penilaian diri yang akurat
             mencakup mengenali bagaimana perilaku, tindakan, dan emosi diri
