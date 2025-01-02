@@ -21,6 +21,12 @@
                     <li class="mr-2" role="presentation">
                         <button
                             class="inline-block p-4 rounded-t-lg border-b-2 border-transparent hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 dark:border-transparent text-md text-gray-500 dark:text-gray-400 border-gray-100 dark:border-gray-700"
+                            id="stud-kas-tab" data-tabs-target="#stud-kas" type="button" role="tab"
+                            aria-controls="stud-kas" aria-selected="false">Studi Kasus</button>
+                    </li>
+                    <li class="mr-2" role="presentation">
+                        <button
+                            class="inline-block p-4 rounded-t-lg border-b-2 border-transparent hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 dark:border-transparent text-md text-gray-500 dark:text-gray-400 border-gray-100 dark:border-gray-700"
                             id="pengertian-jenis-tab" data-tabs-target="#pengertian-jenis" type="button" role="tab"
                             aria-controls="pengertian-jenis" aria-selected="false">Pengertian dan Jenis Narkoba</button>
                     </li>
@@ -49,6 +55,10 @@
                     @include('ayo-jauhi-narkoba.materi-narkoba')
                 </div>
 
+                <div class="text-justify hidden p-4 rounded-lg" id="stud-kas" role="tabpanel"
+                    aria-labelledby="stud-kas-tab">
+                    @include('ayo-jauhi-narkoba.studi-kasus')
+                </div>
 
                 <div class="text-justify hidden p-4 rounded-lg" id="pengertian-jenis" role="tabpanel"
                     aria-labelledby="pengertian-jenis-tab">
