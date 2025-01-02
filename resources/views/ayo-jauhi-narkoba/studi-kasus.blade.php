@@ -7,6 +7,12 @@
         {!! $revisi_materi['pertanyaan'] !!}
     </div>
 
+    @isset($jawaban_sk_narkoba)
+        <x-congratulations-card title="Selamat!" message="Kamu telah menyelesaikan modul:"
+            subtitle="Studi Kasus: Ayo Jauhi Narkoba" stars="5"
+            footer="Tetap Semangat dan Selalu Jauhi Narkoba!" />
+    @endisset
+    
     {{-- pertanyaan --}}
     <h1 class="font-semibold text-slate-800 text-xl mt-5">Jawablah Soal Berikut</h1>
 
@@ -33,7 +39,11 @@
                     {{ $loop->iteration }} . {!! $value !!}
                 </label>
                 <textarea id="{{ $key }}" name="{{ $key }}" rows="3"
-                    class="w-full px-3 py-2  border rounded-lg  " placeholder="Silakan dijawab"></textarea>
+                    class="w-full px-3 py-2  border rounded-lg  " placeholder="Silakan dijawab" required>
+@isset($jawaban_sk_narkoba)
+{{ $jawaban_sk_narkoba[$key] }}
+@endisset
+</textarea>
             </div>
         @endforeach
 
