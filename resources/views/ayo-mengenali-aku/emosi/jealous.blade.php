@@ -36,15 +36,14 @@
                         <th>Potensi Penggunaan Narkoba</th>
                         <td>{{ $emosi['potensi_penggunaan_narkoba'] }}</td>
                     </tr>
-                    <tr>
+                    {{-- <tr>
                         <th>Studi Kasus</th>
-                        {{-- {!! $html_data !!} --}}
                         <td class="indent-8">{!! $emosi['studi_kasus'] !!}</td>
-                    </tr>
+                    </tr> --}}
                 </tbody>
             </table>
 
-            <div class="my-4 -translate-x-8">
+            {{-- <div class="my-4 -translate-x-8">
                 <h1 class="font-semibold text-lg">Jawablah Soal Di bawah ini</h1>
 
                 @isset($emosi['jawaban_emosi'])
@@ -72,7 +71,7 @@
 
                     <button type="submit" class="bg-green-500 text-white p-2 rounded-lg">Submit</button>
                 </form>
-            </div>
+            </div> --}}
         @endif
     @endforeach
 

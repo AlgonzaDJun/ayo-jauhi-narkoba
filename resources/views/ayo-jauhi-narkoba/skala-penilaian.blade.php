@@ -67,7 +67,7 @@
     @endphp
 
     @isset($revisi_materi['jawaban_instrumen'])
-        <x-congratulations-card title="Selamat!" message="Kamu telah menyelesaikan modul:"
+        <x-congratulations-card title="Selamat!" message="Kamu telah menyelesaikan:"
             subtitle="Penilaian Capaian Pembelajaran : Ayo Jauhi Narkoba dengan nilai {{ $revisi_materi['jawaban_instrumen']['score'] }}" stars="{{ $stars }}"
             footer="{{ $revisi_materi['jawaban_instrumen']['message'] }}" />
     @endisset

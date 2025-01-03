@@ -37,18 +37,15 @@
                         <th>Potensi Penggunaan Narkoba</th>
                         <td>{{ $emosi['potensi_penggunaan_narkoba'] }}</td>
                     </tr>
-                    <tr>
+                    {{-- <tr>
                         <th>Studi Kasus</th>
-                        {{-- {!! $html_data !!} --}}
                         <td class="indent-8">{!! $emosi['studi_kasus'] !!}</td>
-                    </tr>
+                    </tr> --}}
                 </tbody>
             </table>
 
-            <div class="my-4 -translate-x-8">
+            {{-- <div class="my-4 -translate-x-8">
                 <h1 class="font-semibold text-lg">Jawablah Soal Di bawah ini</h1>
-
-                {{-- @dd($emosi['jawaban_emosi']->detailJawaban) --}}
 
                 @isset($emosi['jawaban_emosi'])
                     <p class="text-red-500 text-3xl font-semibold my-5">
@@ -67,8 +64,6 @@
                                     {{ isset($emosi['jawaban_emosi']) && $emosi['jawaban_emosi']['soal' . $key] == $key2 ? 'checked' : '' }}
                                     {{ isset($show_jawaban) && $soal['jawaban_user'] == $key2 ? 'checked' : '' }}>
 
-                                {{-- key : {{ $key }}
-                                key2 : {{ $key2 }} --}}
                                 <label for="{{ $key . '_' . $key2 . '_anger' }}" class="ml-2">
                                     {{ $key2 }}. {{ $pilihan }}
                                 </label>
@@ -78,7 +73,7 @@
 
                     <button type="submit" class="bg-green-500 text-white p-2 rounded-lg">Submit</button>
                 </form>
-            </div>
+            </div> --}}
         @endif
     @endforeach
 

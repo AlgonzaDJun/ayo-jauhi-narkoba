@@ -1,6 +1,7 @@
 <div>
     @foreach ($emosis as $keyz => $emosi)
         @if ($emosi['nama_emosi'] == 'Menjijikkan')
+            <img src="{{ asset('img/rb_83524.png') }}" alt="" class=" h-72 object-contain">
             <table class="table-auto overflow-auto w-full border-separate border-spacing-y-3 border-spacing-x-4">
                 <tbody class="">
                     <tr>
@@ -31,11 +32,10 @@
                         <th>Potensi Penggunaan Narkoba</th>
                         <td>{{ $emosi['potensi_penggunaan_narkoba'] }}</td>
                     </tr>
-                    <tr>
+                    {{-- <tr>
                         <th>Studi Kasus</th>
-                        {{-- {!! $html_data !!} --}}
                         <td class="indent-8">{!! $emosi['studi_kasus'] !!}</td>
-                    </tr>
+                    </tr> --}}
                 </tbody>
             </table>
 
@@ -48,7 +48,7 @@
                     </p>
                 @endisset
 
-                <form action="{{ route('ayo-mengenali-aku.index') }}" class="space-y-5" id="form-disgust">
+                {{-- <form action="{{ route('ayo-mengenali-aku.index') }}" class="space-y-5" id="form-disgust">
                     @foreach ($emosi['pertanyaan'] as $key => $soal)
                         <p class="text-base  text-gray-500 mt-5">{{ $loop->iteration }}. {{ $soal['pertanyaan'] }}</p>
 
@@ -66,7 +66,7 @@
                     @endforeach
 
                     <button type="submit" class="bg-green-500 text-white p-2 rounded-lg">Submit</button>
-                </form>
+                </form> --}}
             </div>
         @endif
     @endforeach

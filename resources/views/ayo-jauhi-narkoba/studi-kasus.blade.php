@@ -8,11 +8,10 @@
     </div>
 
     @isset($jawaban_sk_narkoba)
-        <x-congratulations-card title="Selamat!" message="Kamu telah menyelesaikan modul:"
-            subtitle="Studi Kasus: Ayo Jauhi Narkoba" stars="5"
-            footer="Tetap Semangat dan Selalu Jauhi Narkoba!" />
+        <x-congratulations-card title="Selamat!" message="Kamu telah menyelesaikan:" subtitle="Studi Kasus: Ayo Jauhi Narkoba"
+            stars="5" footer="Tetap Semangat dan Selalu Jauhi Narkoba!" />
     @endisset
-    
+
     {{-- pertanyaan --}}
     <h1 class="font-semibold text-slate-800 text-xl mt-5">Jawablah Soal Berikut</h1>
 
