@@ -1,4 +1,4 @@
-<div class=" flex items-center justify-center p-4">
+<div class=" flex items-center justify-center">
     <div class="bg-gradient-to-br from-teal-400 to-blue-500 rounded-lg shadow-lg p-8 max-w-md w-full text-center relative overflow-hidden">
         <div class="absolute top-0 left-0 w-full h-full opacity-10">
             <svg class="absolute top-0 left-0 w-16 h-16 text-white" fill="currentColor" viewBox="0 0 20 20">
