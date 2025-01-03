@@ -26,6 +26,7 @@ use App\Http\Controllers\AyoJauhiNarkoba;
 use App\Http\Controllers\AyoJauhiNarkobaGuru;
 use App\Http\Controllers\AyoMengenaliAku;
 use App\Http\Controllers\DashboardPostController;
+use App\Http\Controllers\EmotionalAwareness;
 use App\Http\Controllers\EmotionalAwarenessGuru;
 use App\Http\Controllers\GuruController;
 use App\Http\Controllers\JurnalEmosi;
@@ -213,6 +214,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
         '/self-confidence' => SelfConfidence::class,
         '/jurnal-emosi' => JurnalEmosi::class,
         '/jurnal-mindfulness' => JurnalMindfulness::class,
+        '/emotional-awareness' => EmotionalAwareness::class,
     ]);
 
     Route::post('/accurate-self-assesment/tes-instrumen', [AccurateSelfAssesment::class, 'tesInstrumen'])->name('accurate-self-assesment.tes-instrumen');

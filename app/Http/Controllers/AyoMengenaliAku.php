@@ -1426,6 +1426,8 @@ class AyoMengenaliAku extends Controller
             $guilty,
             $fear
         ];
+
+        
         return view('ayo-mengenali-aku.index', compact('emosis', 'acc_self_as', 'self_conf', 'jawaban_self_confidence_pkd'));
     }
 

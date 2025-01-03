@@ -1,6 +1,6 @@
 <div class="text-justify space-y-4">
 
-    <div class="md:flex items-center justify-between mb-5">
+    <div class="md:flex items-center justify-between mb-5 space-y-2 md:space-y-0">
 
         {{-- button jurnal emosi --}}
         <a href="{{ route('jurnal-emosi.index') }}"
@@ -16,6 +16,11 @@
         <button onclick="my_modal_1.showModal()"
             class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full block mb-3 md:mb-0">Lihat
             Video Mindfulness</button>
+
+        {{-- Studi Kasus Emotional Awareness --}}
+        <a href="{{ route('emotional-awareness.index') }}"
+            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full block mb-3 md:mb-0">Studi
+            Kasus</a>
     </div>
 
     <dialog id="my_modal_1" class="daisy-modal">
@@ -102,12 +107,19 @@
                 id="guilt-tab" data-tabs-target="#guilt" type="button" role="tab" aria-controls="guilt"
                 aria-selected="false">Rasa Bersalah</button>
         </li>
-        <li role="presentation">
+        <li class="mr-2" role="presentation">
             <button
                 class="inline-block p-4 rounded-t-lg border-b-2 border-transparent hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 dark:border-transparent text-md text-gray-500 dark:text-gray-400 border-gray-100 dark:border-gray-700"
                 id="fear-tab" data-tabs-target="#fear" type="button" role="tab" aria-controls="fear"
                 aria-selected="false">Takut</button>
         </li>
+
+        {{-- <li role="presentation">
+            <button
+                class="inline-block p-4 rounded-t-lg border-b-2 border-transparent hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 dark:border-transparent text-md text-gray-500 dark:text-gray-400 border-gray-100 dark:border-gray-700"
+                id="stud-kas-emosi-tab" data-tabs-target="#stud-kas-emosi" type="button" role="tab" aria-controls="stud-kas-emosi"
+                aria-selected="false">Studi Kasus</button>
+        </li> --}}
 
 
     </div>
@@ -153,5 +165,9 @@
         <div class="hidden p-4 rounded-lg" id="fear" role="tabpanel" aria-labelledby="fear-tab">
             @include('ayo-mengenali-aku.emosi.fear')
         </div>
+
+        {{-- <div class="hidden p-4 rounded-lg" id="stud-kas-emosi" role="tabpanel" aria-labelledby="stud-kas-emosi-tab">
+            studi
+        </div> --}}
     </div>
 </div>
