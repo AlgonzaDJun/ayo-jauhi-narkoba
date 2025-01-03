@@ -12,6 +12,9 @@ module.exports = {
                 Poppins: ["Poppins", "sans-serif"],
                 Inter: ["Inter", "sans-serif"],
             },
+            colors: {
+                primary: "#44B564",
+            },
         },
     },
     daisyui: {

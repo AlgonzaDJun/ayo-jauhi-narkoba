@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\JauhiNarkobaSP;
 use App\Models\JawabanMateriNarkoba;
 use Illuminate\Http\Request;
 
@@ -11,6 +12,7 @@ class AyoJauhiNarkoba extends Controller
     public function index()
     {
         $jawaban_sk_narkoba = JawabanMateriNarkoba::where('user_id', auth()->user()->id)->latest()->first();
+        $jawaban_instrumen = JauhiNarkobaSP::where('user_id', auth()->user()->id)->latest()->first();
 
         // dd($jawaban_user);
 
@@ -22,7 +24,15 @@ class AyoJauhiNarkoba extends Controller
                 'soal_3' => 'Bagaimana penggunaan narkoba dapat mempengaruhi kehidupan seseorang, baik secara pribadi maupun dalam konteks masyarakat? Jelaskan dampaknya!',
                 'soal_4' => 'Apa yang bisa kamu lakukan untuk meningkatkan kesadaran diri terkait bahaya narkoba dalam kehidupan sehari-hari?',
                 'soal_5' => 'Bagaimana cara kamu menyampaikan informasi tentang bahaya narkoba dengan jelas dan tepat kepada teman-temanmu?'
-            ]
+            ],
+            'skala_penilaian' => [
+                '1' => 'Saya dapat menyebutkan langkahlangkah untuk mencegah narkoba dalam kehidupan sehari-hari',
+                '2' => 'Saya dapat menganalisis faktor penyebab dan dampak penggunaan narkoba pada individu',
+                '3' => 'Saya menunjukkan sikap menghargai pentingnya kesadaran diri dalam mencegah narkoba',
+                '4' => 'Saya dapat menyampaikan informasi tentang bahaya narkoba secara jelas dan tepat',
+                '5' => 'Saya dapat membuat kegiatan untuk mengedukasi teman sebaya tentang bahaya narkoba'
+            ],
+            'jawaban_instrumen' => $jawaban_instrumen
         ];
         $soal_jawaban = [
             'soal_1' => [
@@ -572,5 +582,53 @@ class AyoJauhiNarkoba extends Controller
         // dd($soal_jawaban);
 
         return redirect()->back();
+    }
+
+    public function update(Request $request, $id)
+    {
+        // skala penilaian
+        // dd('tes instrumen');
+        //  dd($request->all());
+        // dd($request->data);
+        $score = array_sum(array_map('intval', $request->data)) * 5;
+        $message = "";
+
+        // Ambil semua request data
+        $data = $request->data;
+
+        // Potong array dari key 1
+        $filteredData = array_slice($data, 1);
+        // dd($filteredData);
+        // Inisialisasi array baru untuk menyimpan data dengan key yang dimodifikasi
+        $mappedData = [];
+
+        // Foreach untuk menambahkan prefix ke key
+        foreach ($filteredData as $key => $value) {
+            $mappedData['soal_' . ($key + 1)] = $value; // Contoh: soal_1, soal_2, ...
+        }
+        $mappedData['user_id'] = auth()->user()->id;
+        $mappedData['score'] = $score;
+
+        if ($score < 60) {
+            $message = "Capaian Pembelajaran anda : sangat kurang. Anda perlu belajar lebih giat lagi";
+        } elseif ($score >= 60 && $score <= 70) {
+            $message = "Capaian Pembelajaran anda : Kurang. Anda masih kurang baik, dan masih perlu belajar lebih giat lagi";
+        } elseif ($score >= 71 && $score <= 80) {
+            $message = "Capaian Pembelajaran anda : Cukup. Anda sudah cukup baik, tetapi masih perlu belajar lebih giat lagi";
+        } elseif ($score >= 81 && $score <= 90) {
+            $message = "Capaian Pembelajaran anda : Baik. Anda sudah  baik, tetapi masih perlu belajar lebih giat lagi";
+        } elseif ($score >= 91 && $score <= 100) {
+            $message = "Anda sudah sangat baik dalam memahami pembelajaran ini.";
+        }
+
+        $mappedData['message'] = $message;
+
+        // dd($mappedData);
+        JauhiNarkobaSP::create($mappedData);
+
+        return response()->json([
+            'score' => $score,
+            'message' => $message
+        ]);
     }
 }

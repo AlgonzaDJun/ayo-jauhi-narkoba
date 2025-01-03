@@ -27,6 +27,12 @@
                     <li class="mr-2" role="presentation">
                         <button
                             class="inline-block p-4 rounded-t-lg border-b-2 border-transparent hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 dark:border-transparent text-md text-gray-500 dark:text-gray-400 border-gray-100 dark:border-gray-700"
+                            id="cap-belajar-tab" data-tabs-target="#cap-belajar" type="button" role="tab"
+                            aria-controls="cap-belajar" aria-selected="false">Penilaian Capaian Pembelajaran</button>
+                    </li>
+                    <li class="mr-2" role="presentation">
+                        <button
+                            class="inline-block p-4 rounded-t-lg border-b-2 border-transparent hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 dark:border-transparent text-md text-gray-500 dark:text-gray-400 border-gray-100 dark:border-gray-700"
                             id="pengertian-jenis-tab" data-tabs-target="#pengertian-jenis" type="button" role="tab"
                             aria-controls="pengertian-jenis" aria-selected="false">Pengertian dan Jenis Narkoba</button>
                     </li>
@@ -55,26 +61,31 @@
                     @include('ayo-jauhi-narkoba.materi-narkoba')
                 </div>
 
-                <div class="text-justify hidden p-4 rounded-lg" id="stud-kas" role="tabpanel"
+                <div class="text-justify hidden md:p-4 rounded-lg" id="stud-kas" role="tabpanel"
                     aria-labelledby="stud-kas-tab">
                     @include('ayo-jauhi-narkoba.studi-kasus')
                 </div>
 
-                <div class="text-justify hidden p-4 rounded-lg" id="pengertian-jenis" role="tabpanel"
+                <div class="text-justify hidden md:p-4 rounded-lg" id="cap-belajar" role="tabpanel"
+                    aria-labelledby="cap-belajar-tab">
+                    @include('ayo-jauhi-narkoba.skala-penilaian')
+                </div>
+
+                <div class="text-justify hidden md:p-4 rounded-lg" id="pengertian-jenis" role="tabpanel"
                     aria-labelledby="pengertian-jenis-tab">
                     @include('ayo-jauhi-narkoba.pengertian-jenis-narkoba')
                 </div>
 
 
-                <div class="hidden p-4  rounded-lg " id="faktor" role="tabpanel" aria-labelledby="faktor-tab">
+                <div class="hidden md:p-4  rounded-lg " id="faktor" role="tabpanel" aria-labelledby="faktor-tab">
                     @include('ayo-jauhi-narkoba.faktor-penyebab')
                 </div>
 
-                <div class="hidden p-4  rounded-lg " id="dampak" role="tabpanel" aria-labelledby="dampak-tab">
+                <div class="hidden md:p-4  rounded-lg " id="dampak" role="tabpanel" aria-labelledby="dampak-tab">
                     @include('ayo-jauhi-narkoba.dampak-narkoba')
                 </div>
 
-                <div class="p-4 rounded-lg" id="pencegahan" role="tabpanel" aria-labelledby="pencegahan-tab">
+                <div class="md:p-4 rounded-lg" id="pencegahan" role="tabpanel" aria-labelledby="pencegahan-tab">
                     @include('ayo-jauhi-narkoba.bentuk-pencegahan')
                 </div>
 
