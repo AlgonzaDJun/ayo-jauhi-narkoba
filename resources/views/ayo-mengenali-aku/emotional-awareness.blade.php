@@ -168,7 +168,7 @@
                     class="daisy-btn daisy-btn-sm daisy-btn-circle daisy-btn-ghost daisy-absolute daisy-right-2 daisy-top-2">✕</button>
             </form>
             <div class="">
-                <iframe src="https://www.youtube.com/embed/rZ37na3Tvjo?si=ZBxQfgMztIsjfvYJ" class="min-w-full h-96"
+                <iframe src="https://www.youtube.com/embed/pAMOFEEWd5Q?si=r_Xn-vY9RYWEu8xn" class="min-w-full h-96"
                     frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowfullscreen></iframe>
