@@ -17,18 +17,18 @@
                         id="tanggal" type="date" required>
                 </div>
 
-                <div class="mb-4">
+                {{-- <div class="mb-4">
                     <label class="block text-gray-700 text-sm font-bold mb-2" for="kejadian">
-                        1. Kejadian Hari Ini: Apa yang Anda alami hari ini?
+                        1. Kejadian Hari Ini: Apa yang kamu alami hari ini?
                     </label>
                     <textarea name="kejadian_hari_ini"
                         class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                         id="kejadian" rows="3" required></textarea>
-                </div>
+                </div> --}}
 
                 <div class="mb-4">
                     <label class="block text-gray-700 text-sm font-bold mb-2">
-                        2. Emosi yang Dirasakan: Emosi apa yang Anda rasakan hari ini? (Pilih emosi yang paling dominan)
+                        1. Emosi yang Dirasakan: Emosi apa yang kamu rasakan hari ini? (Pilih emosi yang paling dominan)
                     </label>
                     <div class="grid grid-cols-2 gap-2">
                         <label class="inline-flex items-center">
@@ -77,7 +77,7 @@
 
                 <div class="mb-4">
                     <label class="block text-gray-700 text-sm font-bold mb-2" for="intensitas">
-                        3. Intensitas Emosi: Nilai intensitas emosi yang Anda rasakan pada skala 1-10 (1 = sangat
+                        2. Intensitas Emosi: Dari Skala 1-10 berapa intensitas emosi yang kamu rasakan? (1 = sangat
                         rendah, 10 = sangat tinggi)
                     </label>
                     <select name="intensitas_emosi"
@@ -99,7 +99,7 @@
 
                 <div class="mb-4">
                     <label class="block text-gray-700 text-sm font-bold mb-2" for="penyebab">
-                        4. Penyebab Emosi: Menurut Anda, apa yang memicu emosi yang Anda rasakan?
+                        3. Apa penyebab dari emosi yang kamu rasakan?
                     </label>
                     <textarea name="penyebab_emosi"
                         class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -107,37 +107,35 @@
                 </div>
 
                 <div class="mb-4">
-                    <label class="block text-gray-700 text-sm font-bold mb-2" for="respon">
-                        5. Respon terhadap Emosi: Bagaimana Anda merespon emosi tersebut? <br> (misalnya:
-                        berbicara dengan seseorang, menulis di jurnal, berolahraga,
-                        menangis, dan lain-lain)
-                    </label>
-                    <textarea name="respon_terhadap_emosi"
-                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                        id="respon" rows="3" required></textarea>
-                </div>
-
-                <div class="mb-4">
-                    <label class="block text-gray-700 text-sm font-bold mb-2" for="pengaruh-perilaku">
-                        6. Pengaruh Emosi: Bagaimana emosi ini mempengaruhi perilaku dan pikiran Anda sepanjang hari?
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="pengaruh">
+                        4. Apakah emosi tersebut mempengaruhi perilaku dan pikiranmu terhadap diri sendiri maupun orang lain?
                     </label>
                     <textarea name="pengaruh_emosi"
                         class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                        id="pengaruh-perilaku" rows="3" required></textarea>
+                        id="pengaruh" rows="3" required></textarea>
                 </div>
 
                 <div class="mb-4">
-                    <label class="block text-gray-700 text-sm font-bold mb-2" for="pengaruh-keputusan">
-                        Bagaimana perasaan Anda mempengaruhi keputusan yang Anda buat?
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="dilakukan_saat_emosi">
+                        5. Apa yang kamu lakukan pada saat emosi tersebut muncul?
                     </label>
-                    <textarea name="perasaan_anda_mempengaruhi_keputusan"
+                    <textarea name="lakukan_saat_emosi_muncul"
                         class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                        id="pengaruh-keputusan" rows="3" required></textarea>
+                        id="dilakukan_saat_emosi" rows="3" required></textarea>
                 </div>
 
                 <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="mengatasi_emosi">
+                        6. Bagaimana cara kamu mengatasi emosi tersebut?
+                    </label>
+                    <textarea name="cara_kamu_mengatasi_emosi"
+                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        id="mengatasi_emosi" rows="3" required></textarea>
+                </div>
+
+                {{-- <div class="mb-4">
                     <label class="block text-gray-700 text-sm font-bold mb-2" for="pengaruh-narkoba">
-                        Bagaimana perasaan atau emosi negatif dapat memicu keinginan Anda untuk menggunakan narkoba?
+                        Bagaimana perasaan atau emosi negatif dapat memicu keinginan kamu untuk menggunakan narkoba?
                     </label>
                     <textarea name="emosi_negatif_dapat_memicu_keinginan_menggunakan_narkoba"
                         class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -146,16 +144,16 @@
 
                 <div class="mb-4">
                     <label class="block text-gray-700 text-sm font-bold mb-2" for="pengaruh-positif">
-                        Bagaimana perasaan positif dapat membantu Anda menghindari narkoba?
+                        Bagaimana perasaan positif dapat membantu kamu menghindari narkoba?
                     </label>
-                    <textarea name="perasaan_positif_dapat_membantu_anda_menghindari_narkoba"
+                    <textarea name="perasaan_positif_dapat_membantu_kamu_menghindari_narkoba"
                         class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                         id="pengaruh-positif" rows="3" required></textarea>
                 </div>
 
                 <div class="mb-4">
                     <label class="block text-gray-700 text-sm font-bold mb-2" for="strategi">
-                        7. Strategi Pengelolaan Emosi: Bagaimana Anda mengelola emosi ini?
+                        7. Strategi Pengelolaan Emosi: Bagaimana kamu mengelola emosi ini?
                     </label>
                     <textarea name="strategi_pengelolaan_emosi"
                         class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -164,50 +162,49 @@
 
                 <div class="mb-4">
                     <label class="block text-gray-700 text-sm font-bold mb-2" for="efektivitas">
-                        Apakah metode Anda efektif?
+                        Apakah metode kamu efektif?
                     </label>
-                    <textarea name="apakah_metode_anda_efektif"
+                    <textarea name="apakah_metode_kamu_efektif"
                         class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                         id="efektivitas" rows="3" required></textarea>
                 </div>
 
                 <div class="mb-4">
                     <label class="block text-gray-700 text-sm font-bold mb-2" for="pembelajaran">
-                        8. Refleksi Diri: Apa yang dapat Anda pelajari dari emosi Anda hari ini?
+                        8. Refleksi Diri: Apa yang dapat kamu pelajari dari emosi kamu hari ini?
                     </label>
-                    <textarea name="apa_yang_dapat_anda_pelajari_dari_emosi_anda_hari_ini"
+                    <textarea name="apa_yang_dapat_kamu_pelajari_dari_emosi_kamu_hari_ini"
                         class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                         id="pembelajaran" rows="3" required></textarea>
                 </div>
 
                 <div class="mb-4">
                     <label class="block text-gray-700 text-sm font-bold mb-2" for="emosi-orang-lain">
-                        Bagaimana Anda dapat mengetahui emosi yang dirasakan orang lain?
+                        Bagaimana kamu dapat mengetahui emosi yang dirasakan orang lain?
                     </label>
-                    <textarea name="bagaimana_anda_dapat_mengetahui_emosi_yang_dirasakan_orang_lain"
+                    <textarea name="bagaimana_kamu_dapat_mengetahui_emosi_yang_dirasakan_orang_lain"
                         class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                         id="emosi-orang-lain" rows="3" required></textarea>
                 </div>
 
                 <div class="mb-4">
                     <label class="block text-gray-700 text-sm font-bold mb-2" for="reaksi-emosi-orang-lain">
-                        Bagaimana Anda bereaksi ketika mengetahui emosi orang lain?
+                        Bagaimana kamu bereaksi ketika mengetahui emosi orang lain?
                     </label>
-                    <textarea name="bagaimana_anda_bereaksi_ketika_mengetahui_emosi_orang_lain"
+                    <textarea name="bagaimana_kamu_bereaksi_ketika_mengetahui_emosi_orang_lain"
                         class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                         id="reaksi-emosi-orang-lain" rows="3" required></textarea>
                 </div>
 
                 <div class="mb-6">
                     <label class="block text-gray-700 text-sm font-bold mb-2" for="pengaruh-emosi-orang-lain">
-                        Apakah emosi orang lain mempengaruhi perasaan Anda?
+                        Apakah emosi orang lain mempengaruhi perasaan kamu?
                     </label>
-                    <textarea name="apakah_emosi_orang_lain_mempengaruhi_perasaan_anda"
+                    <textarea name="apakah_emosi_orang_lain_mempengaruhi_perasaan_kamu"
                         class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                         id="pengaruh-emosi-orang-lain" rows="3" required></textarea>
                 </div>
 
-                {{-- Bagaimana caramu mengelola perasaan tersebut? --}}
                 <div class="mb-4">
                     <label class="block text-gray-700 text-sm font-bold mb-2" for="pengelolaan-emosi-orang-lain">
                         Bagaimana caramu mengelola perasaan tersebut?
@@ -215,7 +212,7 @@
                     <textarea name="bagaimana_caramu_mengelola_perasaan_tersebut"
                         class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                         id="pengelolaan-emosi-orang-lain" rows="3" required></textarea>
-                </div>
+                </div> --}}
 
                 <input type="hidden" name="user_id" value="{{Auth::user()->id}}">
                 <div class="flex items-center justify-center">

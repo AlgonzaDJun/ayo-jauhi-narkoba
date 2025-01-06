@@ -1,5 +1,7 @@
 @extends('user.layout.layout')
 
+{{-- @dd($jurnal) --}}
+
 @section('content')
     <div class="md:flex font-poppins font-Poppins relative z-10">
         <div class="space-y-8 p-3 bg-transparent">
@@ -25,13 +27,26 @@
                 <table class="">
                     <thead>
                         <tr class="bg-gray-200 text-gray-700">
-                            <th class="py-3 px-4 text-left">Date</th>
-                            {{-- hari, kejadian, emosi, penyebab, respon, pengaruh, aksi (detail, hapus) --}}
+                            <th class="py-3 px-4 text-left">Tanggal</th>
+
+                            {{-- "emosi_yang_dirasakan" => "Marah"
+  "intensitas_emosi" => "2"
+  "penyebab_emosi" => "lorem"
+  "pengaruh_emosi" => "ipsum"
+  "lakukan_saat_emosi_muncul" => "doler"
+  "cara_kamu_mengatasi_emosi" => "sit amet" --}}
+                            <th class="py-3 px-4 text-left">Emosi</th>
+                            <th class="py-3 px-4 text-left">Intensitas</th>
+                            <th class="py-3 px-4 text-left">Penyebab</th>
+                            <th class="py-3 px-4 text-left">Pengaruh</th>
+                            <th class="py-3 px-4 text-left">Yg diLakukan Saat Emosi Muncul</th>
+                            <th class="py-3 px-4 text-left">Cara Mengatasi Emosi</th>
+                            {{-- <th class="py-3 px-4 text-left">Aksi</th>
                             <th class="py-3 px-4 text-left">kejadian</th>
                             <th class="py-3 px-4 text-left">Emosi</th>
                             <th class="py-3 px-4 text-left">Penyebab</th>
                             <th class="py-3 px-4 text-left">Respon</th>
-                            <th class="py-3 px-4 text-left">Pengaruh</th>
+                            <th class="py-3 px-4 text-left">Pengaruh</th> --}}
                             <th class="py-3 px-4 text-left">Aksi</th>
 
                         </tr>
@@ -43,20 +58,24 @@
                                     {{ \Carbon\Carbon::parse($item->tanggal)->format('d M Y') }}
                                 </td>
                                 <td class="py-3 px-4 ">
-                                    {{ limitWords($item->kejadian_hari_ini) }}
+                                    {{ limitWords($item->emosi_yang_dirasakan) }}
                                 </td>
                                 <td class="py-3 px-4 ">
-                                    {{ limitWords($item->emosi_yang_dirasakan) }}
+                                    {{ $item->intensitas_emosi }}
                                 </td>
                                 <td class="py-3 px-4 ">
                                     {{ limitWords($item->penyebab_emosi) }}
                                 </td>
                                 <td class="py-3 px-4 ">
-                                    {{ limitWords($item->respon_terhadap_emosi) }}
-                                </td>
-                                <td class="py-3 px-4 ">
                                     {{ limitWords($item->pengaruh_emosi) }}
                                 </td>
+                                <td class="py-3 px-4 ">
+                                    {{ limitWords($item->lakukan_saat_emosi_muncul) }}
+                                </td>
+                                <td class="py-3 px-4 ">
+                                    {{ limitWords($item->cara_kamu_mengatasi_emosi) }}
+                                </td>
+                                
                                 <td class="py-3 px-4 ">
                                     <a href="{{ route('jurnal-emosi.show', $item->id) }}"
                                         class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded block mb-2">Detail</a>

@@ -19,18 +19,18 @@
                             id="tanggal" type="date" required>
                     </div>
 
-                    <div class="mb-4">
+                    {{-- <div class="mb-4">
                         <label class="block text-gray-700 text-sm font-bold mb-2" for="kejadian">
-                            1. Kejadian Hari Ini: Apa yang Anda alami hari ini?
+                            1. Kejadian Hari Ini: Apa yang kamu alami hari ini?
                         </label>
                         <textarea name="kejadian_hari_ini" readonly
                             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                             id="kejadian" rows="3" required>{{ $jurnal->kejadian_hari_ini }}</textarea>
-                    </div>
+                    </div> --}}
 
                     <div class="mb-4">
                         <label class="block text-gray-700 text-sm font-bold mb-2">
-                            2. Emosi yang Dirasakan: Emosi apa yang Anda rasakan hari ini? (Pilih emosi yang paling dominan)
+                            2. Emosi yang Dirasakan: Emosi apa yang kamu rasakan hari ini? (Pilih emosi yang paling dominan)
                         </label>
                         <div class="grid grid-cols-2 gap-2">
                             <label class="inline-flex items-center">
@@ -89,7 +89,7 @@
 
                     <div class="mb-4">
                         <label class="block text-gray-700 text-sm font-bold mb-2" for="intensitas">
-                            3. Intensitas Emosi: Nilai intensitas emosi yang Anda rasakan pada skala 1-10 (1 = sangat
+                            3. Intensitas Emosi: Nilai intensitas emosi yang kamu rasakan pada skala 1-10 (1 = sangat
                             rendah, 10 = sangat tinggi)
                         </label>
                         <select name="intensitas_emosi" readonly
@@ -111,122 +111,39 @@
 
                     <div class="mb-4">
                         <label class="block text-gray-700 text-sm font-bold mb-2" for="penyebab">
-                            4. Penyebab Emosi: Menurut Anda, apa yang memicu emosi yang Anda rasakan?
+                            3. Apa penyebab dari emosi yang kamu rasakan?
                         </label>
-                        <textarea name="penyebab_emosi" readonly
+                        <textarea name="penyebab_emosi"
                             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                             id="penyebab" rows="3" required>{{ $jurnal->penyebab_emosi }}</textarea>
                     </div>
 
                     <div class="mb-4">
-                        <label class="block text-gray-700 text-sm font-bold mb-2" for="respon">
-                            5. Respon terhadap Emosi: Bagaimana Anda merespon emosi tersebut? <br> (misalnya:
-                            berbicara dengan seseorang, menulis di jurnal, berolahraga,
-                            menangis, dan lain-lain)
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="pengaruh">
+                            4. Apakah emosi tersebut mempengaruhi perilaku dan pikiranmu terhadap diri sendiri maupun orang
+                            lain?
                         </label>
-                        <textarea name="respon_terhadap_emosi" readonly
+                        <textarea name="pengaruh_emosi"
                             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                            id="respon" rows="3" required>{{ $jurnal->respon_terhadap_emosi }}</textarea>
+                            id="pengaruh" rows="3" required>{{ $jurnal->pengaruh_emosi }}</textarea>
                     </div>
 
                     <div class="mb-4">
-                        <label class="block text-gray-700 text-sm font-bold mb-2" for="pengaruh-perilaku">
-                            6. Pengaruh Emosi: Bagaimana emosi ini mempengaruhi perilaku dan pikiran Anda sepanjang hari?
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="dilakukan_saat_emosi">
+                            5. Apa yang kamu lakukan pada saat emosi tersebut muncul?
                         </label>
-                        <textarea name="pengaruh_emosi" readonly
+                        <textarea name="lakukan_saat_emosi_muncul"
                             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                            id="pengaruh-perilaku" rows="3" required>{{ $jurnal->pengaruh_emosi }}</textarea>
+                            id="dilakukan_saat_emosi" rows="3" required>{{ $jurnal->lakukan_saat_emosi_muncul }}</textarea>
                     </div>
 
                     <div class="mb-4">
-                        <label class="block text-gray-700 text-sm font-bold mb-2" for="pengaruh-keputusan">
-                            Bagaimana perasaan Anda mempengaruhi keputusan yang Anda buat?
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="mengatasi_emosi">
+                            6. Bagaimana cara kamu mengatasi emosi tersebut?
                         </label>
-                        <textarea name="perasaan_anda_mempengaruhi_keputusan" readonly
+                        <textarea name="cara_kamu_mengatasi_emosi"
                             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                            id="pengaruh-keputusan" rows="3" required>{{ $jurnal->perasaan_anda_mempengaruhi_keputusan }}</textarea>
-                    </div>
-
-                    <div class="mb-4">
-                        <label class="block text-gray-700 text-sm font-bold mb-2" for="pengaruh-narkoba">
-                            Bagaimana perasaan atau emosi negatif dapat memicu keinginan Anda untuk menggunakan narkoba?
-                        </label>
-                        <textarea name="emosi_negatif_dapat_memicu_keinginan_menggunakan_narkoba" readonly
-                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                            id="pengaruh-narkoba" rows="3" required>{{ $jurnal->emosi_negatif_dapat_memicu_keinginan_menggunakan_narkoba }}</textarea>
-                    </div>
-
-                    <div class="mb-4">
-                        <label class="block text-gray-700 text-sm font-bold mb-2" for="pengaruh-positif">
-                            Bagaimana perasaan positif dapat membantu Anda menghindari narkoba?
-                        </label>
-                        <textarea name="perasaan_positif_dapat_membantu_anda_menghindari_narkoba" readonly
-                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                            id="pengaruh-positif" rows="3" required>{{ $jurnal->perasaan_positif_dapat_membantu_anda_menghindari_narkoba }}</textarea>
-                    </div>
-
-                    <div class="mb-4">
-                        <label class="block text-gray-700 text-sm font-bold mb-2" for="strategi">
-                            7. Strategi Pengelolaan Emosi: Bagaimana Anda mengelola emosi ini?
-                        </label>
-                        <textarea name="strategi_pengelolaan_emosi" readonly
-                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                            id="strategi" rows="3" required>{{ $jurnal->strategi_pengelolaan_emosi }}</textarea>
-                    </div>
-
-                    <div class="mb-4">
-                        <label class="block text-gray-700 text-sm font-bold mb-2" for="efektivitas">
-                            Apakah metode Anda efektif?
-                        </label>
-                        <textarea name="apakah_metode_anda_efektif" readonly
-                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                            id="efektivitas" rows="3" required>{{ $jurnal->apakah_metode_anda_efektif }}</textarea>
-                    </div>
-
-                    <div class="mb-4">
-                        <label class="block text-gray-700 text-sm font-bold mb-2" for="pembelajaran">
-                            8. Refleksi Diri: Apa yang dapat Anda pelajari dari emosi Anda hari ini?
-                        </label>
-                        <textarea name="apa_yang_dapat_anda_pelajari_dari_emosi_anda_hari_ini" readonly
-                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                            id="pembelajaran" rows="3" required>{{ $jurnal->apa_yang_dapat_anda_pelajari_dari_emosi_anda_hari_ini }}</textarea>
-                    </div>
-
-                    <div class="mb-4">
-                        <label class="block text-gray-700 text-sm font-bold mb-2" for="emosi-orang-lain">
-                            Bagaimana Anda dapat mengetahui emosi yang dirasakan orang lain?
-                        </label>
-                        <textarea name="bagaimana_anda_dapat_mengetahui_emosi_yang_dirasakan_orang_lain" readonly
-                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                            id="emosi-orang-lain" rows="3" required>{{ $jurnal->bagaimana_anda_dapat_mengetahui_emosi_yang_dirasakan_orang_lain }}</textarea>
-                    </div>
-
-                    <div class="mb-4">
-                        <label class="block text-gray-700 text-sm font-bold mb-2" for="reaksi-emosi-orang-lain">
-                            Bagaimana Anda bereaksi ketika mengetahui emosi orang lain?
-                        </label>
-                        <textarea name="bagaimana_anda_bereaksi_ketika_mengetahui_emosi_orang_lain" readonly
-                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                            id="reaksi-emosi-orang-lain" rows="3" required>{{ $jurnal->bagaimana_anda_bereaksi_ketika_mengetahui_emosi_orang_lain }}</textarea>
-                    </div>
-
-                    <div class="mb-6">
-                        <label class="block text-gray-700 text-sm font-bold mb-2" for="pengaruh-emosi-orang-lain">
-                            Apakah emosi orang lain mempengaruhi perasaan Anda?
-                        </label>
-                        <textarea name="apakah_emosi_orang_lain_mempengaruhi_perasaan_anda" readonly
-                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                            id="pengaruh-emosi-orang-lain" rows="3" required>{{ $jurnal->apakah_emosi_orang_lain_mempengaruhi_perasaan_anda }}</textarea>
-                    </div>
-
-                    {{-- Bagaimana caramu mengelola perasaan tersebut? --}}
-                    <div class="mb-4">
-                        <label class="block text-gray-700 text-sm font-bold mb-2" for="pengelolaan-emosi-orang-lain">
-                            Bagaimana caramu mengelola perasaan tersebut?
-                        </label>
-                        <textarea name="bagaimana_caramu_mengelola_perasaan_tersebut" readonly
-                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                            id="pengelolaan-emosi-orang-lain" rows="3" required>{{ $jurnal->bagaimana_caramu_mengelola_perasaan_tersebut }}</textarea>
+                            id="mengatasi_emosi" rows="3" required>{{ $jurnal->cara_kamu_mengatasi_emosi }}</textarea>
                     </div>
 
                     <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">

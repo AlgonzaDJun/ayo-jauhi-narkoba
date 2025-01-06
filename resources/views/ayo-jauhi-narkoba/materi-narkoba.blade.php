@@ -8,13 +8,42 @@
     psikotropika, dan zat berbahaya lainnya. Kali ini, kita akan belajar
     mengenai narkoba, jenis-jenis narkoba, hingga bahayanya bagi kita!</p>
 
+    <p class="font-semibold text-xl">Di bawah ini terdapat video mengenai narkoba yang dapat kamu tonton</p>
+
+<button
+    class="group flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-medium text-gray-900 shadow-md transition-all hover:bg-gray-100 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 active:bg-gray-200 mb-5" onclick="my_modal_1.show()">
+    <span
+        class="flex items-center justify-center rounded-full bg-blue-500 p-1 text-white transition-transform group-hover:scale-110">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="5 3 19 12 5 21 5 3"></polygon>
+        </svg>
+    </span>
+    Nonton Video Materi Narkoba
+</button>
+
 
 {{-- VIDEO CONTAINER --}}
-<div class="lg:aspect-w-16 lg:aspect-h-9 mt-5 mb-5">
+{{-- <div class="lg:aspect-w-16 lg:aspect-h-9 mt-5 mb-5">
     <iframe src="https://www.youtube.com/embed/P7mgNDPJJH4?si=th9oUoAPX3y4SKwL" frameborder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowfullscreen></iframe>
-</div>
+</div> --}}
+
+<dialog id="my_modal_1" class="daisy-modal">
+    <div class="daisy-modal-box w-full bg-white">
+        <form method="dialog">
+            <button
+                class="daisy-btn daisy-btn-sm daisy-btn-circle daisy-btn-ghost daisy-absolute daisy-right-2 daisy-top-2">✕</button>
+        </form>
+        <div class="">
+            <iframe src="https://www.youtube.com/embed/P7mgNDPJJH4?si=th9oUoAPX3y4SKwL" class="min-w-full h-96"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+        </div>
+    </div>
+</dialog>
 {{-- END VIDEO CONTAINER --}}
 
 

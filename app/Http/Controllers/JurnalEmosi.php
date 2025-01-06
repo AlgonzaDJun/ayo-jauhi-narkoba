@@ -37,9 +37,10 @@ class JurnalEmosi extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request->all());
         $data = $request->except('_token');
         // dd($request->all());
-        $simpan = JurnalEmosiModels::create($data);
+        JurnalEmosiModels::create($data);
         // if ($simpan) {
         //     dd("berhasil");
 
