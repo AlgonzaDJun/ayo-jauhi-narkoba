@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\EmotionalAwarenessSK;
+use App\Models\EmotionalAwarenessSP;
 use Illuminate\Http\Request;
 
 class EmotionalAwareness extends Controller
@@ -47,10 +48,10 @@ class EmotionalAwareness extends Controller
      */
     public function store(Request $request)
     {
-        $rules = array_fill_keys(
-            array_map(fn($i) => "soal_$i", range(1, 5)),
-            'required|string' // Aturan validasi
-        );
+        // $rules = array_fill_keys(
+        //     array_map(fn($i) => "soal_$i", range(1, 5)),
+        //     'required|string' // Aturan validasi
+        // );
 
         //dd($request->all());
 
@@ -61,10 +62,10 @@ class EmotionalAwareness extends Controller
 
 
         // $validasi = $request->validate($rules);
-        $validator = \Validator::make($request->all(), $rules);
-        if ($validator->fails()) {
-            return redirect()->back()->withErrors($validator)->withInput();
-        }
+        // $validator = \Validator::make($request->all(), $rules);
+        // if ($validator->fails()) {
+        //     return redirect()->back()->withErrors($validator)->withInput();
+        // }
         $data = $request->except('_token'); // Mengambil semua data kecuali _token
         $data['user_id'] = auth()->user()->id;
         EmotionalAwarenessSK::create(
@@ -81,7 +82,26 @@ class EmotionalAwareness extends Controller
      */
     public function show($id)
     {
-        //
+        $jawaban_instrumen = EmotionalAwarenessSP::where('user_id', auth()->user()->id)->latest()->first();
+        $revisi_materi = [
+            'skala_penilaian' => [
+                '1' => 'Saya dapat mengenali emosi yang saya rasakan dalam situasi tertentu',
+                '2' => 'Saya tahu strategi pengelolaan emosi yang tepat untuk situasi tertentu',
+                '3' => 'Saya mampu mengidentifikasi penyebab emosi yang saya rasakan',
+                '4' => 'Saya dapat menjelaskan konsekuensi dari emosi yang saya alami',
+                '5' => 'Saya percaya penting untuk mengenali emosi saya',
+                '6' => 'Saya percaya pentingnya mengelola emosi secara tepat',
+                '7' => 'Saya dapat membuat rencana untuk mengelola emosi dalam kehidupan sehari-hari',
+                '8' => 'Saya mampu mengorganisasikan cara-cara baru untuk mengelola emosi saya',
+                '9' => 'Saya mampu tetap tenang saat menghadapi situasi sulit yang menuntut kepercayaan diri tinggi',
+                '10' => 'Saya dapat mengendalikan diri dalam situasi yang penuh tekanan',
+                '11' => 'Saya mampu membuat strategi agar tetap tenang dalam situasi yang menantang',
+                '12' => 'Saya bisa membangun cara untuk menjaga rasa percaya diri dalam situasi sulit',
+            ],
+
+            'jawaban_instrumen' => $jawaban_instrumen
+        ];
+        return view('ayo-mengenali-aku.emosi.skala-penilaian', compact('revisi_materi'));
     }
 
     /**
@@ -104,7 +124,46 @@ class EmotionalAwareness extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $score = (array_sum(array_map('intval', $request->data)) / 48) * 100;
+        $message = "";
+
+        // Ambil semua request data
+        $data = $request->data;
+
+        // Potong array dari key 1
+        $filteredData = array_slice($data, 1);
+        // dd($filteredData);
+        // Inisialisasi array baru untuk menyimpan data dengan key yang dimodifikasi
+        $mappedData = [];
+
+        // Foreach untuk menambahkan prefix ke key
+        foreach ($filteredData as $key => $value) {
+            $mappedData['soal_' . ($key + 1)] = $value; // Contoh: soal_1, soal_2, ...
+        }
+        $mappedData['user_id'] = auth()->user()->id;
+        $mappedData['score'] = (int)$score;
+
+        if ($score < 60) {
+            $message = "Capaian Pembelajaran anda : sangat kurang. Anda perlu belajar lebih giat lagi";
+        } elseif ($score >= 60 && $score <= 70) {
+            $message = "Capaian Pembelajaran anda : Kurang. Anda masih kurang baik, dan masih perlu belajar lebih giat lagi";
+        } elseif ($score >= 71 && $score <= 80) {
+            $message = "Capaian Pembelajaran anda : Cukup. Anda sudah cukup baik, tetapi masih perlu belajar lebih giat lagi";
+        } elseif ($score >= 81 && $score <= 90) {
+            $message = "Capaian Pembelajaran anda : Baik. Anda sudah  baik, tetapi masih perlu belajar lebih giat lagi";
+        } elseif ($score >= 91 && $score <= 100) {
+            $message = "Anda sudah sangat baik dalam memahami pembelajaran ini.";
+        }
+
+        $mappedData['message'] = $message;
+
+        // dd($mappedData);
+        EmotionalAwarenessSP::create($mappedData);
+
+        return response()->json([
+            'score' => $score,
+            'message' => $message
+        ]);
     }
 
     /**
