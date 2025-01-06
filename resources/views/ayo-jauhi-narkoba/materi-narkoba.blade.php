@@ -8,7 +8,7 @@
     psikotropika, dan zat berbahaya lainnya. Kali ini, kita akan belajar
     mengenai narkoba, jenis-jenis narkoba, hingga bahayanya bagi kita!</p>
 
-    <p class="font-semibold text-xl">Di bawah ini terdapat video mengenai narkoba yang dapat kamu tonton</p>
+    <p class="font-semibold text-xl mb-3">Di bawah ini terdapat video mengenai narkoba yang dapat kamu tonton</p>
 
 <button
     class="group flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-medium text-gray-900 shadow-md transition-all hover:bg-gray-100 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 active:bg-gray-200 mb-5" onclick="my_modal_1.show()">
