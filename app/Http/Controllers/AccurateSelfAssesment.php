@@ -324,7 +324,6 @@ class AccurateSelfAssesment extends Controller
         $mappedData['message'] = $message;
 
         // dd($mappedData);
-        // komen
         AccurateSelfAssesmentIT::create($mappedData);
 
         return response()->json([
