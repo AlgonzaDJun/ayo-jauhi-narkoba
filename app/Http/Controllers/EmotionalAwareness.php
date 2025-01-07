@@ -124,7 +124,7 @@ class EmotionalAwareness extends Controller
      */
     public function update(Request $request, $id)
     {
-        $score = (array_sum(array_map('intval', $request->data)) / 48) * 100;
+        $score = (array_sum(array_map('intval', array_slice($request->data, 1))) / 48) * 100;
         $message = "";
 
         // Ambil semua request data

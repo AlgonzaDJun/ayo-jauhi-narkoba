@@ -287,7 +287,7 @@ class AyoJauhiNarkoba extends Controller
             ],
         ];
 
-        return view('ayo-jauhi-narkoba.index', compact('soal_jawaban', 'revisi_materi','jawaban_sk_narkoba'));
+        return view('ayo-jauhi-narkoba.index', compact('soal_jawaban', 'revisi_materi', 'jawaban_sk_narkoba'));
     }
 
     public function store(Request $request)
@@ -590,7 +590,7 @@ class AyoJauhiNarkoba extends Controller
         // dd('tes instrumen');
         //  dd($request->all());
         // dd($request->data);
-        $score = array_sum(array_map('intval', $request->data)) * 5;
+        $score = array_sum(array_map('intval', array_slice($request->data, 1))) * 5;
         $message = "";
 
         // Ambil semua request data
