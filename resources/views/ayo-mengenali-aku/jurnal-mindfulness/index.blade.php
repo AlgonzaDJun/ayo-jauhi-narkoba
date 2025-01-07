@@ -25,10 +25,10 @@
                     <thead>
                         <tr class="bg-gray-200 text-gray-700">
                             <th class="py-3 px-4 text-left">Tanggal</th>
-                            <th class="py-3 px-4 text-left">Pagi (Perasaan Bangun)</th>
-                            <th class="py-3 px-4 text-left">Siang (Situasi Sulit)</th>
-                            <th class="py-3 px-4 text-left">Malam (Pelajaran)</th>
-                            <th class="py-3 px-4 text-left">Latihan (Durasi)</th>
+                            <th class="py-3 px-4 text-left">Lama Berlatih</th>
+                            <th class="py-3 px-4 text-left">Perasaan Sebelum Mindfulness</th>
+                            <th class="py-3 px-4 text-left">Perasaan Selama Mindfulness</th>
+                            <th class="py-3 px-4 text-left">Perasaan Setelah Mindfulness</th>
                             {{-- aksi --}}
                             <th class="py-3 px-4 text-left">Aksi</th>
                         </tr>
@@ -41,17 +41,18 @@
                                     {{ \Carbon\Carbon::parse($item->tanggal)->format('d M Y') }}
                                 </td>
                                 <td class="py-3 px-4">
-                                    {{ Str::limit($item->perasaan_bangun_tidur, 50, '...') }}
+                                    {{ Str::limit($item->lama_berlatih_mindfulness, 50, '...') }}
                                 </td>
                                 <td class="py-3 px-4">
-                                    {{ Str::limit($item->kamu_menghadapi_situasi_yang_sulit, 50, '...') }}
+                                    {{ Str::limit($item->perasaan_sebelum_mindfulness, 50, '...') }}
                                 </td>
                                 <td class="py-3 px-4">
-                                    {{ Str::limit($item->yang_kamu_pelajari_hari_ini, 50, '...') }}
+                                    {{ Str::limit($item->perasaan_selama_mindfulness, 50, '...') }}
                                 </td>
                                 <td class="py-3 px-4">
-                                    {{ Str::limit($item->kamu_dapatkan_dari_latihan_mindfulness, 50, '...') }}
+                                    {{ Str::limit($item->perasaan_setelah_mindfulness, 50, '...') }}
                                 </td>
+                                
 
                                 <td class="py-3 px-4">
                                     <a href="{{ route('jurnal-mindfulness.show', $item->id) }}"

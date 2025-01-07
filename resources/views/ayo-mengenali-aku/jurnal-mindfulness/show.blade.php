@@ -14,7 +14,27 @@
                     <input name="tanggal" value="{{ $jurnal_mindfulness->tanggal }}" readonly type="date" id="date" class="flex-grow border rounded p-2">
                 </div>
 
-                <h2 class="text-xl font-semibold">1. Refleksi Harian</h2>
+                {{-- Berapa lama kamu melakukan mindfulness hari ini? --}}
+                <label class="block">1. Berapa lama kamu berlatih mindfulness hari ini?
+                    <textarea name="lama_berlatih_mindfulness" class="w-full border rounded p-2 mt-1" readonly>{{ $jurnal_mindfulness->lama_berlatih_mindfulness }}</textarea>
+                </label>
+
+                <label class="block">2. Apa yang kamu rasakan selama kegiatan mindfulness?
+                    {{-- textarea --}}
+                    <textarea name="perasaan_selama_mindfulness" class="w-full border rounded p-2 mt-1" readonly>{{ $jurnal_mindfulness->perasaan_selama_mindfulness }}</textarea>
+                </label>
+
+                {{-- Apa yang kamu rasakan sebelum melakukan mindfulness? --}}
+                <label class="block">3. Apa yang kamu rasakan sebelum melakukan mindfulness?
+                    <textarea name="perasaan_sebelum_mindfulness" class="w-full border rounded p-2 mt-1" readonly>{{ $jurnal_mindfulness->perasaan_sebelum_mindfulness }}</textarea>
+                </label>
+
+                {{-- Bagaimana perasaanmu setelah melakukan mindfulness? --}}
+                <label class="block">4. Bagaimana perasaanmu setelah melakukan mindfulness?
+                    <textarea name="perasaan_setelah_mindfulness" class="w-full border rounded p-2 mt-1" readonly>{{ $jurnal_mindfulness->perasaan_setelah_mindfulness }}</textarea>
+                </label>
+
+                {{-- <h2 class="text-xl font-semibold">1. Refleksi Harian</h2>
 
                 <div class="space-y-4 pl-4">
                     <h3 class="font-semibold">a) Pagi</h3>
@@ -115,7 +135,7 @@
                         <input value="{{ $jurnal_mindfulness->Apa_yang_ingin_kamu_capai_dalam_latihan_mindfulness_besok }}" name="Apa_yang_ingin_kamu_capai_dalam_latihan_mindfulness_besok" type="text"
                             readonly class="w-full border rounded p-2 mt-1">
                     </label>
-                </div>
+                </div> --}}
 
                 {{-- <div class="flex justify-center">
                     <button

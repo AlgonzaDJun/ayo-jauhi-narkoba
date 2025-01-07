@@ -1,7 +1,7 @@
 <div class="text-justify space-y-4">
 
     <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-        
+
 
         <details class="hidden md:block dropdown dropdown-bottom">
             <summary class="btn">
@@ -120,7 +120,8 @@
             </div>
         </a>
 
-        <a href="{{ route('emotional-awareness.show', ['emotional_awareness' => 'skala-penilaian']) }}" class="block group">
+        <a href="{{ route('emotional-awareness.show', ['emotional_awareness' => 'skala-penilaian']) }}"
+            class="block group">
             <div
                 class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow h-full border border-gray-200">
                 <div class="flex items-center gap-2 mb-4">
@@ -181,17 +182,23 @@
 
     <img src="{{ asset("img/Writer's block-rafiki.png") }}" alt="" class="md:w-1/2 h-72 object-contain">
 
+    <p class="indent-8">Emotional awareness atau kesadaran emosional menurut Daniel Goleman dalam
+        bukunya Emotional Intelligence: The 25th Anniversary Edition, merupakan kemampuan
+        untuk mengenali emosi pada diri sendiri dan pengaruhnya. Emosi sendiri merupakan
+        perasaan yang timbul sebagai respons terhadap sesuatu. Kesadaran emosional sangat
+        penting dalam mencegah penggunaan narkoba. Dengan memiliki kesadaran
+        emosional, membantu kita untuk mengelola emosi dengan lebih baik, sehingga kita
+        tidak terjerumus pada kebiasaan buruk seperti menggunakan narkoba untuk
+        melarikan diri dari perasaan negatif.</p>
 
-    <p class="indent-8">Kesadaran emosional merupakan kemampuan untuk
-        mengenali emosi pada diri sendiri dan pengaruhnya. Emosi
-        sendiri merupakan perasaan yang timbul sebagai respons
-        terhadap sesuatu. Kali ini kita akan belajar mengenai 10 emosi,
-        yaitu Amarah <span class="italic">(Anger)</span>, Cemburu <span class="italic">(Jealousy)</span>, Cinta <span
-            class="italic">(Love)</span>, Iri <span class="italic">(Envy)</span>, Kebahagiaan <span
-            class="italic">(Happiness)</span>, Kesedihan <span class="italic">(Sadness)</span>, Malu <span
-            class="italic">(Shame)</span>, Menjijikkan <span class="italic">(Disgust)</span>, Rasa Bersalah <span
-            class="italic">(Guilt)</span>, dan Takut <span class="italic">(Fear)</span>
-        .</p>
+    <p class="indent-8">Dalam bukunya, DBT Skills Training Handouts and Worksheets, Second Edition
+        dan DBT Skills Training Manual, Second Edition, Marsha M. Linehan membahas
+        mengenai 10 emosi dasar, yaitu: Amarah <span class="italic">(Anger)</span>, Cemburu <span class="italic">(Jealousy)</span>, Cinta <span
+        class="italic">(Love)</span>, Iri <span class="italic">(Envy)</span>, Kebahagiaan <span
+        class="italic">(Happiness)</span>, Kesedihan <span class="italic">(Sadness)</span>, Malu <span
+        class="italic">(Shame)</span>, Menjijikkan <span class="italic">(Disgust)</span>, Rasa Bersalah <span
+        class="italic">(Guilt)</span>, dan Takut <span class="italic">(Fear)</span>. Kali ini kita akan belajar mengenai
+        pengaruhnya dalam konteks pencegahan penggunaan narkoba:</p>
 
 
     {{-- pilih jenis emosi --}}
@@ -200,8 +207,13 @@
         <li class="mr-2" role="presentation">
             <button
                 class="inline-block p-4 rounded-t-lg border-b-2 text-blue-600 hover:text-blue-600 dark:text-blue-500 dark:hover:text-blue-500 border-blue-600 text-md dark:border-blue-500"
-                id="anger-tab" data-tabs-target="#anger" type="button" role="tab" aria-controls="anger"
-                aria-selected="true">Amarah</button>
+                id="harapan-pemb-tab" data-tabs-target="#harapan-pemb" type="button" role="tab" aria-controls="harapan-pemb"
+                aria-selected="true">Harapan Pembelajaran</button>
+        </li>
+        <li class="mr-2" role="presentation">
+            <button
+                class="inline-block p-4 rounded-t-lg border-b-2 text-blue-600 hover:text-blue-600 dark:text-blue-500 dark:hover:text-blue-500 border-blue-600 text-md dark:border-blue-500"
+                id="anger-tab" data-tabs-target="#anger" type="button" role="tab" aria-controls="anger">Amarah</button>
         </li>
         <li class="mr-2" role="presentation">
             <button
@@ -270,6 +282,9 @@
 
     {{-- page --}}
     <div id="myTabContent">
+        <div class="p-4 rounded-lg" id="harapan-pemb" role="tabpanel" aria-labelledby="harapan-pemb-tab">
+            @include('ayo-mengenali-aku.emosi.harapan-peserta')
+        </div>
         <div class="p-4 rounded-lg" id="anger" role="tabpanel" aria-labelledby="anger-tab">
             @include('ayo-mengenali-aku.emosi.anger')
         </div>

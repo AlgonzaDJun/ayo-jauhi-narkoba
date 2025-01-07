@@ -37,6 +37,7 @@ class JurnalMindfulness extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request->all());
         $data = $request->except('_token');
         //  dd($request->all());
         $simpan = JurnalMindfulnessModels::create($data);
