@@ -178,6 +178,19 @@ class AyoMengenaliAku extends Controller
             ->toArray()
             : null;
 
+        $jawaban_accurate_sk_rev = AccurateSelfAssesmentSK::where('user_id', auth()->user()->id)
+            ->whereNull('Kategori_SK')
+            ->orderBy('created_at', 'desc')
+            ->first()
+            ?
+            AccurateSelfAssesmentSK::where('user_id', auth()->user()->id)
+            ->whereNull('Kategori_SK')
+            ->orderBy('created_at', 'desc')
+            ->first()
+            ->toArray()
+            : null;
+        // dd($jawaban_accurate_sk_rev);
+
         $jawaban_accurate_it = AccurateSelfAssesmentIT::where('user_id', auth()->user()->id)
             ->orderBy('created_at', 'desc')
             ->first()
@@ -903,6 +916,43 @@ class AyoMengenaliAku extends Controller
             ]
         ];
 
+        $stud_kas_acc_revisi = [
+            'nama' => 'studi kasus revisi',
+            'profil' => [
+                // nama, usia, sekolah, kelas
+                'nama' => 'Adit',
+                'usia' => '15 Tahun',
+                'sekolah' => 'SMA Nusantara',
+                'kelas' => 10,
+            ],
+            'deskripsi' => '<p>Adit adalah seorang siswa berprestasi di SMA Nusantara. Sejak kecil, dia dikenal sebagai anak yang rajin belajar dan selalu mendapatkan nilai tinggi di kelas. Namun, di balik prestasi akademiknya, Adit sering merasa tertekan oleh ekspektasi yang tinggi dari orang tuanya. Ketika akan memasuki kelas 11, tekanan tersebut semakin besar, karena dia harus mempersiapkan ujian akhir dan merencanakan masa depannya, terkait pilihan jurusan antara IPA atau IPS.</p> <p>Suatu malam, Adit bertemu dengan teman-temannya semasa SMP di sebuah acara reuni sekolah. Saat itu, teman-temannya mulai menawarkan narkoba sebagai cara untuk "bersantai" dan mengatasi stres. Adit merasa terombang-ambing. Di satu sisi, dia tahu bahwa menggunakan narkoba tidak akan memberikan keuntungan jangka panjang, tetapi di sisi lain, dia merasa terdesak oleh tekanan untuk tampil "keren" dan diterima dalam kelompoknya.</p> <p>Pulang dari acara tersebut, Adit merasa bingung dan gelisah. Dia memutuskan untuk merenung dan mencari cara untuk menilai dirinya dengan lebih akurat, terutama mengenai pengaruh keputusan-keputusan yang akan dia buat pada masa depan hidupnya. Dia teringat pada pelajaran yang diberikan oleh Guru Bimbingan Konseling di sekolah mengenai pentingnya refleksi diri dan penilaian diri yang akurat.</p> <p>Adit mulai menerapkan metode refleksi diri untuk mengidentifikasi kelebihan dan kekurangan dirinya. Dia menuliskan dalam jurnalnya:</p>',
+            'kelebihan' => [
+                '1' => 'Rajin dan disiplin dalam belajar',
+                '2' => 'Memiliki tujuan hidup yang jelas, ingin melanjutkan kuliah di jurusan teknik',
+                '3' => 'Memiliki banyak teman yang mendukung',
+            ],
+            'kekurangan' => [
+                '1' => 'Cenderung menekan diri sendiri karena ekspektasi yang tinggi',
+                '2' => 'Mudah terpengaruh oleh teman-teman',
+                '3' => 'Tidak selalu bisa mengatakan "tidak" ketika berada dalam tekanan sosial'
+            ],
+            'after_kekurangan' => '<p>Melalui refleksi ini, Adit menyadari bahwa dirinya sering terjebak dalam perasaan takut gagal dan cemas tentang masa depan, yang membuatnya mudah terpengaruh oleh ajakan teman-teman, termasuk tawaran untuk menggunakan narkoba.</p> <p>Adit kemudian mencari cara untuk menganalisis kritik dan saran dari orang lain untuk perbaikan diri. Dia meminta pendapat dari Guru Bimbingan dan Konseling dan orang tuanya mengenai bagaimana cara terbaik untuk mengatasi tekanan yang dia rasakan. Guru Bimbingan dan Konseling memberikan saran untuk lebih mengembangkan kemampuan mengelola stres, sedangkan orang tuanya mengingatkan Adit akan pentingnya membuat keputusan yang sesuai dengan tujuan hidupnya.</p> <p>Setelah mempertimbangkan kritik dan saran tersebut, Adit mulai menyadari betapa pentingnya kritik dan saran yang membangun dalam pengembangan diri. Dia merasa lebih yakin bahwa meskipun terkadang terasa berat, tetap mengikuti prinsip- prinsip hidup yang positif akan membantunya mencapai tujuan jangka panjang, seperti kelulusan dengan nilai yang baik dan masuk ke universitas ternama.</p> <p>Adit kemudian mengorganisasikan tujuan pengembangan dirinya berdasarkan kelebihan dan kekurangan yang telah diidentifikasinya. Dia menetapkan beberapa langkah konkret untuk mengatasi kelemahannya, antara lain:</p>',
+            'langkah_pengembangan' => [
+                '1' => 'Mengikuti kegiatan meditasi untuk mengelola stres.',
+                '2' => 'Menghadiri seminar tentang pengendalian diri dan kecerdasan emosional.',
+                '3' => 'Membuat komitmen untuk menolak tawaran narkoba, apapun alasannya, demi masa depannya.'
+            ],
+            'footer' => '<p>Sebagai langkah konkret berikutnya, Adit berusaha untuk mengendalikan diri dan terus belajar melalui kritik dan saran yang diterimanya. Dia tidak membiarkan diri terlarut dalam rasa malu atau rasa bersalah, tetapi lebih fokus pada langkah- langkah untuk perbaikan diri. Misalnya, ketika ada kesempatan untuk berbicara dengan teman-temannya mengenai masalah ini, Adit berusaha dengan presisi untuk menyampaikan bahwa dia tidak tertarik untuk terlibat dalam kegiatan yang merugikan seperti penggunaan narkoba.</p> <p>Adit juga mulai mengembangkan mekanisme untuk secara konsisten mengevaluasi dan meningkatkan diri. Dia membuat jadwal rutin untuk melakukan refleksi diri setiap minggu, mencatat kemajuan yang telah dicapai, serta menilai apakah tindakannya masih sejalan dengan tujuan hidupnya. Jika ada hal yang terasa tidak sesuai, Adit berkomitmen untuk segera melakukan perubahan yang diperlukan.</p> <p>Melalui proses ini, Adit semakin percaya pada kemampuannya untuk mengelola dirinya sendiri, bahkan dalam situasi yang penuh tekanan. Dia yakin bahwa keputusan-keputusan yang dia buat hari ini akan membentuk masa depannya yang lebih baik, jauh dari pengaruh narkoba yang merugikan.</p>',
+            'pertanyaan' => [
+                '1' => 'Menurutmu, mengapa refleksi diri menjadi langkah pertama yang penting dalam proses penilaian diri yang akurat?',
+                '2' => 'Apa yang dapat kita pelajari dari cara Adit menganalisis kritik dan saran dari orang lain?',
+                '3' => 'Apakah kamu setuju dengan cara Adit mengorganisasikan tujuan pengembangan diri berdasarkan kelebihan dan kekurangannya?',
+                '4' => 'Apa mekanisme yang dikembangkan Adit untuk mengevaluasi dan meningkatkan dirinya secara konsisten?',
+                '5' => 'Jika kamu berada di posisi Adit, langkah apa yang mungkin akan kamu ambil untuk mengatasi tekanan sosial dari teman-teman yang menawarkan narkoba?'
+            ],
+            'jawaban_accurate' => $jawaban_accurate_sk_rev
+        ];
+
         $stud_kas_1 = [
             'jawaban_accurate' => $jawaban_accurate_sk_1,
             'nama' => 'studi kasus 1',
@@ -1404,7 +1454,8 @@ class AyoMengenaliAku extends Controller
             $stud_kas_2,
             $stud_kas_3,
             $tes_instrumen,
-            $refleksi_diri
+            $refleksi_diri,
+            $stud_kas_acc_revisi
         ];
 
         $self_conf = [
@@ -1427,7 +1478,7 @@ class AyoMengenaliAku extends Controller
             $fear
         ];
 
-        
+
         return view('ayo-mengenali-aku.index', compact('emosis', 'acc_self_as', 'self_conf', 'jawaban_self_confidence_pkd'));
     }
 

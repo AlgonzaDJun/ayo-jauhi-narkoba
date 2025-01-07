@@ -308,10 +308,7 @@ class AyoJauhiNarkoba extends Controller
 
 
         // $validasi = $request->validate($rules);
-        $validator = \Validator::make($request->all(), $rules);
-        if ($validator->fails()) {
-            return redirect()->back()->withErrors($validator)->withInput();
-        }
+        
         $data = $request->except('_token'); // Mengambil semua data kecuali _token
         $data['user_id'] = auth()->user()->id;
         JawabanMateriNarkoba::create(

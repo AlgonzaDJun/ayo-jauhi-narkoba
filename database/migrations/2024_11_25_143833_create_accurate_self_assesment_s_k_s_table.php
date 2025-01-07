@@ -17,11 +17,12 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->string('Kategori_SK');
-            $table->string('soal_1')->nullable();
-            $table->string('soal_2')->nullable();
-            $table->string('soal_3')->nullable();
-            $table->string('soal_4')->nullable();
+            $table->string('Kategori_SK')->nullable();
+            $table->text('soal_1')->nullable();
+            $table->text('soal_2')->nullable();
+            $table->text('soal_3')->nullable();
+            $table->text('soal_4')->nullable();
+            $table->text('soal_5')->nullable();
             $table->timestamps();
             
 

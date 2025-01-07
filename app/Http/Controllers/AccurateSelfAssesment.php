@@ -41,182 +41,222 @@ class AccurateSelfAssesment extends Controller
         //  dd(vars: $request->all());
         // dd('masuk');
 
+        $simpan = $request->all();
+
+        // Inisialisasi array mappedData
+        $mappedData = [
+            'user_id' => $simpan['user_id'],
+            // 'Kategori_SK' => $simpan['studi_kasus'],
+        ];
+
+        // Mapping jawaban ke soal1, soal2, ...
+        foreach ($simpan['jawaban'] as $index => $value) {
+            $mappedData['soal_' . ($index + 1)] = $value; // soal1, soal2, ...
+        }
+
+        // dd($mappedData);
+
+        //submit ke db
+        AccurateSelfAssesmentSK::create($mappedData);
+
+        // foreach ($jawaban as $key => $value) {
+        //     if ($value == $jwb_stud_kas_1[$key]) {
+        //         $score += 1;
+        //     }
+        // }
+
+        // if ($score == 4) {
+        //     $message = $message_lulus;
+        // } else {
+        //     $message = $message_gagal;
+        // }
+
+        $message = "Selamat! Anda telah menjawab semua pertanyaan.";
+
+        // return jawaban lama, jawaban benar, dan score
+        return response()->json([
+            // 'jawaban_old' => $jawaban,
+            // 'jawaban_benar' => $jwb_stud_kas_1,
+            // 'score' => $score,
+            'message' => $message
+        ]);
+
         // Ambil data dari request
 
-        $jawaban = $request->jawaban;
+        // $jawaban = $request->jawaban;
 
-        // modif key $request->jawaban + 1
-        $jawaban = array_combine(range(1, count($jawaban)), array_values($jawaban));
+        // // modif key $request->jawaban + 1
+        // $jawaban = array_combine(range(1, count($jawaban)), array_values($jawaban));
 
-        $score = 0;
-        $message_lulus = "Selamat! Anda telah menjawab semua pertanyaan dengan benar.";
-        $message_gagal = "Anda belum menjawab semua pertanyaan dengan benar. Silahkan coba lagi.";
-        $message = "";
+        // $score = 0;
+        // $message_lulus = "Selamat! Anda telah menjawab semua pertanyaan dengan benar.";
+        // $message_gagal = "Anda belum menjawab semua pertanyaan dengan benar. Silahkan coba lagi.";
+        // $message = "";
 
-        $jwb_stud_kas_1 = [
-            '1' => 'd',
-            '2' => 'a',
-            '3' => 'c',
-            '4' => 'b'
-        ];
+        // $jwb_stud_kas_1 = [
+        //     '1' => 'd',
+        //     '2' => 'a',
+        //     '3' => 'c',
+        //     '4' => 'b'
+        // ];
 
-        $jwb_stud_kas_2 = [
-            '1' => 'c',
-            '2' => 'b',
-            '3' => 'd',
-            '4' => 'd'
-        ];
+        // $jwb_stud_kas_2 = [
+        //     '1' => 'c',
+        //     '2' => 'b',
+        //     '3' => 'd',
+        //     '4' => 'd'
+        // ];
 
-        $jwb_stud_kas_3 = [
-            // b d a c
-            '1' => 'b',
-            '2' => 'd',
-            '3' => 'a',
-            '4' => 'c'
-        ];
+        // $jwb_stud_kas_3 = [
+        //     // b d a c
+        //     '1' => 'b',
+        //     '2' => 'd',
+        //     '3' => 'a',
+        //     '4' => 'c'
+        // ];
 
-        $jwb_self_conf_stud_1 = [
-            '1' => 'a',
-            '2' => 'a',
-            '3' => 'c',
-            '4' => 'b',
-            '5' => 'd',
-            '6' => 'b',
-        ];
+        // $jwb_self_conf_stud_1 = [
+        //     '1' => 'a',
+        //     '2' => 'a',
+        //     '3' => 'c',
+        //     '4' => 'b',
+        //     '5' => 'd',
+        //     '6' => 'b',
+        // ];
 
-        if ($request->studi_kasus == 1) {
-            $simpan = $request->all();
+        // if ($request->studi_kasus == 1) {
+        //     $simpan = $request->all();
 
-            // Inisialisasi array mappedData
-            $mappedData = [
-                'user_id' => $simpan['user_id'],
-                'Kategori_SK' => $simpan['studi_kasus'],
-            ];
+        //     // Inisialisasi array mappedData
+        //     $mappedData = [
+        //         'user_id' => $simpan['user_id'],
+        //         'Kategori_SK' => $simpan['studi_kasus'],
+        //     ];
 
-            // Mapping jawaban ke soal1, soal2, ...
-            foreach ($simpan['jawaban'] as $index => $value) {
-                $mappedData['soal_' . ($index + 1)] = $value; // soal1, soal2, ...
-            }
+        //     // Mapping jawaban ke soal1, soal2, ...
+        //     foreach ($simpan['jawaban'] as $index => $value) {
+        //         $mappedData['soal_' . ($index + 1)] = $value; // soal1, soal2, ...
+        //     }
 
-            //submit ke db
-            AccurateSelfAssesmentSK::create($mappedData);
+        //     //submit ke db
+        //     AccurateSelfAssesmentSK::create($mappedData);
 
-            foreach ($jawaban as $key => $value) {
-                if ($value == $jwb_stud_kas_1[$key]) {
-                    $score += 1;
-                }
-            }
+        //     foreach ($jawaban as $key => $value) {
+        //         if ($value == $jwb_stud_kas_1[$key]) {
+        //             $score += 1;
+        //         }
+        //     }
 
-            if ($score == 4) {
-                $message = $message_lulus;
-            } else {
-                $message = $message_gagal;
-            }
+        //     if ($score == 4) {
+        //         $message = $message_lulus;
+        //     } else {
+        //         $message = $message_gagal;
+        //     }
 
-            // return jawaban lama, jawaban benar, dan score
-            return response()->json([
-                'jawaban_old' => $jawaban,
-                'jawaban_benar' => $jwb_stud_kas_1,
-                'score' => $score,
-                'message' => $message
-            ]);
-        } else if ($request->studi_kasus == 2) {
+        //     // return jawaban lama, jawaban benar, dan score
+        //     return response()->json([
+        //         'jawaban_old' => $jawaban,
+        //         'jawaban_benar' => $jwb_stud_kas_1,
+        //         'score' => $score,
+        //         'message' => $message
+        //     ]);
+        // } else if ($request->studi_kasus == 2) {
 
-            $simpan = $request->all();
+        //     $simpan = $request->all();
 
-            // Inisialisasi array mappedData
-            $mappedData = [
-                'user_id' => $simpan['user_id'],
-                'Kategori_SK' => $simpan['studi_kasus'],
-            ];
+        //     // Inisialisasi array mappedData
+        //     $mappedData = [
+        //         'user_id' => $simpan['user_id'],
+        //         'Kategori_SK' => $simpan['studi_kasus'],
+        //     ];
 
-            // Mapping jawaban ke soal1, soal2, ...
-            foreach ($simpan['jawaban'] as $index => $value) {
-                $mappedData['soal_' . ($index + 1)] = $value; // soal1, soal2, ...
-            }
+        //     // Mapping jawaban ke soal1, soal2, ...
+        //     foreach ($simpan['jawaban'] as $index => $value) {
+        //         $mappedData['soal_' . ($index + 1)] = $value; // soal1, soal2, ...
+        //     }
 
-            //submit ke db
-            AccurateSelfAssesmentSK::create($mappedData);
+        //     //submit ke db
+        //     AccurateSelfAssesmentSK::create($mappedData);
 
 
 
-            foreach ($jawaban as $key => $value) {
-                if ($value == $jwb_stud_kas_2[$key]) {
-                    $score += 1;
-                }
-            }
+        //     foreach ($jawaban as $key => $value) {
+        //         if ($value == $jwb_stud_kas_2[$key]) {
+        //             $score += 1;
+        //         }
+        //     }
 
-            if ($score == 4) {
-                $message = $message_lulus;
-            } else {
-                $message = $message_gagal;
-            }
+        //     if ($score == 4) {
+        //         $message = $message_lulus;
+        //     } else {
+        //         $message = $message_gagal;
+        //     }
 
-            // return jawaban lama, jawaban benar, dan score
-            return response()->json([
-                'jawaban_old' => $jawaban,
-                'jawaban_benar' => $jwb_stud_kas_2,
-                'score' => $score,
-                'message' => $message
-            ]);
-        } else if ($request->studi_kasus == 3) {
+        //     // return jawaban lama, jawaban benar, dan score
+        //     return response()->json([
+        //         'jawaban_old' => $jawaban,
+        //         'jawaban_benar' => $jwb_stud_kas_2,
+        //         'score' => $score,
+        //         'message' => $message
+        //     ]);
+        // } else if ($request->studi_kasus == 3) {
 
-            $simpan = $request->all();
+        //     $simpan = $request->all();
 
-            // Inisialisasi array mappedData
-            $mappedData = [
-                'user_id' => $simpan['user_id'],
-                'Kategori_SK' => $simpan['studi_kasus'],
-            ];
+        //     // Inisialisasi array mappedData
+        //     $mappedData = [
+        //         'user_id' => $simpan['user_id'],
+        //         'Kategori_SK' => $simpan['studi_kasus'],
+        //     ];
 
-            // Mapping jawaban ke soal1, soal2, ...
-            foreach ($simpan['jawaban'] as $index => $value) {
-                $mappedData['soal_' . ($index + 1)] = $value; // soal1, soal2, ...
-            }
+        //     // Mapping jawaban ke soal1, soal2, ...
+        //     foreach ($simpan['jawaban'] as $index => $value) {
+        //         $mappedData['soal_' . ($index + 1)] = $value; // soal1, soal2, ...
+        //     }
 
-            //submit ke db
-            AccurateSelfAssesmentSK::create($mappedData);
+        //     //submit ke db
+        //     AccurateSelfAssesmentSK::create($mappedData);
 
-            foreach ($jawaban as $key => $value) {
-                if ($value == $jwb_stud_kas_3[$key]) {
-                    $score += 1;
-                }
-            }
+        //     foreach ($jawaban as $key => $value) {
+        //         if ($value == $jwb_stud_kas_3[$key]) {
+        //             $score += 1;
+        //         }
+        //     }
 
-            if ($score == 4) {
-                $message = $message_lulus;
-            } else {
-                $message = $message_gagal;
-            }
+        //     if ($score == 4) {
+        //         $message = $message_lulus;
+        //     } else {
+        //         $message = $message_gagal;
+        //     }
 
-            // return jawaban lama, jawaban benar, dan score
-            return response()->json([
-                'jawaban_old' => $jawaban,
-                'jawaban_benar' => $jwb_stud_kas_3,
-                'score' => $score,
-                'message' => $message
-            ]);
-        } else if ($request->studi_kasus == "selfconf_1") {
-            foreach ($jawaban as $key => $value) {
-                if ($value == $jwb_self_conf_stud_1[$key]) {
-                    $score += 1;
-                }
-            }
+        //     // return jawaban lama, jawaban benar, dan score
+        //     return response()->json([
+        //         'jawaban_old' => $jawaban,
+        //         'jawaban_benar' => $jwb_stud_kas_3,
+        //         'score' => $score,
+        //         'message' => $message
+        //     ]);
+        // } else if ($request->studi_kasus == "selfconf_1") {
+        //     foreach ($jawaban as $key => $value) {
+        //         if ($value == $jwb_self_conf_stud_1[$key]) {
+        //             $score += 1;
+        //         }
+        //     }
 
-            if ($score == 6) {
-                $message = $message_lulus;
-            } else {
-                $message = $message_gagal;
-            }
+        //     if ($score == 6) {
+        //         $message = $message_lulus;
+        //     } else {
+        //         $message = $message_gagal;
+        //     }
 
-            // return jawaban lama, jawaban benar, dan score
-            return response()->json([
-                'jawaban_old' => $jawaban,
-                'jawaban_benar' => $jwb_self_conf_stud_1,
-                'score' => $score,
-                'message' => $message
-            ]);
-        }
+        //     // return jawaban lama, jawaban benar, dan score
+        //     return response()->json([
+        //         'jawaban_old' => $jawaban,
+        //         'jawaban_benar' => $jwb_self_conf_stud_1,
+        //         'score' => $score,
+        //         'message' => $message
+        //     ]);
+        // }
     }
 
     /**
@@ -311,7 +351,7 @@ class AccurateSelfAssesment extends Controller
             'message' => $message
         ]);
     }
-    
+
     public function refleksiDiri(Request $request)
     {
         // dd($request->all());
