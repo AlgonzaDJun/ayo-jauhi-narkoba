@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Change to the project directory. 
-cd ~/path/to/project
+cd ~/domains/jauhi-narkoba.toska.my.id/laravel/
 
 # Pull the latest changes from the git repository
 git pull origin main
