@@ -1088,6 +1088,21 @@ class AyoMengenaliAku extends Controller
             ],
         ];
 
+        $jawaban_accurate_sp_rev = AccurateSelfAssesmentIT::where('user_id', auth()->user()->id)->latest()->first();
+
+        $skala_penilaian_asa = [
+            'nama' => 'skala penilaian asa',
+            'skala_penilaian' => [
+                'soal_1' => 'Saya dapat menggunakan refleksi diri untuk mengetahui kelebihan dan kekurangan saya',
+                'soal_2' => 'Saya bisa menganalisis kritik dan saran dari orang lain untuk memperbaiki diri',
+                'soal_3' => 'Saya percaya bahwa kritik dan saran yang membangun sangat penting untuk perkembangan diri',
+                'soal_4' => 'Saya dapat menetapkan tujuan untuk pengembangan diri berdasarkan kelebihan dan kekurangan yang saya temukan',
+                'soal_5' => 'Saya bisa mengendalikan diri untuk terus belajar dan memperbaiki diri dengan menggunakan kritik dan saran yang diterima',
+                'soal_6' => 'Saya dapat membuat cara untuk secara rutin mengevaluasi dan meningkatkan diri saya',
+            ],
+            'jawaban_instrumen' => $jawaban_accurate_sp_rev
+        ];
+
         $tes_instrumen = [
             'jawaban_instrumen' => $jawaban_accurate_it,
             'message_instrumen' => $message_instrumen,
@@ -1455,7 +1470,8 @@ class AyoMengenaliAku extends Controller
             $stud_kas_3,
             $tes_instrumen,
             $refleksi_diri,
-            $stud_kas_acc_revisi
+            $stud_kas_acc_revisi,
+            $skala_penilaian_asa
         ];
 
         $self_conf = [
