@@ -19,6 +19,10 @@ jobs:
           chmod 600 ~/.ssh/id_rsa.pub
           ssh-keyscan -H ${{ secrets.SERVER_IP }} >> ~/.ssh/known_hosts
 
-      - name: Deploy
+      - name: Deploy with rsync
         run: |
-          ssh syncflux@${{ secrets.SERVER_IP }} 'bash -s' < ${{ github.workspace }}/.github/workflows/deploy.sh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > deploy_key
+          chmod 600 deploy_key
+          rsync -chav --delete \
+            -e 'ssh -i deploy_key -o StrictHostKeyChecking=no' \
+            ./ ${{ secrets.SERVER_USERNAME }}@${{ secrets.SERVER_IP }}/.github/workflows/deploy.sh
