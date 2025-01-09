@@ -202,7 +202,7 @@
                             swal("Success!", response.data.message, "success")
                                 .then(() => {
                                     // refleksi-diri-tab click
-                                    // window.location.reload();
+                                    window.location.reload();
                                     // $('#accurate-tab').click();
                                     $('#refleksi-diri-tab').click();
                                     // set session refleksi-diri

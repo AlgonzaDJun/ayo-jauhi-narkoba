@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\LKSelfConfidence;
+use App\Models\SelfConfidenceIT;
 use App\Models\SelfConfidentPKD;
 use App\Models\SelfConfidentSK;
 use Illuminate\Http\Request;
@@ -235,6 +236,47 @@ class SelfConfidence extends Controller
     public function update(Request $request, $id)
     {
         //
+        // dd($request->all());
+        $score = (array_sum(array_map('intval', array_slice($request->data, 1))) / 24) * 100;
+        $message = "";
+
+        // Ambil semua request data
+        $data = $request->data;
+
+        // Potong array dari key 1
+        $filteredData = array_slice($data, 1);
+        // dd($filteredData);
+        // Inisialisasi array baru untuk menyimpan data dengan key yang dimodifikasi
+        $mappedData = [];
+
+        // Foreach untuk menambahkan prefix ke key
+        foreach ($filteredData as $key => $value) {
+            $mappedData['soal_' . ($key + 1)] = $value; // Contoh: soal_1, soal_2, ...
+        }
+        $mappedData['user_id'] = auth()->user()->id;
+        $mappedData['score'] = (int)$score;
+
+        if ($score < 60) {
+            $message = "Capaian Pembelajaran anda : sangat kurang. Anda perlu belajar lebih giat lagi";
+        } elseif ($score >= 60 && $score <= 70) {
+            $message = "Capaian Pembelajaran anda : Kurang. Anda masih kurang baik, dan masih perlu belajar lebih giat lagi";
+        } elseif ($score >= 71 && $score <= 80) {
+            $message = "Capaian Pembelajaran anda : Cukup. Anda sudah cukup baik, tetapi masih perlu belajar lebih giat lagi";
+        } elseif ($score >= 81 && $score <= 90) {
+            $message = "Capaian Pembelajaran anda : Baik. Anda sudah  baik, tetapi masih perlu belajar lebih giat lagi";
+        } elseif ($score >= 91 && $score <= 100) {
+            $message = "Anda sudah sangat baik dalam memahami pembelajaran ini.";
+        }
+
+        $mappedData['message'] = $message;
+
+        // dd($mappedData);
+        SelfConfidenceIT::create($mappedData);
+
+        return response()->json([
+            'score' => $score,
+            'message' => $message
+        ]);
     }
 
     /**

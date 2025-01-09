@@ -1,11 +1,10 @@
 <div>
     <div class="space-y-4 rounded-lg " id="accurate" role="tabpanel" aria-labelledby="accurate-tab">
         <h1 class="text-2xl font-bold">Accurate Self Assesment </h1>
-
         <img src="{{ asset('img/Credit assesment-rafiki.png') }}" alt="" class="md:w-1/2 h-72 object-contain">
-        <p class="text-base text-justify indent-8">Accurate Self Assessment atau Penilaian diri yang akurat menurut
+        <p class="text-base text-justify indent-8"><span class="italic">Accurate Self Assessment</span>  atau Penilaian diri yang akurat menurut
             Daniel
-            Goleman dalam bukunya Emotional Intelligence: The 25th Anniversary Edition, adalah
+            Goleman dalam bukunya <span class="italic">Emotional Intelligence: The 25th Anniversary Edition</span>, adalah
             kemampuan untuk memahami kelebihan dan kekurangan pada diri sendiri. Penilaian
             diri yang akurat mencakup mengenali bagaimana perilaku, tindakan, dan emosi diri
             sendiri mempengaruhi orang lain, serta mengakui kebutuhan untuk pengembangan

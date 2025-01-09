@@ -8,6 +8,7 @@ use App\Models\AccurateSelfAssesmentSK;
 use App\Models\DetailJawaban;
 use App\Models\JawabanSoalEmosi;
 use App\Models\LKSelfConfidence;
+use App\Models\SelfConfidenceIT;
 use App\Models\SelfConfidentPKD;
 use App\Models\SelfConfidentSK;
 use Illuminate\Http\Request;
@@ -1213,6 +1214,21 @@ class AyoMengenaliAku extends Controller
             'jawaban_self_con' => $jawaban_self_confidence_sk_rev
         ];
 
+        $jawaban_self_con_sp_rev = SelfConfidenceIT::where('user_id', auth()->user()->id)->latest()->first();
+
+        $skala_penilaian_self_con = [
+            'nama' => 'skala penilaian self confidence',
+            'skala_penilaian' => [
+                'soal_1' => 'Saya merasa percaya diri saat berbicara di depan umum',
+                'soal_2' => 'Saya mampu menganalisis faktor yang memengaruhi kepercayaan diri saya',
+                'soal_3' => 'Saya menghargai keyakinan diri dalam menghadapi tantangan',
+                'soal_4' => 'Saya dapat mengelola pengalaman positif untuk membangun kepercayaan diri yang berkelanjutan',
+                'soal_5' => 'Saya mampu mengendalikan diri dalam situasi yang membutuhkan kepercayaan diri tinggi',
+                'soal_6' => 'Saya memiliki mekanisme untuk tetap tenang dan percaya diri dalam situasi sulit',
+            ],
+            'jawaban_instrumen' => $jawaban_self_con_sp_rev
+        ];
+
         $stud_kas_1_self_con = [
             'jawaban_self_con' => $jawaban_self_confidence_sk1,
             'nama' => 'studi kasus 1',
@@ -1504,7 +1520,8 @@ class AyoMengenaliAku extends Controller
             $stud_kas_2_self_con,
             $stud_kas_3_self_con,
             $lk_self_con,
-            $studi_kas_rev_self_con
+            $studi_kas_rev_self_con,
+            $skala_penilaian_self_con
         ];
 
         $emosis = [

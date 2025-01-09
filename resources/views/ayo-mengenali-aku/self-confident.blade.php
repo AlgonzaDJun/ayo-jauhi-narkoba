@@ -3,7 +3,7 @@
         <h1 class="text-2xl font-bold">Self Confident </h1>
         <img src="{{ asset("img/Self confidence-pana.png") }}" alt="" class="md:w-1/2 h-72 object-contain">
         <p class="text-base text-justify indent-8"> <span class="italic capitalize">Self confidence</span> atau kepercayaan diri, menurut Daniel Goleman dalam
-            bukunya Emotional Intelligence: The 25th Anniversary Edition, adalah bagian dari
+            bukunya <span class="italic">Emotional Intelligence: The 25th Anniversary Edition</span>, adalah bagian dari
             kesadaran diri yang berperan penting dalam pengembangan kecerdasan emosional.
             Dalam konteks pencegahan penggunaan narkoba, kepercayaan diri membantu
             individu untuk mengelola stres, membuat keputusan yang sehat, dan menanggapi
@@ -58,6 +58,14 @@
                 aria-controls="lk-self-con-1" aria-selected="false">L/K Meningkatkan Kepercayaan Diri </button>
         </li>
 
+        <li role="presentation" class="mr-2">
+            <button
+                class="inline-block p-4 rounded-t-lg border-b-2 border-transparent hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 dark:border-transparent text-md text-gray-500 dark:text-gray-400 border-gray-100 dark:border-gray-700"
+                id="skala-penilaian-self-con-tab" data-tabs-target="#skala-penilaian-self-con" type="
+                button" role="tab"
+                aria-controls="skala-penilaian-self-con" aria-selected="false">Skala Penilaian Capaian Pembelajaran</button>
+        </li>
+
         {{-- refleksi diri --}}
         {{-- <li role="presentation">
             <button
@@ -90,6 +98,10 @@
 
         <div class="hidden md:p-4 rounded-lg" id="lk-self-con-1" role="tabpanel" aria-labelledby="lk-self-con-1-tab">
             @include('ayo-mengenali-aku.self-confident.lk_praktik_penguatan')
+        </div>
+
+        <div class="hidden md:p-4 rounded-lg" id="skala-penilaian-self-con" role="tabpanel" aria-labelledby="skala-penilaian-self-con-tab">
+            @include('ayo-mengenali-aku.self-confident.skala-penilaian')
         </div>
 
         {{-- <div class="hidden md:p-4 rounded-lg" id="lk-self-con-2" role="tabpanel" aria-labelledby="lk-self-con-2-tab">

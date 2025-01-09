@@ -177,13 +177,13 @@
         </div>
     </dialog>
 
-    <h1 class="font-bold text-xl italic">Emotional Awareness / <span class="not-italic">Kesadaran Emosional</span>
+    <h1 class="font-bold text-xl italic pt-11">Emotional Awareness / <span class="not-italic">Kesadaran Emosional</span>
     </h1>
 
     <img src="{{ asset("img/Writer's block-rafiki.png") }}" alt="" class="md:w-1/2 h-72 object-contain">
 
-    <p class="indent-8">Emotional awareness atau kesadaran emosional menurut Daniel Goleman dalam
-        bukunya Emotional Intelligence: The 25th Anniversary Edition, merupakan kemampuan
+    <p class="indent-8"> <span class="italic">Emotional awareness</span> atau kesadaran emosional menurut Daniel Goleman dalam
+        bukunya <span class="italic">Emotional Intelligence: The 25th Anniversary Edition</span>, merupakan kemampuan
         untuk mengenali emosi pada diri sendiri dan pengaruhnya. Emosi sendiri merupakan
         perasaan yang timbul sebagai respons terhadap sesuatu. Kesadaran emosional sangat
         penting dalam mencegah penggunaan narkoba. Dengan memiliki kesadaran
@@ -191,8 +191,8 @@
         tidak terjerumus pada kebiasaan buruk seperti menggunakan narkoba untuk
         melarikan diri dari perasaan negatif.</p>
 
-    <p class="indent-8">Dalam bukunya, DBT Skills Training Handouts and Worksheets, Second Edition
-        dan DBT Skills Training Manual, Second Edition, Marsha M. Linehan membahas
+    <p class="indent-8">Dalam bukunya, <span class="italic"> DBT Skills Training Handouts and Worksheets, Second Edition </span>
+        dan <span class="italic"> DBT Skills Training Manual, Second Edition</span>, Marsha M. Linehan membahas
         mengenai 10 emosi dasar, yaitu: Amarah <span class="italic">(Anger)</span>, Cemburu <span class="italic">(Jealousy)</span>, Cinta <span
         class="italic">(Love)</span>, Iri <span class="italic">(Envy)</span>, Kebahagiaan <span
         class="italic">(Happiness)</span>, Kesedihan <span class="italic">(Sadness)</span>, Malu <span
