@@ -226,6 +226,18 @@ class AyoMengenaliAku extends Controller
             ->toArray()
             : null;
 
+        $jawaban_self_confidence_sk_rev = SelfConfidentSK::where('user_id', auth()->user()->id)
+            ->whereNull('Kategori_SK')
+            ->orderBy('created_at', 'desc')
+            ->first()
+            ?
+            SelfConfidentSK::where('user_id', auth()->user()->id)
+            ->whereNull('Kategori_SK')
+            ->orderBy('created_at', 'desc')
+            ->first()
+            ->toArray()
+            : null;
+
         $jawaban_self_confidence_sk1 = SelfConfidentSK::where('Kategori_SK', 1)
             ->where('user_id', auth()->user()->id)
             ->orderBy('created_at', 'desc')
@@ -1188,6 +1200,19 @@ class AyoMengenaliAku extends Controller
             ]
         ];
 
+        $studi_kas_rev_self_con = [
+            'nama' => 'studi kasus revisi',
+            'deskripsi' => '<p>Maya adalah seorang siswi SMA yang dikenal dengan senyumnya yang ramah. Namun, di balik senyuman itu, Maya sering merasa kurang percaya diri, terutama ketika berbicara di depan umum. Suatu hari, sekolahnya mengadakan lomba pidato bertema "Pencegahan Penggunaan Narkoba." Maya ragu untuk mendaftar, tetapi sahabatnya, Dina, memberinya dorongan.</p> <p class="-indent-8">"Kamu punya kemampuan untuk berbicara dengan jelas dan menarik. Cobalah, Maya. Ini kesempatanmu untuk berbagi sesuatu yang penting," kata Dina.</p> <p>Maya memutuskan untuk mencobanya. Dia menghabiskan waktu berminggu- minggu mempersiapkan pidatonya. Dia membaca berbagai artikel, menonton video inspiratif, dan menulis naskahnya sendiri. Di sela-sela persiapannya, Maya belajar bahwa kepercayaan diri tidak hanya tentang apa yang dia katakan, tetapi juga bagaimana dia menyampaikannya. Dia mencoba berbicara di depan cermin, memperbaiki postur tubuhnya, dan menjaga kontak mata dengan "penonton" bayangannya.</p> <p>Hari perlombaan tiba, dan Maya merasa gugup. Saat namanya dipanggil, tangannya berkeringat. Namun, dia mengingat nasihat gurunya: "Tarik napas dalam- dalam, percaya pada dirimu sendiri, dan ingat tujuanmu."</p> <p>Maya naik ke panggung dengan gemetar, tetapi segera menemukan ritmenya. Dengan suara lantang, dia menyampaikan pesan tentang bahaya narkoba dan pentingnya mengatakan "tidak" pada tekanan teman sebaya. Dia membagikan cerita tentang seorang sepupunya yang terjebak dalam penggunaan narkoba dan perjuangan keluarganya untuk membantu sepupunya sembuh. Ceritanya penuh emosi dan membuat para pendengar terdiam.</p> <p>Ketika pidatonya selesai, ruangan penuh dengan tepuk tangan. Maya tersenyum lega. Meski dia tidak memenangkan lomba, pengalaman itu memberinya pelajaran berharga. Dia menyadari bahwa kepercayaan diri bukan berarti tidak merasa takut, melainkan berani menghadapi ketakutan itu.</p> <p>Maya mulai melihat kepercayaan diri dalam dirinya tumbuh. Dia memutuskan untuk terus berlatih berbicara di depan umum dan menggunakan pengalamannya untuk membantu teman-temannya yang juga merasa ragu pada diri sendiri. "Setiap langkah kecil menuju keberanian adalah kemenangan," pikir Maya.</p>',
+            'pertanyaan' => [
+                'soal_1' => 'Berdasarkan cerita di atas, apa saja langkah yang dilakukan Maya untuk meningkatkan kepercayaan dirinya?',
+                'soal_2' => 'Bagaimana pengalaman berbicara di depan umum dapat membantu Maya dalam mencegah penggunaan narkoba?',
+                'soal_3' => 'Analisislah faktor-faktor yang memengaruhi tingkat kepercayaan diri Maya sebelum dan sesudah lomba pidato!',
+                'soal_4' => 'Bagaimana Maya menunjukkan kemampuan mengendalikan diri dalam situasi yang membutuhkan kepercayaan diri tinggi?',
+                'soal_5' => 'Jika kamu berada di posisi Maya, bagaimana kamu akan membangun mekanisme untuk tetap tenang dan percaya diri dalam situasi sulit?',
+            ],
+            'jawaban_self_con' => $jawaban_self_confidence_sk_rev
+        ];
+
         $stud_kas_1_self_con = [
             'jawaban_self_con' => $jawaban_self_confidence_sk1,
             'nama' => 'studi kasus 1',
@@ -1478,7 +1503,8 @@ class AyoMengenaliAku extends Controller
             $stud_kas_1_self_con,
             $stud_kas_2_self_con,
             $stud_kas_3_self_con,
-            $lk_self_con
+            $lk_self_con,
+            $studi_kas_rev_self_con
         ];
 
         $emosis = [
