@@ -1,6 +1,10 @@
 <div class="space-y-5 text-justify">
     @foreach ($self_conf as $studi)
         @if ($studi['nama'] === 'studi kasus revisi')
+            {{-- h1 studi kasus --}}
+
+            <h1 class="font-semibold text-slate-800 text-xl ">Studi Kasus</h1>
+
             <img src="{{ asset('img/Women talking-bro.png') }}" alt="" class=" h-72 object-contain">
 
             <div class="text-base indent-8 space-y-3">{!! $studi['deskripsi'] !!}</div>

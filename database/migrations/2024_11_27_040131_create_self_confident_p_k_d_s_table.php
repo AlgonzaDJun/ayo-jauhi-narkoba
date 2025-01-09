@@ -17,11 +17,11 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->text('Soal_1');
-            $table->text('Soal_2');
-            $table->text('Soal_3');
-            $table->text('Soal_4');
-            $table->text('Soal_5');
+            $table->text('soal_1');
+            $table->text('soal_2');
+            $table->text('soal_3');
+            $table->text('soal_4');
+            // $table->text('soal_5');
             $table->timestamps();
 
         });

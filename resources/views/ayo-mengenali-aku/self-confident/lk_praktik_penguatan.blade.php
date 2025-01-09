@@ -4,11 +4,11 @@
     <div class="mx-auto shadow-md rounded-lg">
         <div class="sm:px-1 md:px-3 py-5">
             <h1 class="text-2xl font-bold text-gray-900 text-center mb-6">
-                Lembar Kerja Praktik Penguatan Kepercayaan Diri
-            </h1>
-            <h2 class="text-xl font-semibold text-gray-800 mb-4 text-center">
                 Lembar Kerja Latihan Pengulangan untuk Meningkatkan Kepercayaan Diri
-            </h2>
+            </h1>
+            {{-- <h2 class="text-xl font-semibold text-gray-800 mb-4 text-center">
+                Lembar Kerja Latihan Pengulangan untuk Meningkatkan Kepercayaan Diri
+            </h2> --}}
 
             <div class="mb-6">
                 <h3 class="text-lg font-medium text-gray-900 mb-2">Tujuan:</h3>
@@ -32,62 +32,73 @@
                         <h4 class="font-medium text-gray-800">Latihan (10 Menit)</h4>
                         <ol class="list-decimal list-inside text-gray-700 ml-4">
                             <li>Berdiri di depan cermin atau berlatih di hadapan teman atau keluarga</li>
-                            <li>Latih berbicara dengan suara yang jelas, postur tubuh yang tegak, dan kontak mata (jika
-                                ada audiens)</li>
-                            <li>Cobalah untuk menghindari membaca skrip secara langsung. Gunakan poin-poin utama sebagai
-                                panduan</li>
-                            <li>Lakukan latihan ini dengan waktu yang cukup dan pastikan kamu mengulanginya dengan
-                                percaya diri</li>
+                            <li>Perhatikan postur tubuh: tegakkan tubuh, jaga pandangan ke depan, dan perhatikan
+                                ekspresi wajah</li>
+                            <li>Berbicara dengan suara jelas: gunakan suara lantang, jeda saat diperlukan, dan
+                                artikulasikan kata dengan baik</li>
+                            <li>Gunakan gerakan tangan: berikan isyarat kecil dengan tangan untuk menekankan poin
+                                penting, tetapi tetap natural</li>
+                            <li>Cobalah tanpa membaca: gunakan poin-poin utama di skrip sebagai panduan. Jangan membaca
+                                kata demi kata</li>
+                            <li>Ulangi 2-3 kali: setelah latihan pertama, evaluasi dan ulangi untuk meningkatkan
+                                hasilnya</li>
+
                         </ol>
                     </div>
 
                     @isset($jawaban_self_confidence_pkd)
-                        <p class="text-red-500 text-3xl font-semibold">
-                            Anda sudah pernah mengisi soal ini sebelumnya.
-                        </p>
-
-                        <button type="button"
-                            class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full focus:outline-none focus:shadow-outline"
-                            id="kosong-form-lk-pkd"
-                            >
-                            Kosongkan Form
-                        </button>
+                        <x-congratulations-card title="Selamat!" message="Kamu telah menyelesaikan:"
+                            subtitle="Lembar Kerja Latihan Pengulangan untuk Meningkatkan Kepercayaan Diri" stars="5"
+                            footer="Tetap Semangat dan Selalu Jauhi Narkoba!" />
                     @endisset
 
                     <div>
                         <form action="{{ route('self-confidence.penguatan-diri') }}" method="post" id="self_con_pkd">
                             @csrf
                             <h4 class="font-medium text-gray-800">Refleksi (5 Menit)</h4>
-                            <p class="text-gray-700">Setelah setiap sesi latihan, jawab pertanyaan refleksi berikut di
+                            <p class="text-gray-700 my-4">Setelah setiap sesi latihan, jawab pertanyaan refleksi berikut
+                                di
                                 bawah
                                 ini</p>
-                            <ol class="list-decimal list-inside text-gray-700 ml-4">
-                                <li>Bagaimana perasaanmu setelah melakukan latihan pengulangan ini?
-                                    <input name="Soal_1" type="text"
-                                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                                        value="@isset($jawaban_self_confidence_pkd){{ $jawaban_self_confidence_pkd['Soal_1'] }}@endisset">
+                            <ol class="list-decimal list-inside text-gray-700 ml-4 space-y-4">
+                                <li>Apakah kamu merasa lebih percaya diri setelah latihan ini?<br>
+                                    Jawaban:
+                                    <textarea name="soal_1"
+                                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 p-2">
+@isset($jawaban_self_confidence_pkd)
+{{ $jawaban_self_confidence_pkd['soal_1'] }}
+@endisset
+</textarea>
                                 </li>
-                                <li>Apa kemajuan terbesar yang kamu rasakan dari latihan pengulangan ini?
-                                    <input name="Soal_2" type="text"
-                                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                                        value="@isset($jawaban_self_confidence_pkd){{ $jawaban_self_confidence_pkd['Soal_2'] }}@endisset">
+                                <li>Bagian mana yang menurut kamu paling berhasil?<br>
+                                    Jawaban:
+                                    <textarea name="soal_2"
+                                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 p-2">
+@isset($jawaban_self_confidence_pkd)
+{{ $jawaban_self_confidence_pkd['soal_2'] }}
+@endisset
+</textarea>
                                 </li>
-                                <li>Apa tantangan terbesar yang kamu hadapi selama latihan pengulangan ini?
-                                    <input name="Soal_3" type="text"
-                                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                                        value="@isset($jawaban_self_confidence_pkd){{ $jawaban_self_confidence_pkd['Soal_3'] }}@endisset">
+                                <li>Bagian mana yang perlu kamu tingkatkan?<br>
+                                    Jawaban:
+                                    <textarea name="soal_3"
+                                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 p-2">
+@isset($jawaban_self_confidence_pkd)
+{{ $jawaban_self_confidence_pkd['soal_3'] }}
+@endisset
+</textarea>
                                 </li>
-                                <li>Apa yang kamu pelajari tentang dirimu selama proses latihan ini?
-                                    <input name="Soal_4" type="text"
-                                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                                        value="@isset($jawaban_self_confidence_pkd){{ $jawaban_self_confidence_pkd['Soal_4'] }}@endisset">
-                                </li>
-                                <li>Bagaimana kamu akan terus meningkatkan keterampilanmu di minggu berikutnya?
-                                    <input name="Soal_5" type="text"
-                                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                                        value="@isset($jawaban_self_confidence_pkd){{ $jawaban_self_confidence_pkd['Soal_5'] }}@endisset">
+                                <li>Langkah apa yang akan kamu ambil untuk menjadi lebih baik?<br>
+                                    Jawaban:
+                                    <textarea name="soal_4"
+                                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 p-2">
+@isset($jawaban_self_confidence_pkd)
+{{ $jawaban_self_confidence_pkd['soal_4'] }}
+@endisset
+</textarea>
                                 </li>
                             </ol>
+
 
                             <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
                             <div class="mt-4">
@@ -106,7 +117,7 @@
 
 @push('custom-script')
     <script>
-        $('#kosong-form-lk-pkd').on('click', function () {
+        $('#kosong-form-lk-pkd').on('click', function() {
             $('#self_con_pkd').find('input[type="text"]').val('');
         });
     </script>

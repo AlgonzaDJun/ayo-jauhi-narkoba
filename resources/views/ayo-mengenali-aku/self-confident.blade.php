@@ -55,16 +55,16 @@
                 class="inline-block p-4 rounded-t-lg border-b-2 border-transparent hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 dark:border-transparent text-md text-gray-500 dark:text-gray-400 border-gray-100 dark:border-gray-700"
                 id="lk-self-con-1-tab" data-tabs-target="#lk-self-con-1" type="
                 button" role="tab"
-                aria-controls="lk-self-con-1" aria-selected="false">L/K Praktik Penguatan Kepercayaan Diri </button>
+                aria-controls="lk-self-con-1" aria-selected="false">L/K Meningkatkan Kepercayaan Diri </button>
         </li>
 
         {{-- refleksi diri --}}
-        <li role="presentation">
+        {{-- <li role="presentation">
             <button
                 class="inline-block p-4 rounded-t-lg border-b-2 border-transparent hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 dark:border-transparent text-md text-gray-500 dark:text-gray-400 border-gray-100 dark:border-gray-700"
                 id="lk-self-con-2-tab" data-tabs-target="#lk-self-con-2" type="button" role="tab"
                 aria-controls="lk-self-con-2" aria-selected="false">L/K Self Confidence</button>
-        </li>
+        </li> --}}
     </div>
 
     <div id="self-confident-tab">
@@ -92,9 +92,9 @@
             @include('ayo-mengenali-aku.self-confident.lk_praktik_penguatan')
         </div>
 
-        <div class="hidden md:p-4 rounded-lg" id="lk-self-con-2" role="tabpanel" aria-labelledby="lk-self-con-2-tab">
+        {{-- <div class="hidden md:p-4 rounded-lg" id="lk-self-con-2" role="tabpanel" aria-labelledby="lk-self-con-2-tab">
             @include('ayo-mengenali-aku.self-confident.lk_self_confidence')
-        </div>
+        </div> --}}
 
     </div>
 </div>
