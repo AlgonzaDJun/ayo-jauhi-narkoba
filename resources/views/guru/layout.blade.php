@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="{{ asset('./assets/compiled/css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('./assets/compiled/css/app-dark.css') }}">
     <link rel="stylesheet" href="{{ asset('./assets/compiled/css/iconly.css') }}">
+    <link rel="stylesheet" href="https://cdn.datatables.net/keytable/2.12.1/css/keyTable.dataTables.min.css">
 </head>
 
 <body>
@@ -87,11 +88,26 @@
 
                         <li class="sidebar-title">Ayo Jauhi Aku</li>
 
-                        <li class="sidebar-item {{ Route::is('guru.ayo-jauhi-narkoba.*') ? 'active' : '' }} ">
-                            <a href="{{ route('guru.ayo-jauhi-narkoba.index') }}" class='sidebar-link'>
+                        <li class="sidebar-item has-sub {{ Route::is('guru.ayo-jauhi-narkoba.*') ? 'active' : '' }} ">
+                            <a href="#" class='sidebar-link'>
                                 <i class="bi bi-file-earmark-medical-fill"></i>
                                 <span>Ayo Jauhi Aku</span>
                             </a>
+
+                            <ul class="submenu">
+
+                                <li
+                                    class="submenu-item {{ Route::is('guru.ayo-jauhi-narkoba.index') ? 'active' : '' }}">
+                                    <a href="{{ route('guru.ayo-jauhi-narkoba.index') }}" class="submenu-link">Studi
+                                        Kasus
+                                        Ayo Jauhi Aku</a>
+                                </li>
+
+                                <li
+                                    class="submenu-item {{ Route::is('guru.ayo-jauhi-narkoba.create') ? 'active' : '' }}">
+                                    <a href="{{ route('guru.ayo-jauhi-narkoba.create') }}" class="submenu-link">Skala Penilaian Jauhi Narkoba</a>
+                                </li>
+                            </ul>
                         </li>
 
 
@@ -260,6 +276,7 @@
     <script src="{{ asset('assets/extensions/datatables.net/js/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('assets/extensions/datatables.net-bs5/js/dataTables.bootstrap5.min.js') }}"></script>
     <script src="{{ asset('assets/static/js/pages/datatables.js') }}"></script>
+    <script src="https://cdn.datatables.net/fixedheader/4.0.1/js/dataTables.fixedHeader.min.js"></script>
 
 </body>
 

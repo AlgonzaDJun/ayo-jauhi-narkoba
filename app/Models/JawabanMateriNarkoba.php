@@ -12,9 +12,18 @@ class JawabanMateriNarkoba extends Model
     protected $table = 'jawaban_materi_narkobas';
     protected $guarded = ['id'];
 
-    public function user ()
+    public function user()
     {
-    return $this->belongsTo(User::class, 'user_id');
+        return $this->belongsTo(User::class, 'user_id');
     }
 
+    // dataTerbaruPerUser
+    public static function dataTerbaruPerUser()
+    {
+        return static::query()
+            ->orderBy('user_id')
+            ->orderByDesc('created_at')
+            ->get()
+            ->unique('user_id');
+    }
 }

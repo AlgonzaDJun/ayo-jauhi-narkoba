@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\JauhiNarkobaSP;
 use App\Models\JawabanMateriNarkoba;
 use Illuminate\Http\Request;
 
@@ -14,9 +15,14 @@ class AyoJauhiNarkobaGuru extends Controller
      */
     public function index()
     {
-        $jawaban_narkoba = JawabanMateriNarkoba::all();
+        // $jawaban_narkoba = JawabanMateriNarkoba::dataTerbaruPerUser();
+        // $test = JawabanMateriNarkoba::dataTerbaruPerUser();
+
+        $jawaban_narkoba = JawabanMateriNarkoba::orderBy('id', 'desc')->get()->unique('user_id');
+
+        // dd($test);
         // dd($jawaban_narkoba);
-        return view('guru.ayo-jauhi-narkoba.index',compact('jawaban_narkoba'));
+        return view('guru.ayo-jauhi-narkoba.index', compact('jawaban_narkoba'));
     }
 
     /**
@@ -26,7 +32,9 @@ class AyoJauhiNarkobaGuru extends Controller
      */
     public function create()
     {
-        //
+        $jawaban_narkoba = JauhiNarkobaSP::orderBy('id', 'desc')->get()->unique('user_id');
+        // dd($jawaban_narkoba);
+        return view('guru.ayo-jauhi-narkoba.skala-penilaian', compact('jawaban_narkoba'));
     }
 
     /**

@@ -1,8 +1,12 @@
 let jquery_datatable = $("#table1").DataTable({
-    responsive: true
+    fixedHeader: true,
+    responsive: true,
+      scrollY: 'calc(100vh - 425px)'
 })
 let customized_datatable = $("#table2").DataTable({
+    fixedHeader: true,
     responsive: true,
+      scrollY: 'calc(100vh - 425px)',
     pagingType: 'simple',
     dom:
 		"<'row'<'col-3'l><'col-9'f>>" +

@@ -6,8 +6,6 @@
 
 @section('main')
 
-{{-- @dd($jawaban_narkoba) --}}
-
 
     <div class="card">
         <div class="card-header">
@@ -24,23 +22,10 @@
                             {{-- @for ($i = 1; $i <= 25; $i++)
                                 <th>Soal {{ $i }}</th>
                             @endfor --}}
-                            <th>Apa saja langkah-langkah pencegahan narkoba yang diterapkan Damar dalam kehidupan
-                                sehari-hari setelah ia sadar akan bahaya narkoba?</th>
-
-                            <th>Apa saja faktor-faktor yang menyebabkan Damar terjerumus dalam penggunaan narkoba?</th>
-
-                            <th>Bagaimana penggunaan narkoba dapat mempengaruhi kehidupan seseorang, baik secara pribadi
-                                maupun dalam konteks masyarakat? Jelaskan dampaknya!</th>
-
-                            <th>
-                                Apa yang bisa kamu lakukan untuk meningkatkan kesadaran diri terkait bahaya narkoba dalam
-                                kehidupan sehari-hari?
-                            </th>
-
-                            <th>
-                                Bagaimana cara kamu menyampaikan informasi tentang bahaya narkoba dengan jelas dan tepat
-                                kepada teman-temanmu?
-                            </th>
+                            {{-- score --}}
+                            <th>Skor</th>
+                            {{-- pesan --}}
+                            <th>Pesan</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -48,10 +33,8 @@
                             <tr>
                                 <td>{{ $item->user->name }}</td>
                                 <td>{{ $item->created_at->format('d-M-Y (H:i)') }}</td>
-                                {{-- soal 4 - soal 25 --}}
-                                @for ($i = 1; $i <= 5; $i++)
-                                    <td>{{ $item['soal_' . $i] }}</td>
-                                @endfor
+                                <td>{{ $item->score }}</td>
+                                <td>{{ $item->message }}</td>
                             </tr>
                         @empty
                             <tr>
