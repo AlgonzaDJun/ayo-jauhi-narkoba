@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\LKSelfConfidence;
+use App\Models\SelfConfidenceIT;
 use App\Models\SelfConfidentPKD;
 use App\Models\SelfConfidentSK;
 use Illuminate\Http\Request;
@@ -16,7 +17,7 @@ class SelfConfidentGuru extends Controller
      */
     public function index()
     {
-        $jawaban_self_conf = SelfConfidentSK::latest()->get();
+        $jawaban_self_conf = SelfConfidentSK::orderBy('id', 'desc')->get()->unique('user_id');
         return view('guru.self-confident.jawaban-studi-kasus', compact('jawaban_self_conf'));
     }
 
@@ -27,7 +28,9 @@ class SelfConfidentGuru extends Controller
      */
     public function create()
     {
-        $jawaban_lk_pkd = SelfConfidentPKD::latest()->get();
+        $jawaban_lk_pkd = SelfConfidentPKD::orderBy('id', 'desc')->get()->unique('user_id');
+
+        // dd($jawaban_lk_pkd);
         return view('guru.self-confident.jawaban-lk-pkd', compact('jawaban_lk_pkd'));
     }
 
@@ -82,7 +85,8 @@ class SelfConfidentGuru extends Controller
      */
     public function edit($id)
     {
-        //
+        $jawaban_narkoba = SelfConfidenceIT::orderBy('id', 'desc')->get()->unique('user_id');
+        return view('guru.self-confident.skala-penilaian', compact('jawaban_narkoba'));
     }
 
     /**

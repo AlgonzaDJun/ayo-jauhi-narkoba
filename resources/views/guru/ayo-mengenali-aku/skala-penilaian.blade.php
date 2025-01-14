@@ -26,7 +26,7 @@
                             {{-- score --}}
                             <th>Skor</th>
                             {{-- pesan --}}
-                            <th>Pesan</th>
+                            <th>Deskripsi Skor</th>
                         </tr>
                     </thead>
                     <tbody>

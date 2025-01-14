@@ -1,7 +1,7 @@
 @extends('guru.layout')
 
 @section('judul')
-    Data Jawaban Lembar Kerja - Praktik Kepercayaaan Diri
+    Data Jawaban Lembar Kerja - M
 @endsection
 
 {{-- @dd($jawaban_emosi[0]->detailJawaban->soal1) --}}

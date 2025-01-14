@@ -199,10 +199,15 @@
                                 <li
                                     class="submenu-item {{ Route::is('guru.self-confidence.create') ? 'active' : '' }}">
                                     <a href="{{ route('guru.self-confidence.create') }}" class="submenu-link">Jawaban
-                                        LK Praktik Kepercayaan Diri</a>
+                                        LK Penguatan Kepercayaan Diri</a>
                                 </li>
 
-                                @php
+                                <li
+                                    class="submenu-item {{ Route::is('guru.self-confidence.edit') ? 'active' : '' }}">
+                                    <a href="{{ route('guru.self-confidence.edit', ['self_confidence' => 1]) }}" class="submenu-link">Skala Penilaian Self Confidence</a>
+                                </li>
+
+                                {{-- @php
                                     $currentBag = request()->route('self_confidence'); // Ambil parameter self_confidence dari route
                                 @endphp
 
@@ -225,7 +230,7 @@
                                         class="submenu-link">
                                         Jawaban LK Self Confident bagian 3
                                     </a>
-                                </li>
+                                </li> --}}
 
 
                             </ul>
