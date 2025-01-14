@@ -1,7 +1,7 @@
 let jquery_datatable = $("#table1").DataTable({
     fixedHeader: true,
     responsive: true,
-      scrollY: 'calc(100vh - 425px)'
+      scrollY: 'calc(100vh - 425px)',
 })
 let customized_datatable = $("#table2").DataTable({
     fixedHeader: true,

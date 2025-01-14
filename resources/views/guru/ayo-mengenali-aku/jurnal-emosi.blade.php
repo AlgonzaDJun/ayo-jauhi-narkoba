@@ -15,17 +15,19 @@
                 <table class="table" id="table2">
                     <thead>
                         <tr>
+                            <th>No</th>
                             <th>Nama Murid</th>
                             <th>Tanggal submit</th>
                             {{-- kejadian hari ini, emosi yang dirasakan, intensitas emosi, penyebab emosi, respon terhadap emosi, pengaruh emosi --}}
-                            <th>Kejadian Hari Ini</th>
-                            <th>Emosi yang Dirasakan</th>
-                            <th>Intensitas Emosi</th>
-                            <th>Penyebab Emosi</th>
-                            <th>Respon Terhadap Emosi</th>
-                            <th>Pengaruh Emosi</th>
-                            <th>Bagaimana perasaan Anda mempengaruhi keputusan yang Anda buat?</th>
-                            <th>Bagaimana perasaan atau emosi negatif dapat memicu keinginan Anda untuk menggunakan narkoba?
+                            <th>Emosi apa yang kamu rasakan hari ini?</th>
+                            <th>Dari Skala 1-10 berapa intensitas emosi yang kamu rasakan?</th>
+                            <th>Apa penyebab dari emosi yang kamu rasakan?</th>
+                            <th>Apakah emosi tersebut mempengaruhi perilaku dan pikiranmu terhadap diri sendiri maupun orang lain?
+                            </th>
+                            <th>Apa yang kamu lakukan pada saat emosi tersebut muncul?
+                            </th>
+                            <th>Bagaimana cara kamu mengatasi emosi tersebut?</th>
+                            {{-- <th>Bagaimana perasaan atau emosi negatif dapat memicu keinginan Anda untuk menggunakan narkoba?
                             </th>
                             <th>Bagaimana perasaan positif dapat membantu Anda menghindari narkoba?
                             </th>
@@ -36,13 +38,14 @@
                             </th>
                             <th>Bagaimana Anda bereaksi ketika mengetahui emosi orang lain?</th>
                             <th>Apakah emosi orang lain mempengaruhi perasaan Anda?</th>
-                            <th>Bagaimana caramu mengelola perasaan tersebut?</th>
+                            <th>Bagaimana caramu mengelola perasaan tersebut?</th> --}}
                             <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
                         @forelse ($jawaban_jurnal_emosi as $item)
                             <tr>
+                                <td>{{ $loop->iteration }}</td>
                                 <td>{{ $item->user->name }}</td>
                                 <td>{{ $item->created_at->format('d-M-Y (H:i)') }}</td>
                                 @foreach (array_slice(array_values($item->toArray()), 3, -3) as $value)

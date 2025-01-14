@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\EmotionalAwarenessSK;
+use App\Models\EmotionalAwarenessSP;
 use App\Models\JawabanSoalEmosi;
 use App\Models\JurnalEmosi;
 use App\Models\JurnalMindfulness;
@@ -16,9 +18,9 @@ class EmotionalAwarenessGuru extends Controller
      */
     public function index()
     {
-        $jawaban_emosi = JawabanSoalEmosi::latest()->get();
-        // dd($jawaban_emosi[0]->detailJawaban->soal1);
-        return view('guru.ayo-mengenali-aku.emotional-awareness', compact('jawaban_emosi'));
+        $studi_kasus_emotional = EmotionalAwarenessSK::orderBy('id', 'desc')->get()->unique('user_id');
+        // dd($studi_kasus_emotional);
+        return view('guru.ayo-mengenali-aku.emotional-awareness', compact('studi_kasus_emotional'));
     }
 
     /**
@@ -65,7 +67,8 @@ class EmotionalAwarenessGuru extends Controller
      */
     public function edit($id)
     {
-        //
+        $jawaban_narkoba = EmotionalAwarenessSP::orderBy('id', 'desc')->get()->unique('user_id');
+        return view('guru.ayo-mengenali-aku.skala-penilaian', compact('jawaban_narkoba'));
     }
 
     /**

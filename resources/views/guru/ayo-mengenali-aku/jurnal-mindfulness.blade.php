@@ -13,13 +13,14 @@
                 <table class="table" id="table2">
                     <thead>
                         <tr>
+                            <th>No</th>
                             <th>Nama Murid</th>
                             <th>Tanggal submit</th>
-                            <th>Bagaimana perasaanmu saat bangun tidur</th>
-                            <th>Apakah kamu merasa siap untuk memulai hari</th>
-                            <th>Apa yang kamu syukuri hari ini?</th>
-                            <th>Bagaimana perasaanmu setelah setengah hari berlalu?</th>
-                            <th>Apakah kamu menghadapi situasi yang sulit?</th>
+                            <th>Berapa lama kamu berlatih mindfulness hari ini?</th>
+                            <th>Apa yang kamu rasakan selama kegiatan mindfulness?</th>
+                            <th>Apa yang kamu rasakan sebelum melakukan mindfulness?</th>
+                            <th>Bagaimana perasaanmu setelah melakukan mindfulness?</th>
+                            {{-- <th>Apakah kamu menghadapi situasi yang sulit?</th>
                             <th>Apa yang kamu lakukan untuk tetap tenang dan fokus dalam menghadapinya?</th>
                             <th>Bagaimana perasaanmu saat hari berakhir?</th>
                             <th>Apa yang kamu pelajari hari ini?</th>
@@ -33,13 +34,14 @@
                             <th>Apakah kamu mempraktikkan materi mengamati sekitar hari ini?</th>
                             <th>Apa yang kamu perhatikan tentang pikiran dan emosimu hari ini?</th>
                             <th>Bagaimana kamu merespons stres atau situasi sulit hari ini?</th>
-                            <th>Apa yang ingin kamu capai dalam latihan mindfulness besok?</th>
+                            <th>Apa yang ingin kamu capai dalam latihan mindfulness besok?</th> --}}
                             <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
                         @forelse ($jawaban_jurnal_mindfulness as $item)
                             <tr>
+                                <td>{{ $loop->iteration }}</td>
                                 <td>{{ $item->user->name }}</td>
                                 <td>{{ $item->created_at->format('d-M-Y (H:i)') }}</td>
                                 @foreach (array_slice(array_values($item->toArray()), 3, -3) as $value)

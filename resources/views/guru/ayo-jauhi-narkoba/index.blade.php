@@ -17,6 +17,7 @@
                 <table class="table" id="table2">
                     <thead>
                         <tr>
+                            <th>No</th>
                             <th>Nama Murid</th>
                             {{-- tanggal --}}
                             <th>Tanggal submit</th>
@@ -46,6 +47,7 @@
                     <tbody>
                         @forelse ($jawaban_narkoba as $item)
                             <tr>
+                                <td>{{ $loop->iteration }}</td>
                                 <td>{{ $item->user->name }}</td>
                                 <td>{{ $item->created_at->format('d-M-Y (H:i)') }}</td>
                                 {{-- soal 4 - soal 25 --}}

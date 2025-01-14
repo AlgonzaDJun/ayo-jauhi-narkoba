@@ -105,7 +105,7 @@
 
                                 <li
                                     class="submenu-item {{ Route::is('guru.ayo-jauhi-narkoba.create') ? 'active' : '' }}">
-                                    <a href="{{ route('guru.ayo-jauhi-narkoba.create') }}" class="submenu-link">Skala Penilaian Jauhi Narkoba</a>
+                                    <a href="{{ route('guru.ayo-jauhi-narkoba.create') }}" class="submenu-link">Skala Penilaian Ayo Jauhi Aku</a>
                                 </li>
                             </ul>
                         </li>
@@ -125,8 +125,7 @@
                                 <li
                                     class="submenu-item {{ Route::is('guru.emotional-awareness.index') ? 'active' : '' }}">
                                     <a href="{{ route('guru.emotional-awareness.index') }}"
-                                        class="submenu-link">Jawaban Soal Emotional
-                                        Awareness</a>
+                                        class="submenu-link">Jawaban Studi Kasus</a>
                                 </li>
 
                                 <li
@@ -139,6 +138,12 @@
                                     class="submenu-item  {{ Route::is('guru.emotional-awareness.show') ? 'active' : '' }}">
                                     <a href="{{ route('guru.emotional-awareness.show', ['emotional_awareness' => 'jur_mindful']) }}"
                                         class="submenu-link">Jawaban Jurnal Mindfulness</a>
+                                </li>
+
+                                <li
+                                    class="submenu-item  {{ Route::is('guru.emotional-awareness.edit') ? 'active' : '' }}">
+                                    <a href="{{ route('guru.emotional-awareness.edit', ['emotional_awareness' => 'skala_penilaian']) }}"
+                                        class="submenu-link">Skala Penilaian Emotional Awareness</a>
                                 </li>
                             </ul>
 
@@ -277,6 +282,8 @@
     <script src="{{ asset('assets/extensions/datatables.net-bs5/js/dataTables.bootstrap5.min.js') }}"></script>
     <script src="{{ asset('assets/static/js/pages/datatables.js') }}"></script>
     <script src="https://cdn.datatables.net/fixedheader/4.0.1/js/dataTables.fixedHeader.min.js"></script>
+
+    @stack('custom-scripts')
 
 </body>
 

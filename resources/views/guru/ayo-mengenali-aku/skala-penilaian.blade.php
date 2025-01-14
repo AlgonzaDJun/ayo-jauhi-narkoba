@@ -1,7 +1,7 @@
 @extends('guru.layout')
 
 @section('judul')
-    Skala Penilaian Ayo Jauhi Aku
+    Skala Penilaian Ayo mengenali aku
 @endsection
 
 @section('main')
