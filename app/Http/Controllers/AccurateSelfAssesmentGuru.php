@@ -16,9 +16,9 @@ class AccurateSelfAssesmentGuru extends Controller
      */
     public function index()
     {
-        $jawaban_accurate_sk = AccurateSelfAssesmentSK::latest()->get();
+        $jawaban_accurate_sk = AccurateSelfAssesmentSK::orderBy('id', 'desc')->get()->unique('user_id');
         // dd($jawaban_accurate_sk);
-        return view('guru.accurate-self-assesment.jawaban-studi-kasus',compact('jawaban_accurate_sk'));
+        return view('guru.accurate-self-assesment.jawaban-studi-kasus', compact('jawaban_accurate_sk'));
     }
 
     /**
@@ -28,18 +28,7 @@ class AccurateSelfAssesmentGuru extends Controller
      */
     public function create()
     {
-        $jawaban_accurate_it = AccurateSelfAssesmentIT::latest()->get()->map(function ($item) {
-            if ($item->score >= 60 && $item->score <= 80) {
-                $item->deskripsi = "Anda memiliki tingkat Accurate Self-Assessment yang sangat baik. Anda mampu mengevaluasi kelebihan dan kekurangan Anda secara obyektif, terbuka terhadap kritik dan saran, dan secara aktif mengambil langkah-langkah untuk memperbaiki diri";
-            } else if ($item->score >= 40 && $item->score <= 59) {
-                $item->deskripsi = "Anda cukup baik dalam penilaian diri yang akurat, namun mungkin masih ada beberapa area di mana Anda bisa lebih proaktif dalam menerima kritik dan saran atau memperbaiki kekurangan diri";
-            } else if ($item->score >= 20 && $item->score <= 39) {
-                $item->deskripsi = "Anda mungkin perlu bekerja lebih keras dalam mengenali kelebihan, kekurangan, dan menggunakan kritik konstruktif atau membangun untuk pengembangan diri. Refleksi lebih lanjut dan tindakan perbaikan dapat membantu meningkatkan kemampuan Anda dalam penilaian diri";
-            } else if ($item->score < 20) {
-                $item->deskripsi = "Anda mungkin menghadapi kesulitan dalam menilai diri secara obyektif, mengenali kekurangan, atau menerima kritik. Mungkin ini saatnya untuk mempertimbangkan lebih banyak refleksi diri dan keterbukaan terhadap masukan dari orang lain.";
-            }
-            return $item;
-        });
+        $jawaban_accurate_it = AccurateSelfAssesmentIT::orderBy('id', 'desc')->get()->unique('user_id');
 
         // dd($jawaban_accurate_it);
 
@@ -67,7 +56,7 @@ class AccurateSelfAssesmentGuru extends Controller
     {
         $jawaban_accurate_rd = AccurateSelfAssesmentRD::latest()->get();
         // dd($jawaban_accurate_rd);
-        return view('guru.accurate-self-assesment.jawaban-refleksi-diri',compact('jawaban_accurate_rd'));
+        return view('guru.accurate-self-assesment.jawaban-refleksi-diri', compact('jawaban_accurate_rd'));
     }
 
     /**

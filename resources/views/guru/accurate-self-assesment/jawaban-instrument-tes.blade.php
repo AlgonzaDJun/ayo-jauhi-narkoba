@@ -1,7 +1,7 @@
 @extends('guru.layout')
 
 @section('judul')
-    Data Jawaban Instrumen Tes
+    Data Skala Penilaian
 @endsection
 
 {{-- @dd($jawaban_emosi[0]->detailJawaban->soal1) --}}
@@ -15,6 +15,7 @@
                 <table class="table" id="table2">
                     <thead>
                         <tr>
+                            <th>No</th>
                             <th>Nama Murid</th>
                             <th>Tanggal submit</th>
                             {{-- score, deskripsi score --}}
@@ -25,10 +26,11 @@
                     <tbody>
                         @forelse ($jawaban_accurate_it as $item)
                             <tr>
+                                <td>{{ $loop->iteration }}</td>
                                 <td>{{ $item->user->name }}</td>
                                 <td>{{ $item->created_at->format('d-M-Y (H:i)') }}</td>
                                 <td>{{ $item->score }}</td>
-                                <td>{{ $item->deskripsi }}</td>
+                                <td>{{ $item->message }}</td>
                             </tr>
                         @empty
                             <tr>

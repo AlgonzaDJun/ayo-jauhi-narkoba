@@ -168,14 +168,14 @@
                                 <li
                                     class="submenu-item {{ Route::is('guru.accurate-self-assesment.create') ? 'active' : '' }} ">
                                     <a href="{{ route('guru.accurate-self-assesment.create') }}"
-                                        class="submenu-link">Jawaban Instrumen Tes</a>
+                                        class="submenu-link">Skala Penilaian</a>
                                 </li>
 
-                                <li
+                                {{-- <li
                                     class="submenu-item {{ Route::is('guru.accurate-self-assesment.show') ? 'active' : '' }}">
                                     <a href="{{ route('guru.accurate-self-assesment.show', ['accurate_self_assesment' => 'refleksi_diri']) }}"
                                         class="submenu-link">Jawaban Refleksi Diri</a>
-                                </li>
+                                </li> --}}
 
                             </ul>
 

@@ -15,24 +15,28 @@
                 <table class="table" id="table2">
                     <thead>
                         <tr>
+                            <th>No</th>
                             <th>Nama Murid</th>
-                            <th>Kategori Studi Kasus</th>
+                            {{-- <th>Kategori Studi Kasus</th> --}}
                             {{-- tanggal --}}
                             <th>Tanggal submit</th>
                             {{-- soal 4 - soal 25 --}}
-                            @for ($i = 1; $i <= 4; $i++)
-                                <th>Soal {{ $i }}</th>
-                            @endfor
+                            <th>Menurutmu, mengapa refleksi diri menjadi langkah pertama yang penting dalam proses penilaian diri yang akurat?</th>
+                            <th>Apa yang dapat kita pelajari dari cara Adit menganalisis kritik dan saran dari orang lain?</th>
+                            <th>Apakah kamu setuju dengan cara Adit mengorganisasikan tujuan pengembangan diri berdasarkan kelebihan dan kekurangannya?</th>
+                            <th>Apa mekanisme yang dikembangkan Adit untuk mengevaluasi dan meningkatkan dirinya secara konsisten?</th>
+                            <th>Jika kamu berada di posisi Adit, langkah apa yang mungkin akan kamu ambil untuk mengatasi tekanan sosial dari teman-teman yang menawarkan narkoba?</th>
                         </tr>
                     </thead>
                     <tbody>
                         @forelse ($jawaban_accurate_sk as $item)
                             <tr>
+                                <td>{{ $loop->iteration }}</td>
                                 <td>{{ $item->user->name }}</td>
-                                <td>{{ $item->Kategori_SK }}</td>
+                                {{-- <td>{{ $item->Kategori_SK }}</td> --}}
                                 <td>{{ $item->created_at->format('d-M-Y (H:i)') }}</td>
                                 {{-- soal 4 - soal 25 --}}
-                                @for ($i = 1; $i <= 4; $i++)
+                                @for ($i = 1; $i <= 5; $i++)
                                     <td>{{ $item->{'soal_' . $i} }}</td>
                                 @endfor
                             </tr>
