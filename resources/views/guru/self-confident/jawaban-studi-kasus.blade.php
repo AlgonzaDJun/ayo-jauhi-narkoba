@@ -15,6 +15,7 @@
                 <table class="table" id="table2">
                     <thead>
                         <tr>
+                            <th>No</th>
                             <th>Nama Murid</th>
                             {{-- <th>Kategori Studi Kasus</th> --}}
                             {{-- tanggal --}}
@@ -30,6 +31,7 @@
                     <tbody>
                         @forelse ($jawaban_self_conf as $item)
                             <tr>
+                                <td>{{ $loop->iteration }}</td>
                                 <td>{{ $item->user->name }}</td>
                                 {{-- <td>{{ $item->Kategori_SK }}</td> --}}
                                 <td>{{ $item->created_at->format('d-M-Y (H:i)') }}</td>
