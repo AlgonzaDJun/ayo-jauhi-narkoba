@@ -71,7 +71,7 @@
         </li> --}}
     </div>
 
-    <div id="myTabContent">
+    <div id="myTabContent" class="-mx-5 md:mx-0">
         <div class="hidden p-4 rounded-lg" id="harapan-pemb-accurate" role="tabpanel" aria-labelledby="harapan-pemb-accurate-tab">
             @include('ayo-mengenali-aku.accurate-self-assesment.harapan-peserta')
         </div>

@@ -158,7 +158,7 @@
             <h2 class="text-[30px]  md:text-6xl  px-3 md:px-0 text-[#333333] font-bold font-Poppins md:text-left">
                 Mengenal Aku</h2>
 
-            <p class="text-[#333333] px-5  md:px-0 text-base md:text-lg font-Inter md:text-left md:pt-3"> Mengenal Aku: Platform Belajar Self Awareness sebagai Pencegahan Penggunaan Narkoba</p>
+            <p class="text-[#333333] px-5  md:px-0 text-base md:text-lg font-Inter md:text-left md:pt-3"> Mengenal Aku: Platform Belajar Self Awareness sebagai Pencegahan penyalahgunaan Penggunaan Narkoba</p>
 
 
             <button type="button"

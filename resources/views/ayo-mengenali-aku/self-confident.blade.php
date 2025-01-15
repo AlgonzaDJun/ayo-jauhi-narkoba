@@ -14,7 +14,7 @@
     </div>
 
     <div class="flex flex-wrap -mb-px list-none text-sm font-semibold text-center" id="myTab"
-        data-tabs-toggle="#self-confident-tab" role="tablist">
+        data-tabs-toggle="#self-confident-tab" role="tablist" class="-mx-5 md:mx-0">
 
         <li class="mr-2" role="presentation">
             <button

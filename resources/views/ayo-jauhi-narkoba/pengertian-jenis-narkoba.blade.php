@@ -1,6 +1,6 @@
 <h1 class=" text-xl mb-2 font-bold">Pengertian Narkoba </h1>
 
-<img src="{{ asset("img/Questions-amico.png") }}" alt="" class="md:w-1/2 h-72 object-contain">
+<img src="{{ asset('img/Questions-amico.png') }}" alt="" class="md:w-1/2 h-72 object-contain">
 <p class="indent-8">
     Menurut Badan Narkotika Nasional Republik Indonesia atau BNN,
     Narkotika merujuk pada substansi atau obat, entah berasal dari alam,
@@ -26,6 +26,12 @@
 <p class="indent-8 mt-6">Narkotika di Indonesia dikelompokkan menjadi tiga golongan
     berdasarkan potensi mengakibatkan ketergantungan:
 </p>
+
+<div class="md:space-x-10 space-y-2 md:space-y-0 mx-auto md:flex md:justify-center">
+    <img src="{{ asset('img/woman-holding-bunch-pills-medical-tools-table.png') }}" alt=""
+        class=" h-72 object-contain">
+    <img src="{{ asset('img/rb_2148757304.png') }}" alt="" class=" h-72 object-contain">
+</div>
 
 
 {{-- Narkotika di Indonesia dikelompokkan menjadi tiga golongan
@@ -84,3 +90,47 @@ berdasarkan potensi mengakibatkan ketergantungan: --}}
     dan potensi kecanduan yang dirasakan setelah mengonsumsinya.
     Sedangkan psikotropika mengarah ke efek perubahan mental dan
     perilaku setelah mengonsumsinya. </p>
+
+<p class="indent-8">
+    Selain narkotika dan psikotropika, terdapat <span class="font-semibold text-lg">bahan adiktif
+    </span> lain yang dapat menyebabkan ketergantungan dan berdampak
+    negatif pada kesehatan. <br>
+    Contoh Bahan Adiktif Lainnya:
+</p>
+
+<ol class=" space-y-3 list-decimal list-inside indent-8">
+    <div>
+        <img src="{{ asset('img/undraw_beer_ay8u.png') }}" alt="" class=" h-72 object-contain">
+        <li> <span class="font-semibold text-lg">Alkohol:</span> <br>Minuman beralkohol yang dapat menyebabkan
+            ketergantungan dan berbagai masalah kesehatan.</li>
+    </div>
+
+    <div>
+        <img src="{{ asset('img/stop-smoking-message.png') }}" alt="" class=" h-72 object-contain -mt-20">
+        <li> <span class="font-semibold text-lg">Nikotin:</span> <br>Zat adiktif yang terdapat dalam produk tembakau
+            seperti
+            rokok.</li>
+    </div>
+
+    <div class="mt-5">
+        <img src="{{ asset('img/isap bensin.png') }}" alt="" class=" h-72 object-contain">
+        <li> <span class="font-semibold text-lg">Inhalansia: </span> <br>Zat yang dihirup untuk mendapatkan efek
+            psikoaktif,
+            seperti lem, bensin, dan thinner.</li>
+    </div>
+
+    
+    <li> <span class="font-semibold text-lg">Psikotropika Golongan IV.</span> <br>
+        Psikotropika yang digunakan untuk
+        pengobatan dan untuk tujuan ilmu pengetahuan serta
+        mempunyai potensi ketergantungan yang ringan. Contoh:
+        Alprazolam, Lorazepam, Klobazam, Diazepam dan sebagainya.</li>
+</ol>
+
+<p class="indent-8 mt-8">Selain itu terdapat Zat Desainer <i>(New Psychoactive Substances-NPS)</i>, yaitu Zat sintetis baru
+    yang diciptakan menyerupai efek narkotika atau psikotropika. Zat ini sering kali belum tercantum dalam regulasi
+    resmi sehingga sulit dikendalikan. Contoh: Flakka, Spice (ganja sintetis), Cathinone.
+</p>
+
+<p class="indent-8 mt-8">Terdapat juga obat-obatan Tertentu, yang sering disalahgunakan meskipun penggunaannya legal dalam
+    dunia medis. Contoh: Tramadol, Dextromethorphan, PCC (Paracetamol, Caffeine, Carisoprodol)</p>

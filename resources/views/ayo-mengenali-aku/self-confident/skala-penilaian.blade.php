@@ -6,7 +6,7 @@
         {{-- @dd($studi['jawaban_instrumen']) --}}
         <div class="md:flex font-poppins font-Poppins">
 
-            <div class="space-y-6 md:p-4 rounded-2xl  lg:mx-auto mx-5 mt-5 ">
+            <div class="space-y-6 md:p-4 rounded-2xl  lg:mx-auto md:mx-5 mt-5 ">
 
                 {{-- @dump($studi) --}}
 

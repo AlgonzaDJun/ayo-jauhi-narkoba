@@ -1,7 +1,7 @@
 @extends('user.layout.layout')
 
 @section('content')
-    <div class="max-w-4xl mx-auto">
+    <div class="max-w-4xl mx-auto px-3 md:px-0">
         <h1 class="text-3xl font-bold mb-6 text-center text-gray-800 mt-5">Halo {{ Auth::user()->name }}, Berikut progres
             Belajar Kamu</h1>
 
