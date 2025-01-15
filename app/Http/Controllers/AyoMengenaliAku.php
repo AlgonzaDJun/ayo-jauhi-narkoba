@@ -6,6 +6,10 @@ use App\Models\AccurateSelfAssesmentIT;
 use App\Models\AccurateSelfAssesmentRD;
 use App\Models\AccurateSelfAssesmentSK;
 use App\Models\DetailJawaban;
+use App\Models\EmotionalAwarenessSK;
+use App\Models\EmotionalAwarenessSP;
+use App\Models\JauhiNarkobaSP;
+use App\Models\JawabanMateriNarkoba;
 use App\Models\JawabanSoalEmosi;
 use App\Models\LKSelfConfidence;
 use App\Models\SelfConfidenceIT;
@@ -1853,6 +1857,44 @@ class AyoMengenaliAku extends Controller
                 'message' => $message
             ]);
         }
+    }
+
+    public function edit($id)
+    {
+        $is_complete_sk_ayo_jauhi = JawabanMateriNarkoba::where('user_id', auth()->user()->id)->exists() ? 1 : 0;
+        $is_complete_sp_ayo_jauhi = JauhiNarkobaSP::where('user_id', auth()->user()->id)->exists() ? 1 : 0;
+        $ayo_jauhi_percentage = intval((($is_complete_sk_ayo_jauhi + $is_complete_sp_ayo_jauhi) / 2) * 100);
+
+        // lanjutkan dengan emotional awareness
+        $is_complete_sk_emotional_awareness = EmotionalAwarenessSK::where('user_id', auth()->user()->id)->exists() ? 1 : 0;
+        $is_complete_sp_emotional_awareness = EmotionalAwarenessSP::where('user_id', auth()->user()->id)->exists() ? 1 : 0;
+
+        $emotional_awareness_percentage = intval((($is_complete_sk_emotional_awareness + $is_complete_sp_emotional_awareness) / 2) * 100);
+
+        // lanjutkan dengan accurate self assesment
+        $is_complete_sk_accurate_self_assesment = AccurateSelfAssesmentSK::where('user_id', auth()->user()->id)->exists() ? 1 : 0;
+        $is_complete_sp_accurate_self_assesment = AccurateSelfAssesmentIT::where('user_id', auth()->user()->id)->exists() ? 1 : 0;
+        $accurate_percentage = intval((($is_complete_sk_accurate_self_assesment + $is_complete_sp_accurate_self_assesment) / 2) * 100);
+
+        // lanjutkan dengan self confidence
+        $is_complete_sk_self_confidence = SelfConfidentSK::where('user_id', auth()->user()->id)->exists() ? 1 : 0;
+        $is_complete_sp_self_confidence = SelfConfidenceIT::where('user_id', auth()->user()->id)->exists() ? 1 : 0;
+        $is_complete_lk_self_confidence = SelfConfidentPKD::where('user_id', auth()->user()->id)->exists() ? 1 : 0;
+        $self_confidence_percentage = intval((($is_complete_sk_self_confidence + $is_complete_sp_self_confidence + $is_complete_lk_self_confidence) / 3) * 100);
+
+
+        $presentasi = [
+            'ayo_jauhi_aku' => $ayo_jauhi_percentage,
+            'emotional_awareness' => $emotional_awareness_percentage,
+            'accurate_self_assesment' => $accurate_percentage,
+            'self_confidence' => $self_confidence_percentage
+        ];
+
+        // change array presentasi to object
+        $presentasi = (object) $presentasi;
+
+        // dd($presentasi);
+        return view('dashboard-user', compact('presentasi'));
     }
 
 

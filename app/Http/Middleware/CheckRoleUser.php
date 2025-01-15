@@ -17,7 +17,7 @@ class CheckRoleUser
     public function handle(Request $request, Closure $next)
     {
         if ($request->user()->hasRole(['user', 'dokter'])) {
-            return redirect('/ayo-jauhi-narkoba');
+            return redirect('/ayo-mengenali-aku/dashboard/edit');
         }
         return $next($request);
     }

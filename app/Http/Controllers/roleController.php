@@ -12,7 +12,7 @@ class roleController extends Controller
         $user->assignRole('user');
         // dd($user);
         // return view('role');
-        return redirect()->intended('/ayo-jauhi-narkoba');
+        return redirect()->intended('/ayo-mengenali-aku/dashboard/edit');
     }
 
     public function chooseRole(Request $request)
@@ -24,7 +24,7 @@ class roleController extends Controller
         } else {
             $user->assignRole($request->role);
             // dd($user->assignRole($request->role));
-            return redirect()->intended('/ayo-jauhi-narkoba');
+            return redirect()->intended('/ayo-mengenali-aku/dashboard/edit');
         }
     }
 }

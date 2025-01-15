@@ -10,7 +10,8 @@
         </svg>
     </button>
     <div id="navbar-default" class="mx-auto py-10 hidden md:block md:fixed md:px-16">
-        <h1 class="text-2xl font-bold mb-10 cursor-pointer text-[#44B564] duration-150 font-Poppins overflow-scroll">Mengenal Aku</h1>
+        <h1 class="text-2xl font-bold mb-10 cursor-pointer text-[#44B564] duration-150 font-Poppins overflow-scroll">
+            Mengenal Aku</h1>
         <ul>
             <li class="flex space-x-2 mt-10 cursor-pointer active:text-[#EC5252] hover:text-[#EC5252] duration-150">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
@@ -21,14 +22,32 @@
                 <span class="font-semibold"> <a href="{{ url('/') }}">Home</a> </span>
             </li>
 
+            <li
+                class="flex space
+                -x-2 mt-10 cursor-pointer active:text-[#EC5252] hover:text-[#EC5252] duration-150">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <rect x="4" y="4" width="16" height="16" rx="2" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round"></rect>
+                    <line x1="4" y1="9" x2="20" y2="9" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round"></line>
+                    <line x1="9" y1="10" x2="9" y2="20" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round"></line>
+                </svg>
+
+                <span class="font-semibold"><a href="{{ route('ayo-mengenali-aku.edit', ['ayo_mengenali_aku'=>'dashboard']) }}">Dashboard</a></span>
+            </li>
+
             <li class="flex space-x-2 mt-10 cursor-pointer active:text-[#EC5252] hover:text-[#EC5252] duration-150">
                 <img width="30" height="30" src="{{ asset('img/icons8-drugs-50.png') }}" alt="pills" />
-                <span class="font-semibold active:text-[#EC5252] "><a href="{{ route('ayo-jauhi-narkoba.index') }}">Ayo Jauhi
+                <span class="font-semibold active:text-[#EC5252] "><a href="{{ route('ayo-jauhi-narkoba.index') }}">Ayo
+                        Jauhi
                         Aku</a></span>
             </li>
             <li class="flex space-x-2 mt-10 cursor-pointer active:text-[#EC5252] hover:text-[#EC5252] duration-150">
                 <img width="30" height="30" src="{{ asset('img/icons8-self-62.png') }}" alt="pills" />
-                <span class="font-semibold active:text-[#EC5252] "><a href="{{ route('ayo-mengenali-aku.index') }}">Ayo Mengenali Aku</a></span>
+                <span class="font-semibold active:text-[#EC5252] "><a href="{{ route('ayo-mengenali-aku.index') }}">Ayo
+                        Mengenali Aku</a></span>
             </li>
 
 
@@ -102,8 +121,7 @@
 
             <form action="/logout" method="post">
                 @csrf
-                <button class="w-full mt-10 bg-[#EC5252] rounded-full py-1.5 text-white"
-                    type="submit">Logout</button>
+                <button class="w-full mt-10 bg-[#EC5252] rounded-full py-1.5 text-white" type="submit">Logout</button>
             </form>
         </ul>
     </div>

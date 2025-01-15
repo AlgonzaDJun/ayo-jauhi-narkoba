@@ -43,6 +43,24 @@
                     <span class="font-semibold"> <a href="{{ url('/') }}">Home</a> </span>
                 </li>
 
+                {{-- Dashboard --}}
+                <li
+                    class="flex space
+                -x-2 mt-10 cursor-pointer active:text-[#EC5252] hover:text-[#EC5252] duration-150">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <rect x="4" y="4" width="16" height="16" rx="2" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round"></rect>
+                        <line x1="4" y1="9" x2="20" y2="9" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round"></line>
+                        <line x1="9" y1="10" x2="9" y2="20" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round"></line>
+                    </svg>
+
+                    <span class="font-semibold"><a
+                            href="{{ route('ayo-mengenali-aku.edit', ['ayo_mengenali_aku' => 'dashboard']) }}">Dashboard</a></span>
+                </li>
+
                 <li class="flex space-x-2 mt-10 cursor-pointer active:text-[#EC5252] hover:text-[#EC5252] duration-150">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
                         stroke="currentColor">
@@ -198,8 +216,9 @@
 
 
     <div class="   flex items-center space-x-4">
-        <img id="avatarButton" type="button" data-dropdown-toggle="userDropdown" data-dropdown-placement="bottom-start"
-            class="w-10 h-10 rounded-full cursor-pointer" src="img/profile.jpg" alt="User dropdown">
+        <img id="avatarButton" type="button" data-dropdown-toggle="userDropdown"
+            data-dropdown-placement="bottom-start" class="w-10 h-10 rounded-full cursor-pointer"
+            src="img/profile.jpg" alt="User dropdown">
 
         <!-- Dropdown menu -->
         <div id="userDropdown"

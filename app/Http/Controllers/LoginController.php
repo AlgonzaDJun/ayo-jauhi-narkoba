@@ -28,7 +28,7 @@ class LoginController extends Controller
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            $redirect = '/ayo-jauhi-narkoba';
+            $redirect = '/ayo-mengenali-aku/dashboard/edit';
             if (Auth::user()->hasRole('admin')) {
                 // dd('admin');
                 $redirect = '/admin-dashboard';
@@ -71,7 +71,7 @@ class LoginController extends Controller
                 'email_verified_at' => Carbon::now()
             ]);
 
-            return redirect()->intended('/ayo-jauhi-narkoba');
+            return redirect()->intended('/ayo-mengenali-aku/dashboard/edit');
         } else {
 
             $create = User::create([
@@ -84,7 +84,7 @@ class LoginController extends Controller
 
 
             auth()->login($create, true);
-            return redirect()->intended('/ayo-jauhi-narkoba');
+            return redirect()->intended('/ayo-mengenali-aku/dashboard/edit');
         }
     }
 }
