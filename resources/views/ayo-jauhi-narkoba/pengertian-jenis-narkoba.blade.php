@@ -28,7 +28,7 @@
 </p>
 
 <div class="md:space-x-10 space-y-2 md:space-y-0 mx-auto md:flex md:justify-center">
-    <img src="{{ asset('img/woman-holding-bunch-pills-medical-tools-table.png') }}" alt=""
+    <img src="{{ asset('img/medications-black.png') }}" alt=""
         class=" h-72 object-contain">
     <img src="{{ asset('img/rb_2148757304.png') }}" alt="" class=" h-72 object-contain">
 </div>
@@ -105,15 +105,15 @@ berdasarkan potensi mengakibatkan ketergantungan: --}}
             ketergantungan dan berbagai masalah kesehatan.</li>
     </div>
 
-    <div>
-        <img src="{{ asset('img/stop-smoking-message.png') }}" alt="" class=" h-72 object-contain -mt-20">
+    <div class="mt-3">
+        <img src="{{ asset('img/No tobacco day-bro.png') }}" alt="" class=" h-72 object-contain ">
         <li> <span class="font-semibold text-lg">Nikotin:</span> <br>Zat adiktif yang terdapat dalam produk tembakau
             seperti
             rokok.</li>
     </div>
 
-    <div class="mt-5">
-        <img src="{{ asset('img/isap bensin.png') }}" alt="" class=" h-72 object-contain">
+    <div class="mt-3">
+        <img src="{{ asset('img/bensin.jpg') }}" alt="" class=" h-72 object-contain">
         <li> <span class="font-semibold text-lg">Inhalansia: </span> <br>Zat yang dihirup untuk mendapatkan efek
             psikoaktif,
             seperti lem, bensin, dan thinner.</li>

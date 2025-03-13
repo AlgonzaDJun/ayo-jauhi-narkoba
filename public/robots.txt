@@ -1,2 +1,4 @@
+sitemap: https://jauhi-narkoba.toska.my.id/sitemap.xml
+Sitemap: https://jauhi-narkoba.toska.my.id/sitemap.xml
 User-agent: *
 Disallow:

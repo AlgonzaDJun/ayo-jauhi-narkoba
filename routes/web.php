@@ -34,6 +34,8 @@ use App\Http\Controllers\JurnalMindfulness;
 use App\Http\Controllers\SelfConfidence;
 use App\Http\Controllers\SelfConfidentGuru;
 use App\Models\Post; //tambahkan/ import model post yang akan digunakan
+use Spatie\Sitemap\Sitemap;
+use Spatie\Sitemap\Tags\Url;
 
 /*
 |--------------------------------------------------------------------------
@@ -207,6 +209,8 @@ Route::get('/detail-konsultasi', function () {
 
 // ARJUN UPDATE
 Route::middleware(['auth', 'verified'])->group(function () {
+    // route sitemap
+    
     Route::resources([
         '/ayo-jauhi-narkoba' => AyoJauhiNarkoba::class,
         '/ayo-mengenali-aku' => AyoMengenaliAku::class,
@@ -227,5 +231,24 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::resource('/emotional-awareness', EmotionalAwarenessGuru::class);
         Route::resource('/accurate-self-assesment', AccurateSelfAssesmentGuru::class);
         Route::resource('/self-confidence', SelfConfidentGuru::class);
+    });
+
+    Route::get('/sitemap', function () {
+        // tambah /ayo-jauhi-narkoba, /ayo-mengenal-aku, /accurate-self-assesment, /self-confidence, /jurnal-emosi, /jurnal-mindfulness, /emotional-awareness
+        $sitemap = Sitemap::create()
+        ->add(Url::create('/ayo-jauhi-narkoba'))
+        ->add(Url::create('/ayo-mengenali-aku'))
+        ->add(Url::create('/accurate-self-assesment'))
+        ->add(Url::create('/self-confidence'))
+        ->add(Url::create('/jurnal-emosi'))
+        ->add(Url::create('/jurnal-mindfulness'))
+        ->add(Url::create('/emotional-awareness'))
+        ->add(Url::create('/guru'))
+        ->add(Url::create('/guru/ayo-jauhi-narkoba'))
+        ->add(Url::create('/guru/emotional-awareness'))
+        ->add(Url::create('/guru/accurate-self-assesment'))
+        ->add(Url::create('/guru/self-confidence'));
+
+        $sitemap->writeToFile(public_path('sitemap.xml'));
     });
 });
